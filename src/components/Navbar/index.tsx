@@ -62,10 +62,10 @@ function Navbar() {
       setOptions([]);
     } else {
       setOptions([
-        {
-          title: `${t('navbar.painel-de-controle')}`,
-          path: '/dashboard'
-        }
+        // {
+        //   title: `${t('navbar.painel-de-controle')}`,
+        //   path: '/dashboard'
+        // }
       ]);
     }
   };
