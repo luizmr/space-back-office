@@ -1,0 +1,10 @@
+{
+	"navbar": {
+		"painel-de-controle": "Dashboard",
+		"linguagem": "en/US",
+		"ajuda": "Help",
+		"sair": "Logout",
+		"portugues": "Portuguese",
+		"ingles": "English"
+	}
+}

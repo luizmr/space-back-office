@@ -1,9 +1,3 @@
-import TemplateAi from 'assets/images/TemplateIcon/TemplateIconIlu.ai';
-import TemplateFig from 'assets/images/TemplateIcon/TemplateIconFig.fig';
-import TemplatePsd from 'assets/images/TemplateIcon/TemplateIconPho.psd';
-import TemplateImageAi from 'assets/images/TemplateImage/TemplateImage.ai';
-import TemplateImageFig from 'assets/images/TemplateImage/TemplateImage.fig';
-import TemplateImagePsd from 'assets/images/TemplateImage/TemplateImage.psd';
 import AlertModal from 'assets/images/alert-modal.png';
 import AtencaoIcon from 'assets/images/atencao.svg';
 import BrFlag from 'assets/images/br-flag.png';
@@ -36,39 +30,33 @@ import SafeVideo from 'assets/images/houston/safevideo.png';
 import Telescope from 'assets/images/houston/telescope.png';
 
 export {
-  TemplateAi,
-  TemplateFig,
-  TemplatePsd,
-  TemplateImageAi,
-  TemplateImageFig,
-  TemplateImagePsd,
-  AlertModal,
-  AtencaoIcon,
-  BrFlag,
-  UsaFlag,
-  CarrousselExample,
-  ErrorImageIcon,
-  IconExample,
-  ImageIcon,
-  ImageNotFound,
-  LandingImage,
-  NotFoundLandscape,
-  NotFoundImage,
-  SejaParceiroBanner,
-  UploadIcon,
-  LogoEduzz,
-  Nutror,
-  Blinket,
-  Billing,
-  CheckoutSun,
-  Eduzz,
-  Jobzz,
-  OrbitPages,
-  Orbita,
-  SafeVideo,
-  Telescope,
-  ConcluidoPlugin,
-  PreviewPlugin,
-  Brazil,
-  PluginIcon
+	AlertModal,
+	AtencaoIcon,
+	BrFlag,
+	UsaFlag,
+	CarrousselExample,
+	ErrorImageIcon,
+	IconExample,
+	ImageIcon,
+	ImageNotFound,
+	LandingImage,
+	NotFoundLandscape,
+	NotFoundImage,
+	SejaParceiroBanner,
+	UploadIcon,
+	LogoEduzz,
+	Nutror,
+	Blinket,
+	Billing,
+	CheckoutSun,
+	Eduzz,
+	Jobzz,
+	OrbitPages,
+	Orbita,
+	SafeVideo,
+	Telescope,
+	ConcluidoPlugin,
+	PreviewPlugin,
+	Brazil,
+	PluginIcon,
 };
