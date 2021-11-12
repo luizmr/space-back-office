@@ -1,11 +1,19 @@
 {
-	"navbar": {
-		"painel-de-controle": "Dashboard",
-		"linguagem": "en/US",
-		"ajuda": "Help",
-		"sair": "Logout",
-		"portugues": "Portuguese",
-		"ingles": "English",
-		"back-office": "Back Office"
-	}
+  "navbar": {
+    "painel-de-controle": "Dashboard",
+    "linguagem": "en/US",
+    "ajuda": "Help",
+    "sair": "Logout",
+    "portugues": "Portuguese",
+    "ingles": "English",
+    "back-office": "Back Office"
+  },
+  "homepage": {
+    "not-authorized": "Your profile does not have access to the features that this area offers. Contact your Company Administrator.",
+    "homepage-title": "Welcome to the back office area of ​​the App Store!",
+    "homepage-subtitle": "To access the functionalities of this area, just click on 'Login'.",
+    "politica": "Privacy Policy",
+    "termos": "Terms of Use",
+    "todos-direitos": "All rights reserved."
+  }
 }

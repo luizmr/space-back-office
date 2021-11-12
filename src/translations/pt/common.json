@@ -1,11 +1,19 @@
 {
-	"navbar": {
-		"painel-de-controle": "Painel de controle",
-		"linguagem": "pt/BR",
-		"ajuda": "Ajuda",
-		"sair": "Sair",
-		"portugues": "Português",
-		"ingles": "Inglês",
-		"back-office": "Back Office"
-	}
+  "navbar": {
+    "painel-de-controle": "Painel de controle",
+    "linguagem": "pt/BR",
+    "ajuda": "Ajuda",
+    "sair": "Sair",
+    "portugues": "Português",
+    "ingles": "Inglês",
+    "back-office": "Back Office"
+  },
+  "homepage": {
+    "not-authorized": "Seu perfil não possui acesso as funcionalidades que esta área oferece. Contate o Administrador da sua Companhia.",
+    "homepage-title": "Seja bem vindo a área de back office da Loja de Apps!",
+    "homepage-subtitle": "Para acessar as funcionalidades desta área, basta clicar em 'Login'.",
+    "politica": "Política de Privacidade",
+    "termos": "Termos de Uso",
+    "todos-direitos": "Todos os direitos reservados."
+  }
 }

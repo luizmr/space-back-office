@@ -14,7 +14,8 @@ import Avatar from '@eduzz/houston-ui/Avatar';
 import Button from '@eduzz/houston-ui/Button';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import Typography from '@eduzz/houston-ui/Typography';
-import { FaRegWindowClose, FaSignOutAlt } from 'react-icons/fa';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Enter from '@eduzz/houston-icons/Enter';
 
 //utils
@@ -221,7 +222,7 @@ function Navbar() {
                       </div>
                       <hr style={{ width: '100%' }} />
                       <div className='user-log-out' onClick={logout}>
-                        <FaSignOutAlt fontSize={20} />
+                        <LogoutIcon fontSize='small' />
                         <span>{t('navbar.sair')}</span>
                       </div>
                     </div>
@@ -235,15 +236,17 @@ function Navbar() {
               <img src={LogoEduzz} alt='Logo da Eduzz' />
               <div onClick={() => history.push('/')}>{t('navbar.back-office')}</div>
             </div>
-            <div className='navbar-button-toogle' id='navbar-button-toogle'>
-              <button
-                aria-controls='navbar-toogle-options'
-                aria-label='navbar-toogle-options'
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <span className='navbar-toggler-icon'></span>
-              </button>
-            </div>
+            {options.length > 0 && (
+              <div className='navbar-button-toogle' id='navbar-button-toogle'>
+                <button
+                  aria-controls='navbar-toogle-options'
+                  aria-label='navbar-toogle-options'
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <span className='navbar-toggler-icon'></span>
+                </button>
+              </div>
+            )}
             <motion.div
               className='navbar-toogle-options'
               initial='hidden'
@@ -271,7 +274,7 @@ function Navbar() {
               )}
               <div className='close-navbar'>
                 <ButtonIcon aria-label='navbar' onClick={() => setIsOpen(false)}>
-                  <FaRegWindowClose size='28px' />
+                  <HighlightOffIcon fontSize='small' />
                 </ButtonIcon>
               </div>
             </motion.div>

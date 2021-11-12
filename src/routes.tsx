@@ -8,6 +8,8 @@ import Login from 'pages/login';
 import ScrollToTop from 'components/scrollToTop';
 import LoadingPage from 'pages/loadingPage';
 import GivePermissionPanel from 'pages/givePermissionPanel';
+import NotAuthorizedPage from 'pages/notAuthorizedPage';
+import PolicyInfo from 'components/PolicyInfo';
 
 const publicRoutes = [
   {
@@ -21,6 +23,14 @@ const privateRoutes = [
   {
     key: 'home',
     Component: GivePermissionPanel,
+    path: '/'
+  }
+];
+
+const notAuthorizedRoutes = [
+  {
+    key: 'home',
+    Component: NotAuthorizedPage,
     path: '/'
   }
 ];
@@ -54,7 +64,15 @@ export const AppRoutes = () => {
     if (!token) {
       setRouteOptions(publicRoutes);
     } else {
-      setRouteOptions(privateRoutes);
+      if (typeof users.role === 'string') {
+        if (users.role === 'LojaAppIsEmployee') {
+          setRouteOptions(privateRoutes);
+        } else {
+          setRouteOptions(notAuthorizedRoutes);
+        }
+      } else {
+        setRouteOptions(privateRoutes);
+      }
     }
   };
   return (
@@ -71,6 +89,7 @@ export const AppRoutes = () => {
               <Route exact key={route.key} path={route.path} component={route.Component} />
             ))}
           </Switch>
+          <PolicyInfo />
         </>
       )}
     </Router>
