@@ -1,14 +1,14 @@
 .loadingPage {
-    min-height: calc(100vh + 58px);
-    background-color: #f9fafb;
-    color: $primary-text-color;
+  min-height: calc(100vh + 58px);
+  background-color: #f9fafb;
+  color: $primary-text-color;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .MuiCircularProgress-svg {
-        color: $primary-color-1 !important;
-        transform: scale(5);
-    }
+  .MuiCircularProgress-svg {
+    color: $primary-color-1 !important;
+    transform: scale(5);
+  }
 }

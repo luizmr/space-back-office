@@ -1,7 +1,7 @@
 import React from 'react';
 
 const GivePermissionPanel = () => {
-	return <div>panel</div>;
+  return <div>panel</div>;
 };
 
 export default GivePermissionPanel;
