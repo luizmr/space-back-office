@@ -1,11 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 // context e token
 import loginService from 'services/eduzzAccounts/loginService';
 import { useStateValue } from 'store/TokenProvider';
-import { Context } from 'context/intl';
 import jwt from 'jsonwebtoken';
 
 // Material UI / Icons
@@ -16,24 +15,11 @@ import Button from '@eduzz/houston-ui/Button';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import Typography from '@eduzz/houston-ui/Typography';
 import { FaRegWindowClose, FaSignOutAlt } from 'react-icons/fa';
-import Apps from '@eduzz/houston-icons/Apps';
 import Enter from '@eduzz/houston-icons/Enter';
 
 //utils
 
-import {
-	Billing,
-	Blinket,
-	CheckoutSun,
-	Eduzz,
-	Jobzz,
-	LogoEduzz,
-	Nutror,
-	Orbita,
-	OrbitPages,
-	SafeVideo,
-	Telescope,
-} from 'assets';
+import { LogoEduzz } from 'assets';
 
 interface ObjOptions {
 	title: string;
@@ -49,14 +35,8 @@ function Navbar() {
 	const history = useHistory();
 	const location = useLocation();
 	const { t, i18n } = useTranslation('common');
-	const context = useContext(Context);
 	const [language, setLanguage] = useState<string | null>('br');
 	const [showNavbar, setShowNavbar] = useState<boolean>(false);
-	const [storeNavbar, setStoreNavbar] = useState<any>({
-		name: 'Loja',
-		icon: LogoEduzz,
-		url: '/',
-	});
 	const [options, setOptions] = useState<ObjOptions[]>([]);
 	const [{ token }, dispatch] = useStateValue();
 	const tokenUser = token ? token.split(' ')[1] : '';
@@ -106,6 +86,7 @@ function Navbar() {
 
 	useEffect(() => {
 		const tokenUser = token ? token.split(' ')[1] : '';
+		console.log(token);
 		AuthorizationNavbar(jwt.decode(tokenUser));
 	}, [token]);
 
@@ -132,18 +113,8 @@ function Navbar() {
 			i18n.changeLanguage('en');
 			localStorage.setItem('language', 'en');
 		}
-		context.selectLang(e);
 		const tokenUser = token ? token.split('Bearer')[1].trim('') : '';
 		AuthorizationNavbar(jwt.decode(tokenUser));
-		if (location.pathname.includes('billing')) {
-			setStoreNavbar({ name: 'Billing', icon: Billing, url: '/billing' });
-		} else {
-			setStoreNavbar({
-				name: t('navbar.loja'),
-				icon: LogoEduzz,
-				url: '/',
-			});
-		}
 	};
 
 	return (
@@ -195,7 +166,7 @@ function Navbar() {
 									</Typography>
 								</Button>
 							)}
-							{token && (
+							{token !== null && (
 								<div
 									className="user-menu"
 									style={{ position: 'relative' }}
@@ -305,9 +276,9 @@ function Navbar() {
 					</nav>
 					<div className="navbar-loja">
 						<div className="navbar-home">
-							<img src={storeNavbar.icon} alt="Logo da Eduzz" />
-							<div onClick={() => history.push(storeNavbar.url)}>
-								{storeNavbar.name}
+							<img src={LogoEduzz} alt="Logo da Eduzz" />
+							<div onClick={() => history.push('/')}>
+								{t('navbar.back-office')}
 							</div>
 						</div>
 						<div
@@ -342,7 +313,6 @@ function Navbar() {
 							{options.length > 0 && (
 								<div className="navbar-links-toogle">
 									{options.length > 0 &&
-										storeNavbar.name !== 'Billing' &&
 										options?.map(({ title, path }) => (
 											<Link
 												to={`${path}`}
@@ -371,7 +341,6 @@ function Navbar() {
 						{options.length > 0 && (
 							<div className="navbar-links">
 								{options.length > 0 &&
-									storeNavbar.name !== 'Billing' &&
 									options?.map(({ title, path }) => (
 										<Link to={`${path}`} key={path}>
 											<Typography

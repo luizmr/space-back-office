@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'styles/_all.scss';
 import App from './App';
 import { I18nextProvider } from 'react-i18next';
-// import Wrapper from 'context/intl';
+import ThemeProvider from '@eduzz/houston-ui/styles/ThemeProvider';
 import i18next from 'i18next';
 import common_en from 'translations/en/common.json';
 import common_pt from 'translations/pt/common.json';
@@ -24,14 +24,13 @@ i18next.init({
 });
 
 ReactDOM.render(
-	<React.StrictMode>
-		{/* <Wrapper> */}
+	<ThemeProvider>
 		<I18nextProvider i18n={i18next}>
 			<StateProvider initialState={initialState} reducer={reducer}>
 				<App />
 			</StateProvider>
 		</I18nextProvider>
-		{/* </Wrapper> */}
-	</React.StrictMode>,
+	</ThemeProvider>,
+
 	document.getElementById('root'),
 );

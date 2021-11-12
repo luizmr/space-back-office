@@ -12,7 +12,7 @@ import GivePermissionPanel from 'pages/givePermissionPanel';
 const publicRoutes = [
 	{
 		key: 'home',
-		Component: <HomePage />,
+		Component: HomePage,
 		path: '/',
 	},
 ];
@@ -20,7 +20,7 @@ const publicRoutes = [
 const privateRoutes = [
 	{
 		key: 'home',
-		Component: <GivePermissionPanel />,
+		Component: GivePermissionPanel,
 		path: '/',
 	},
 ];
@@ -73,6 +73,7 @@ export const AppRoutes = () => {
 						<Route exact path="/(login)" component={Login} />
 						{routeOptions.map((route: RouteInterface) => (
 							<Route
+								exact
 								key={route.key}
 								path={route.path}
 								component={route.Component}
