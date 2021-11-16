@@ -1,19 +1,36 @@
 {
   "navbar": {
-    "painel-de-controle": "Painel de controle",
-    "linguagem": "pt/BR",
-    "ajuda": "Ajuda",
-    "sair": "Sair",
-    "portugues": "Português",
-    "ingles": "Inglês",
+    "dashboard": "Painel de controle",
+    "logout": "Sair",
     "back-office": "Back Office"
   },
   "homepage": {
     "not-authorized": "Seu perfil não possui acesso as funcionalidades que esta área oferece. Contate o Administrador da sua Companhia.",
     "homepage-title": "Seja bem vindo a área de back office da Loja de Apps!",
     "homepage-subtitle": "Para acessar as funcionalidades desta área, basta clicar em 'Login'.",
-    "politica": "Política de Privacidade",
-    "termos": "Termos de Uso",
-    "todos-direitos": "Todos os direitos reservados."
+    "policy": "Política de Privacidade",
+    "terms": "Termos de Uso",
+    "all-rights": "Todos os direitos reservados."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "step": "Etapa",
+    "from-lower": "de",
+    "from-capital": "De",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "done": "Concluído!",
+    "user": "Usuário",
+    "app": "Aplicação",
+    "member": "Membro"
+  },
+  "givepermission": {
+    "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
+    "form-step-2": "Selecione o membro no qual será atribuída as permissões",
+    "form-step-3": "Selecione o grupo no qual o membro fará parte e suas respectivas permissões",
+    "permission-done": "Obrigado! As permissões foram atribuídas com sucesso.",
+    "back-to-panel": "Voltar para o painel",
+    "finish-assignment": "Finalizar a atribuição",
+    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!"
   }
 }
