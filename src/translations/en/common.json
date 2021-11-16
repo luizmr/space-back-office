@@ -22,7 +22,14 @@
     "done": "Done!",
     "user": "User",
     "app": "App",
-    "member": "Member"
+    "member": "Member",
+    "name": "Name",
+    "edit": "Edit",
+    "action": "Action",
+    "application": "Application",
+    "permission-group": "Permission Group",
+    "edit-permission": "Edit permission",
+    "date": "Date"
   },
   "givepermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
@@ -31,6 +38,10 @@
     "permission-done": "Thanks! Permissions successfully assigned.",
     "back-to-panel": "Back to panel",
     "finish-assignment": "Finish assignment",
-    "permission-error": "An error occurred while completing the assignment, try again!"
+    "permission-error": "An error occurred while completing the assignment, try again!",
+    "title": "Permissions Showcase",
+    "subtitle": "User Permission Management",
+    "select-app": "Select an app",
+    "select-member": "Select a member"
   }
 }

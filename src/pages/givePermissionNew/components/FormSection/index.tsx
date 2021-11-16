@@ -5,31 +5,38 @@ import Button from '@eduzz/houston-ui/Button';
 import Form from '@eduzz/houston-ui/Forms/Form';
 import useForm from '@eduzz/houston-forms/useForm';
 import SelectField from '@eduzz/houston-ui/Forms/Select';
+
+// components
 import ToastComponent from 'components/toast';
+
+// models
+import { SelectFieldOutput } from 'models/panel';
 
 type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  apps: Array<SelectFieldOutput>;
+  members: Array<SelectFieldOutput>;
 };
 
-const FormSection = ({ currentStep, setCurrentStep }: Props) => {
+const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const { t } = useTranslation('common');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
 
   const form = useForm({
-    initialValues: { app: '0', user: '0', group: '' },
+    initialValues: { app: '0', member: '0', group: '' },
     validationSchema: yup => {
       return yup.object().shape({
         app: yup.string(),
-        user: yup.string(),
+        member: yup.string(),
         group: yup.string()
       });
     },
     onSubmit: async values => {
       // setSubmitting(true);
-      const { app, user, group } = values;
+      const { app, member, group } = values;
       console.log('enviar');
       // try {
       //   await AppStoreService.preRegister({ partner, app: obj });
@@ -59,31 +66,23 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
                   id='app-select'
                   name='app'
                   label={t('common.app')}
-                  options={[
-                    { label: '20', value: 20 },
-                    { label: '40', value: 40 },
-                    { label: '80', value: 80 }
-                  ]}
+                  options={[{ value: '0', label: t('givepermission.select-app') }, ...apps]}
                 />
               )}
 
               {currentStep === 1 && (
                 <SelectField
-                  id='user-select'
-                  name='user'
+                  id='member-select'
+                  name='member'
                   label={t('common.member')}
-                  options={[
-                    { label: '20', value: 20 },
-                    { label: '40', value: 40 },
-                    { label: '80', value: 80 }
-                  ]}
+                  options={[{ value: '0', label: t('givepermission.select-member') }, ...members]}
                 />
               )}
 
               {currentStep === 2 && (
                 <SelectField
                   id='example-select'
-                  name='user'
+                  name='member'
                   options={[
                     { label: '20', value: 20 },
                     { label: '40', value: 40 },
@@ -93,16 +92,18 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
               )}
 
               <div className='give-permission__new-form__submit'>
-                <Button
-                  variant='text'
-                  onClick={() => {
-                    setNextButton(true);
-                    setCurrentStep(currentStep - 1);
-                  }}
-                >
-                  {t('common.previous')}
-                </Button>
-                {currentStep === 2 ? (
+                {(currentStep === 1 || currentStep === 2) && (
+                  <Button
+                    variant='text'
+                    onClick={() => {
+                      setNextButton(true);
+                      setCurrentStep(currentStep - 1);
+                    }}
+                  >
+                    {t('common.previous')}
+                  </Button>
+                )}
+                {currentStep === 3 ? (
                   <Button
                     loading={submitting}
                     disabled={nextButton || !form.isValid || form.isSubmitting}
@@ -112,7 +113,7 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
                   </Button>
                 ) : (
                   <Button
-                    disabled={!form.getFieldValue('app') || !form.getFieldValue('user')}
+                    disabled={!form.getFieldValue('app') || !form.getFieldValue('member')}
                     onClick={() => {
                       setCurrentStep(currentStep + 1);
                       setTimeout(() => {

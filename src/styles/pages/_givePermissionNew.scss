@@ -4,6 +4,13 @@
   justify-content: center;
   position: relative;
 
+  .give-permission__content {
+    width: 624px;
+    padding-bottom: 34px;
+    padding-top: 32px;
+    color: #37474f;
+  }
+
   .give-permission__btns {
     position: absolute;
     top: 8px;
@@ -23,28 +30,18 @@
   }
 }
 
-.give-permission,
-.give-permission__done {
-  .give-permission__content {
-    width: 624px;
-    padding-bottom: 34px;
-    padding-top: 32px;
-    color: #37474f;
-
-    .give-permission__content-finished {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #37474f;
-      p {
-        margin-top: 32px;
-        margin-bottom: 16px;
-      }
-      img {
-        width: 224px;
-      }
-    }
+.give-permission__content-finished {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #37474f;
+  p {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+  img {
+    width: 224px;
   }
 }
 

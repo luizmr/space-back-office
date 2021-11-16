@@ -22,7 +22,14 @@
     "done": "Concluído!",
     "user": "Usuário",
     "app": "Aplicação",
-    "member": "Membro"
+    "member": "Membro",
+    "name": "Nome",
+    "edit": "Editar",
+    "action": "Ação",
+    "application": "Aplicação",
+    "permission-group": "Grupo de permissão",
+    "edit-permission": "Editar permissão",
+    "date": "Data"
   },
   "givepermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -31,6 +38,10 @@
     "permission-done": "Obrigado! As permissões foram atribuídas com sucesso.",
     "back-to-panel": "Voltar para o painel",
     "finish-assignment": "Finalizar a atribuição",
-    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!"
+    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
+    "title": "Vitrine permissões",
+    "subtitle": "Gerenciamento de permissões dos usuários",
+    "select-app": "Selecione uma aplicação",
+    "select-member": "Selecione um membro"
   }
 }

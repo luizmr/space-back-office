@@ -53,7 +53,7 @@ function HeaderSection({ currentStep }: Props) {
           </div>
           <div className='give-permission__content'>
             <Typography fontWeight='regular' size='small'>
-              {t('common.step')} {currentStep + 1} {t('common.from-lower')} {steps.length + 1}
+              {t('common.step')} {currentStep + 1} {t('common.from-lower')} {steps.length}
             </Typography>
             <Typography fontWeight='semibold' size='large'>
               {steps[currentStep].text}
