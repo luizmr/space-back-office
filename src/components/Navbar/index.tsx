@@ -64,7 +64,7 @@ function Navbar() {
     } else {
       setOptions([
         // {
-        //   title: `${t('navbar.painel-de-controle')}`,
+        //   title: `${t('navbar.dashboard')}`,
         //   path: '/dashboard'
         // }
       ]);
@@ -223,7 +223,7 @@ function Navbar() {
                       <hr style={{ width: '100%' }} />
                       <div className='user-log-out' onClick={logout}>
                         <LogoutIcon fontSize='small' />
-                        <span>{t('navbar.sair')}</span>
+                        <span>{t('navbar.logout')}</span>
                       </div>
                     </div>
                   </Menu>

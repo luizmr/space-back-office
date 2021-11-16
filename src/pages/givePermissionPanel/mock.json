@@ -1,0 +1,18 @@
+[
+  { "id": 1, "created_at": "16/11/2021", "application": "Vitrine", "name": "Valbl", "permissionGroup": "Colaborador" },
+  {
+    "id": 2,
+    "updated_at": "17/11/2021",
+    "created_at": "15/11/2021",
+    "application": "Vitrine",
+    "name": "Space",
+    "permissionGroup": "Colaborador"
+  },
+  {
+    "id": 3,
+    "created_at": "14/11/2021",
+    "application": "Vitrine",
+    "name": "SpacePartner",
+    "permissionGroup": "Parceiro"
+  }
+]

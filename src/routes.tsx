@@ -10,6 +10,7 @@ import LoadingPage from 'pages/loadingPage';
 import GivePermissionPanel from 'pages/givePermissionPanel';
 import NotAuthorizedPage from 'pages/notAuthorizedPage';
 import PolicyInfo from 'components/PolicyInfo';
+import GiverPermissionNew from 'pages/givePermissionNew';
 
 const publicRoutes = [
   {
@@ -24,6 +25,11 @@ const privateRoutes = [
     key: 'home',
     Component: GivePermissionPanel,
     path: '/'
+  },
+  {
+    key: 'give-permission-new',
+    Component: GiverPermissionNew,
+    path: '/give-permission/new'
   }
 ];
 

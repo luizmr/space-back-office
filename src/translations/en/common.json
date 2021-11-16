@@ -1,34 +1,48 @@
 {
   "navbar": {
-    "painel-de-controle": "Dashboard",
-    "linguagem": "en/US",
-    "ajuda": "Help",
-    "sair": "Logout",
-    "portugues": "Portuguese",
-    "ingles": "English",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
     "back-office": "Back Office"
   },
   "homepage": {
     "not-authorized": "Your profile does not have access to the features that this area offers. Contact your Company Administrator.",
     "homepage-title": "Welcome to the back office area of ​​the App Store!",
     "homepage-subtitle": "To access the functionalities of this area, just click on 'Login'.",
-    "politica": "Privacy Policy",
-    "termos": "Terms of Use",
-    "todos-direitos": "All rights reserved."
-  },
-  "givepermission": {
-    "title": "Permissions Showcase",
-    "subtitle": "User Permission Management.",
-    "add-permission": "Add permission"
+    "policy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "all-rights": "All rights reserved."
   },
   "common": {
-    "name": "Name",
+    "cancel": "Cancel",
+    "step": "Step",
+    "from-lower": "from",
+    "from-capital": "From",
+    "next": "Next",
+    "previous": "Previous",
+    "done": "Done!",
     "user": "User",
+    "app": "App",
+    "member": "Member",
+    "name": "Name",
     "edit": "Edit",
     "action": "Action",
     "application": "Application",
     "permission-group": "Permission Group",
     "edit-permission": "Edit permission",
     "date": "Date"
+  },
+  "givepermission": {
+    "form-step-1": "Let's start by identifying the application that the member will be part of",
+    "form-step-2": "Select the member who will be assigned the permission",
+    "form-step-3": "Select the group the member will be part of and its permissions",
+    "permission-done": "Thanks! Permissions successfully assigned.",
+    "back-to-panel": "Back to panel",
+    "finish-assignment": "Finish assignment",
+    "permission-error": "An error occurred while completing the assignment, try again!",
+    "title": "Permissions Showcase",
+    "subtitle": "User Permission Management",
+    "select-app": "Select an app",
+    "select-member": "Select a member",
+    "add-permission": "Add permission"
   }
 }

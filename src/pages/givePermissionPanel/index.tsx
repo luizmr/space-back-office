@@ -13,24 +13,23 @@ import EditSolid from '@eduzz/houston-icons/EditSolid';
 
 import { UsersDataOutput } from 'models/panel';
 
+import mockUsers from './mock.json';
+
 const GivePermissionPanel = () => {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [sort, setSort] = useState<any>(null);
   // const [page, setPage] = useState(1);
   // const [perPage, setPerPage] = useState(10);
-  const [rows, setRows] = useState<UsersDataOutput[]>([
-    { id: 1, created_at: '16/11/2021', application: 'Vitrine', name: 'Valbl', permissionGroup: 'Colaborador' },
-    { id: 2, created_at: '15/11/2021', application: 'Vitrine', name: 'Space', permissionGroup: 'Colaborador' },
-    { id: 3, created_at: '14/11/2021', application: 'Vitrine', name: 'SpacePartner', permissionGroup: 'Parceiro' }
-  ]);
+  const [rows, setRows] = useState<UsersDataOutput[]>(mockUsers);
 
   const onSort = useCallback((data: { field: string; direction: string }) => {
     setSort(data);
     setRows(rows => {
       return rows.sort((a, b) => {
-        if (a.created_at > b.created_at) return data.direction === 'asc' ? 1 : -1;
-        if (a.created_at == b.created_at) return 0;
+        if ((a.updated_at ? a.updated_at : a.created_at) > (b.updated_at ? b.updated_at : b.created_at))
+          return data.direction === 'asc' ? 1 : -1;
+        if ((a.updated_at ? a.updated_at : a.created_at) == (b.updated_at ? b.updated_at : b.created_at)) return 0;
         return data.direction === 'asc' ? -1 : 1;
       });
     });
@@ -45,7 +44,7 @@ const GivePermissionPanel = () => {
         <Button
           startIcon={<Add />}
           onClick={() => {
-            history.push('/new');
+            history.push('/give-permission/new');
           }}
         >
           <Typography>{t('givepermission.add-permission')}</Typography>
@@ -68,7 +67,7 @@ const GivePermissionPanel = () => {
           <Table.Empty count={rows.length} />
           {rows.map((row, index) => (
             <Table.Row data={row} index={index} key={row.id}>
-              <Table.Cell>{row.created_at}</Table.Cell>
+              <Table.Cell>{row.updated_at ? row.updated_at : row.created_at}</Table.Cell>
               <Table.Cell>{row.application}</Table.Cell>
               <Table.Cell>{row.name}</Table.Cell>
               <Table.Cell>{row.permissionGroup}</Table.Cell>
@@ -76,7 +75,7 @@ const GivePermissionPanel = () => {
                 <Tooltip placement='bottom' title={`${t('common.edit-permission')}`}>
                   <ButtonIcon
                     onClick={() => {
-                      history.push(`/edit/${row.id}`);
+                      history.push(`give-permission/edit/${row.id}`);
                     }}
                   >
                     <EditSolid />
