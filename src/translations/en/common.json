@@ -43,6 +43,10 @@
     "subtitle": "User Permission Management",
     "select-app": "Select an app",
     "select-member": "Select a member",
-    "add-permission": "Add permission"
+    "add-permission": "Add permission",
+    "group": "Permission groups",
+    "group-description": "Choose de permission group that you want:",
+    "permissions": "Permissions",
+    "permissions-description": "Select which permissions this member will have access to:"
   }
 }

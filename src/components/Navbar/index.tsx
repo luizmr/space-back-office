@@ -85,7 +85,6 @@ function Navbar() {
 
   useEffect(() => {
     const tokenUser = token ? token.split(' ')[1] : '';
-    console.log(token);
     AuthorizationNavbar(jwt.decode(tokenUser));
   }, [token]);
 

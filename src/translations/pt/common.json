@@ -43,6 +43,10 @@
     "subtitle": "Gerenciamento de permissões dos usuários",
     "select-app": "Selecione uma aplicação",
     "select-member": "Selecione um membro",
-    "add-permission": "Adicionar permissão"
+    "add-permission": "Adicionar permissão",
+    "group": "Grupos de permissão",
+    "group-description": "Escolha o grupo de permissão que você deseja:",
+    "permissions": "Permissões",
+    "permissions-description": "Selecione quais permissões o membro vai ter acesso:"
   }
 }
