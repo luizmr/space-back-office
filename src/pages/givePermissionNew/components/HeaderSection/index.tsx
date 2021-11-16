@@ -33,7 +33,6 @@ function HeaderSection({ currentStep }: Props) {
     }
   ];
 
-  console.log('currentstep', currentStep);
   return (
     <div>
       {currentStep <= steps.length - 1 ? (

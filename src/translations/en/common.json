@@ -42,6 +42,10 @@
     "title": "Permissions Showcase",
     "subtitle": "User Permission Management",
     "select-app": "Select an app",
-    "select-member": "Select a member"
+    "select-member": "Select a member",
+    "group": "Permission groups",
+    "group-description": "Choose de permission group that you want:",
+    "permissions": "Permissions",
+    "permissions-description": "Select which permissions this member will have access to:"
   }
 }

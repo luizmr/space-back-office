@@ -8,9 +8,11 @@ import SelectField from '@eduzz/houston-ui/Forms/Select';
 
 // components
 import ToastComponent from 'components/toast';
+import MemberGroup from './components/MemberGroup';
+import MemberPermissions from './components/MemberPermissions';
 
 // models
-import { SelectFieldOutput } from 'models/panel';
+import { PermissionsOutput, SelectFieldOutput } from 'models/panel';
 
 type Props = {
   currentStep: number;
@@ -24,20 +26,20 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
+  const [group, setGroup] = useState<string>('');
+  const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
 
   const form = useForm({
-    initialValues: { app: '0', member: '0', group: '' },
+    initialValues: { app: '0', member: '0' },
     validationSchema: yup => {
       return yup.object().shape({
         app: yup.string(),
-        member: yup.string(),
-        group: yup.string()
+        member: yup.string()
       });
     },
     onSubmit: async values => {
       // setSubmitting(true);
-      const { app, member, group } = values;
-      console.log('enviar');
+      const { app, member } = values;
       // try {
       //   await AppStoreService.preRegister({ partner, app: obj });
       //   setTimeout(() => {
@@ -80,15 +82,11 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
               )}
 
               {currentStep === 2 && (
-                <SelectField
-                  id='example-select'
-                  name='member'
-                  options={[
-                    { label: '20', value: 20 },
-                    { label: '40', value: 40 },
-                    { label: '80', value: 80 }
-                  ]}
-                />
+                <>
+                  <MemberGroup group={group} setGroup={setGroup} appId={form.getFieldValue('app')} />
+                  <hr />
+                  <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
+                </>
               )}
 
               <div className='give-permission__new-form__submit'>
@@ -103,22 +101,32 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                     {t('common.previous')}
                   </Button>
                 )}
-                {currentStep === 3 ? (
+                {currentStep === 2 ? (
                   <Button
                     loading={submitting}
-                    disabled={nextButton || !form.isValid || form.isSubmitting}
+                    disabled={nextButton || !form.isValid || form.isSubmitting || group.length === 0}
                     type='submit'
                   >
                     {t('givepermission.finish-assignment')}
                   </Button>
                 ) : (
                   <Button
-                    disabled={!form.getFieldValue('app') || !form.getFieldValue('member')}
+                    disabled={
+                      currentStep === 0
+                        ? form.getFieldValue('app') === '0'
+                          ? true
+                          : false
+                        : form.getFieldValue('member') === '0'
+                        ? true
+                        : false
+                    }
                     onClick={() => {
                       setCurrentStep(currentStep + 1);
-                      setTimeout(() => {
-                        setNextButton(false);
-                      }, 10);
+                      if (currentStep === 1) {
+                        setTimeout(() => {
+                          setNextButton(false);
+                        }, 10);
+                      }
                     }}
                   >
                     {t('common.next')}
