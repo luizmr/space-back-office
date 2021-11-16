@@ -18,7 +18,8 @@
   },
   "givepermission": {
     "title": "Permissions Showcase",
-    "subtitle": "User Permission Management"
+    "subtitle": "User Permission Management.",
+    "add-permission": "Add permission"
   },
   "common": {
     "name": "Name",

@@ -18,7 +18,8 @@
   },
   "givepermission": {
     "title": "Vitrine permissões",
-    "subtitle": "Gerenciamento de permissões dos usuários"
+    "subtitle": "Gerenciamento de permissões dos usuários.",
+    "add-permission": "Adicionar permissão"
   },
   "common": {
     "name": "Nome",

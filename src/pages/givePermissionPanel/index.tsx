@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next';
 import Table from '@eduzz/houston-ui/Table';
 import Tooltip from '@eduzz/houston-ui/Tooltip';
 import Typography from '@eduzz/houston-ui/Typography';
+import Button from '@eduzz/houston-ui/Button';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
+import Add from '@eduzz/houston-icons/Add';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
 
 import { UsersDataOutput } from 'models/panel';
@@ -36,12 +38,24 @@ const GivePermissionPanel = () => {
 
   return (
     <div className='container-permission-panel'>
-      <Typography fontWeight='bold' size='large'>
-        {t('givepermission.title')}
-      </Typography>
-      <Typography fontWeight='regular' size='normal'>
-        {t('givepermission.subtitle')}
-      </Typography>
+      <div className='panel-header'>
+        <Typography fontWeight='bold' size='large'>
+          {t('givepermission.title')}
+        </Typography>
+        <Button
+          startIcon={<Add />}
+          onClick={() => {
+            history.push('/new');
+          }}
+        >
+          <Typography>{t('givepermission.add-permission')}</Typography>
+        </Button>
+      </div>
+      <div className='panel-header__sub-title'>
+        <Typography fontWeight='regular' size='normal'>
+          {t('givepermission.subtitle')}
+        </Typography>
+      </div>
       <Table stripedRows sort={sort} onSort={onSort}>
         <Table.Header>
           <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
