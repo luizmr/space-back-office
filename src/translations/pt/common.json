@@ -15,5 +15,17 @@
     "politica": "Política de Privacidade",
     "termos": "Termos de Uso",
     "todos-direitos": "Todos os direitos reservados."
+  },
+  "givepermission": {
+    "title": "Vitrine permissões",
+    "subtitle": "Gerenciamento de permissões dos usuários"
+  },
+  "common": {
+    "name": "Nome",
+    "edit": "Editar",
+    "application": "Aplicação",
+    "permission-group": "Grupo de permissão",
+    "edit-permission": "Editar permissão",
+    "date": "Data"
   }
 }

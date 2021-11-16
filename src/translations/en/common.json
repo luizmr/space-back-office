@@ -15,5 +15,17 @@
     "politica": "Privacy Policy",
     "termos": "Terms of Use",
     "todos-direitos": "All rights reserved."
+  },
+  "givepermission": {
+    "title": "Permissions Showcase",
+    "subtitle": "User Permission Management"
+  },
+  "common": {
+    "name": "Name",
+    "edit": "Edit",
+    "application": "Application",
+    "permission-group": "Permission Group",
+    "edit-permission": "Edit permission",
+    "date": "Date"
   }
 }
