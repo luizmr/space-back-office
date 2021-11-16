@@ -18,17 +18,17 @@ const GivePermissionPanel = () => {
   // const [page, setPage] = useState(1);
   // const [perPage, setPerPage] = useState(10);
   const [rows, setRows] = useState<UsersDataOutput[]>([
-    { id: 1, date: '16/11/2021', application: 'Vitrine', name: 'Valbl', permissionGroup: 'Colaborador' },
-    { id: 2, date: '15/11/2021', application: 'Vitrine', name: 'Space', permissionGroup: 'Colaborador' },
-    { id: 3, date: '14/11/2021', application: 'Vitrine', name: 'SpacePartner', permissionGroup: 'Parceiro' }
+    { id: 1, created_at: '16/11/2021', application: 'Vitrine', name: 'Valbl', permissionGroup: 'Colaborador' },
+    { id: 2, created_at: '15/11/2021', application: 'Vitrine', name: 'Space', permissionGroup: 'Colaborador' },
+    { id: 3, created_at: '14/11/2021', application: 'Vitrine', name: 'SpacePartner', permissionGroup: 'Parceiro' }
   ]);
 
   const onSort = useCallback((data: { field: string; direction: string }) => {
     setSort(data);
     setRows(rows => {
       return rows.sort((a, b) => {
-        if (a.date > b.date) return data.direction === 'asc' ? 1 : -1;
-        if (a.date == b.date) return 0;
+        if (a.created_at > b.created_at) return data.direction === 'asc' ? 1 : -1;
+        if (a.created_at == b.created_at) return 0;
         return data.direction === 'asc' ? -1 : 1;
       });
     });
@@ -46,15 +46,15 @@ const GivePermissionPanel = () => {
         <Table.Header>
           <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
           <Table.Column>{t('common.application')}</Table.Column>
-          <Table.Column>{t('common.name')}</Table.Column>
           <Table.Column>{t('common.permission-group')}</Table.Column>
-          <Table.Column align='right'>{t('common.edit')}</Table.Column>
+          <Table.Column>{t('common.user')}</Table.Column>
+          <Table.Column align='right'>{t('common.action')}</Table.Column>
         </Table.Header>
         <Table.Body>
           <Table.Empty count={rows.length} />
           {rows.map((row, index) => (
             <Table.Row data={row} index={index} key={row.id}>
-              <Table.Cell>{row.date}</Table.Cell>
+              <Table.Cell>{row.created_at}</Table.Cell>
               <Table.Cell>{row.application}</Table.Cell>
               <Table.Cell>{row.name}</Table.Cell>
               <Table.Cell>{row.permissionGroup}</Table.Cell>

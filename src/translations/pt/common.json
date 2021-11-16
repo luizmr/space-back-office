@@ -22,7 +22,9 @@
   },
   "common": {
     "name": "Nome",
+    "user": "Usuário",
     "edit": "Editar",
+    "action": "Ação",
     "application": "Aplicação",
     "permission-group": "Grupo de permissão",
     "edit-permission": "Editar permissão",
