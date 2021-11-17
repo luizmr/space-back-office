@@ -9,8 +9,8 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
 // utils
-import { GroupsOutput } from 'models/panel';
-import mock from 'pages/givePermissionNew/mock.json';
+import { GroupsOutput } from 'models/assignPermission';
+import mock from 'pages/assignPermissionNew/mock.json';
 
 function MemberGroup({ group, setGroup, appId }: any) {
   const { t } = useTranslation('common');
@@ -41,10 +41,10 @@ function MemberGroup({ group, setGroup, appId }: any) {
     <>
       <div className='form__permission-step'>
         <Typography fontWeight='bold' size='normal'>
-          {t('givepermission.group')}
+          {t('assignpermission.group')}
         </Typography>
         <Typography fontWeight='regular' size='normal'>
-          {t('givepermission.group-description')}
+          {t('assignpermission.group-description')}
         </Typography>
       </div>
       <FormControl component='fieldset'>

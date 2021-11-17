@@ -18,18 +18,18 @@ function HeaderSection({ currentStep }: Props) {
   const steps = [
     {
       label: '',
-      class: 'give-permission',
-      text: t('givepermission.form-step-1')
+      class: 'assign-permission',
+      text: t('assignpermission.form-step-1')
     },
     {
       label: '',
-      class: 'give-permission',
-      text: t('givepermission.form-step-2')
+      class: 'assign-permission',
+      text: t('assignpermission.form-step-2')
     },
     {
       label: '',
-      class: 'give-permission',
-      text: t('givepermission.form-step-3')
+      class: 'assign-permission',
+      text: t('assignpermission.form-step-3')
     }
   ];
 
@@ -37,10 +37,10 @@ function HeaderSection({ currentStep }: Props) {
     <div>
       {currentStep <= steps.length - 1 ? (
         <div className={steps[currentStep].class}>
-          <div className='give-permission__btns'>
+          <div className='assign-permission__btns'>
             <Button
               onClick={() => {
-                history.push('/');
+                history.push('/assign-permission');
               }}
               endIcon={<Cancel />}
               variant='text'
@@ -50,7 +50,7 @@ function HeaderSection({ currentStep }: Props) {
               </Typography>
             </Button>
           </div>
-          <div className='give-permission__content'>
+          <div className='assign-permission__content'>
             <Typography fontWeight='regular' size='small'>
               {t('common.step')} {currentStep + 1} {t('common.from-lower')} {steps.length}
             </Typography>
@@ -59,14 +59,14 @@ function HeaderSection({ currentStep }: Props) {
             </Typography>
           </div>
           <div
-            className='give-permission__progressline'
+            className='assign-permission__progressline'
             style={{ width: `calc((100vw/${steps.length + 1})*${currentStep + 1})` }}
           ></div>
         </div>
       ) : (
-        <div className='give-permission__done'>
-          <div className='give-permission__content'>
-            <div className='give-permission__content-finished'>
+        <div className='assign-permission__done'>
+          <div className='assign-permission__content'>
+            <div className='assign-permission__content-finished'>
               <Typography fontWeight='semibold' size='x-large'>
                 {t('common.done')}
               </Typography>

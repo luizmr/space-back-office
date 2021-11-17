@@ -1,17 +1,17 @@
-.give-permission {
+.assign-permission {
   background: #eceff1;
   display: flex;
   justify-content: center;
   position: relative;
 
-  .give-permission__content {
+  .assign-permission__content {
     width: 624px;
     padding-bottom: 34px;
     padding-top: 32px;
     color: #37474f;
   }
 
-  .give-permission__btns {
+  .assign-permission__btns {
     position: absolute;
     top: 8px;
     right: 32px;
@@ -21,7 +21,7 @@
     color: #0d47a1;
   }
 
-  .give-permission__progressline {
+  .assign-permission__progressline {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-.give-permission__content-finished {
+.assign-permission__content-finished {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,13 +45,13 @@
   }
 }
 
-.give-permission__done {
+.assign-permission__done {
   background: #eceff1;
   height: 173px;
   margin-bottom: 107px;
 }
 
-.give-permission__form-done {
+.assign-permission__form-done {
   max-width: 624px;
   margin: 0 auto;
   margin-top: 44px;
@@ -84,11 +84,11 @@
 }
 
 @media screen and (max-width: $media-md) {
-  .give-permission__form-done {
+  .assign-permission__form-done {
     max-width: 90vw;
   }
-  .give-permission {
-    .give-permission__content {
+  .assign-permission {
+    .assign-permission__content {
       max-width: 90vw;
     }
   }
@@ -96,14 +96,14 @@
 
 // ####################### FORM ##########################
 
-.give-permission__new-form {
+.assign-permission__new-form {
   padding-bottom: 50px;
   padding-top: 50px;
   // min-height: calc(100vh + 58px);
   background-color: #f9fafb;
   color: $primary-text-color;
 
-  .give-permission__new-form__body {
+  .assign-permission__new-form__body {
     width: 624px;
     margin: 0 auto;
     display: flex;
@@ -111,7 +111,7 @@
     flex-direction: column;
     // align-items: flex-start;
 
-    .give-permission__new-form__form {
+    .assign-permission__new-form__form {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -162,7 +162,7 @@
         margin-bottom: 0px !important;
       }
 
-      .give-permission__new-form__submit {
+      .assign-permission__new-form__submit {
         text-align: right;
         margin-top: 40px;
 
@@ -188,8 +188,8 @@
 }
 
 @media (max-width: $media-md) {
-  .give-permission__new-form {
-    .give-permission__new-form__body {
+  .assign-permission__new-form {
+    .assign-permission__new-form__body {
       width: 80vw;
     }
   }

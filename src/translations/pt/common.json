@@ -29,16 +29,16 @@
     "application": "Aplicação",
     "permission-group": "Grupo de permissão",
     "edit-permission": "Editar permissão",
-    "date": "Data"
+    "date": "Data",
+    "go-back": "Voltar"
   },
-  "givepermission": {
+  "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
     "form-step-2": "Selecione o membro no qual será atribuída as permissões",
     "form-step-3": "Selecione o grupo no qual o membro fará parte e suas respectivas permissões",
     "permission-done": "Obrigado! As permissões foram atribuídas com sucesso.",
     "back-to-panel": "Voltar para o painel",
     "finish-assignment": "Finalizar a atribuição",
-    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
     "title": "Vitrine permissões",
     "subtitle": "Gerenciamento de permissões dos usuários",
     "select-app": "Selecione uma aplicação",
@@ -48,5 +48,21 @@
     "group-description": "Escolha o grupo de permissão que você deseja:",
     "permissions": "Permissões",
     "permissions-description": "Selecione quais permissões o membro vai ter acesso:"
+  },
+  "dashboard": {
+    "assign-permission": "Atribuir permissão",
+    "title": "Bem vindo a área de Back Office",
+    "subtitle": "Aqui você pode administrar tudo o que a sua companhia pode fazer:"
+  },
+  "error": {
+    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
+    "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!"
+  },
+  "breadcrumb": {
+    "home": "Back Office",
+    "assign-permission-panel": "Painel de Atribuir Permissão"
+  },
+  "not-found": {
+    "text": "Desculpe, não conseguimos encontrar o que você procura. Tente atualizar a página ou volte mais tarde."
   }
 }

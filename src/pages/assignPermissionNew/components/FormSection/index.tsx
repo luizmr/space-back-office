@@ -12,7 +12,7 @@ import MemberGroup from './components/MemberGroup';
 import MemberPermissions from './components/MemberPermissions';
 
 // models
-import { PermissionsOutput, SelectFieldOutput } from 'models/panel';
+import { PermissionsOutput, SelectFieldOutput } from 'models/assignPermission';
 
 type Props = {
   currentStep: number;
@@ -59,16 +59,16 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
 
   return (
     <>
-      <div className='give-permission__new-form'>
-        <div className='give-permission__new-form__body'>
-          <div className='give-permission__new-form__form'>
+      <div className='assign-permission__new-form'>
+        <div className='assign-permission__new-form__body'>
+          <div className='assign-permission__new-form__form'>
             <Form context={form}>
               {currentStep === 0 && (
                 <SelectField
                   id='app-select'
                   name='app'
                   label={t('common.app')}
-                  options={[{ value: '0', label: t('givepermission.select-app') }, ...apps]}
+                  options={[{ value: '0', label: t('assignpermission.select-app') }, ...apps]}
                 />
               )}
 
@@ -77,7 +77,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                   id='member-select'
                   name='member'
                   label={t('common.member')}
-                  options={[{ value: '0', label: t('givepermission.select-member') }, ...members]}
+                  options={[{ value: '0', label: t('assignpermission.select-member') }, ...members]}
                 />
               )}
 
@@ -89,7 +89,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                 </>
               )}
 
-              <div className='give-permission__new-form__submit'>
+              <div className='assign-permission__new-form__submit'>
                 {(currentStep === 1 || currentStep === 2) && (
                   <Button
                     variant='text'
@@ -107,7 +107,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                     disabled={nextButton || !form.isValid || form.isSubmitting || group.length === 0}
                     type='submit'
                   >
-                    {t('givepermission.finish-assignment')}
+                    {t('assignpermission.finish-assignment')}
                   </Button>
                 ) : (
                   <Button
@@ -137,7 +137,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
           </div>
         </div>
       </div>
-      <ToastComponent open={open} handleClose={handleClose} string={t('givepermission.permission-error')} />
+      <ToastComponent open={open} handleClose={handleClose} string={t('error.permission-error')} />
     </>
   );
 };
