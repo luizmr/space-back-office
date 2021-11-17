@@ -8,11 +8,11 @@ import FormSection from './components/FormSection';
 import HeaderSection from './components/HeaderSection';
 
 // utils
-import { SelectFieldOutput } from 'models/panel';
+import { SelectFieldOutput } from 'models/assignPermission';
 import createSelectArray from 'utils/createSelectArray';
 import mock from './mock.json';
 
-const GiverPermissionNew = () => {
+const AssignPermissionNew = () => {
   const { t } = useTranslation('common');
   const { nextStep, backStep, setCurrentStep, currentStep } = useProgress();
   const [apps, setApps] = useState<Array<SelectFieldOutput>>([]);
@@ -35,4 +35,4 @@ const GiverPermissionNew = () => {
   );
 };
 
-export default GiverPermissionNew;
+export default AssignPermissionNew;

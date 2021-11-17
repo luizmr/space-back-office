@@ -8,8 +8,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // utils
-import mock from 'pages/givePermissionNew/mock.json';
-import { PermissionsOutput } from 'models/panel';
+import mock from 'pages/assignPermissionNew/mock.json';
+import { PermissionsOutput } from 'models/assignPermission';
 
 function MemberPermissions({ group, permissions, setPermissions }: any) {
   const { t } = useTranslation('common');
@@ -52,10 +52,10 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
         >
           <div className='form__permission-step'>
             <Typography fontWeight='bold' size='normal'>
-              {t('givepermission.permissions')}
+              {t('assignpermission.permissions')}
             </Typography>
             <Typography fontWeight='regular' size='normal'>
-              {t('givepermission.permissions-description')}
+              {t('assignpermission.permissions-description')}
             </Typography>
           </div>
 

@@ -29,16 +29,16 @@
     "application": "Application",
     "permission-group": "Permission Group",
     "edit-permission": "Edit permission",
-    "date": "Date"
+    "date": "Date",
+    "go-back": "Go back"
   },
-  "givepermission": {
+  "assignpermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
     "form-step-2": "Select the member who will be assigned the permission",
     "form-step-3": "Select the group the member will be part of and its permissions",
     "permission-done": "Thanks! Permissions successfully assigned.",
     "back-to-panel": "Back to panel",
     "finish-assignment": "Finish assignment",
-    "permission-error": "An error occurred while completing the assignment, try again!",
     "title": "Permissions Showcase",
     "subtitle": "User Permission Management",
     "select-app": "Select an app",
@@ -48,5 +48,21 @@
     "group-description": "Choose de permission group that you want:",
     "permissions": "Permissions",
     "permissions-description": "Select which permissions this member will have access to:"
+  },
+  "dashboard": {
+    "assign-permission": "Assign permission",
+    "title": "Welcome to the Back Office area",
+    "subtitle": "Here you can manage everything your company can do:"
+  },
+  "error": {
+    "permission-error": "An error occurred while completing the assignment, try again!",
+    "dashboard-error": "An error occurred while loading the dashboard info, try again!"
+  },
+  "breadcrumb": {
+    "home": "Back Office",
+    "assign-permission-panel": "Assign Permission Panel"
+  },
+  "not-found": {
+    "text": "Sorry, we couldn't find what you are looking for. Try refreshing the page or check back later."
   }
 }

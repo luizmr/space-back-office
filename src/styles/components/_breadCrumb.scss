@@ -1,0 +1,59 @@
+.p-8 {
+  position: relative;
+}
+
+.breadCrumb__simple-panel {
+  max-width: 80%;
+  width: 100% !important;
+}
+
+.normal-crumb {
+  background-color: $bg-color;
+}
+
+.breadCrumb {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-style: 'Open Sans';
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 624px;
+  div {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: #78909c;
+    font-size: 0.75rem;
+    font-weight: 400;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      color: #78909c;
+      margin-bottom: 2px;
+    }
+  }
+
+  span,
+  p {
+    color: #78909c;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: default;
+  }
+
+  svg {
+    color: #b0bec5;
+  }
+}
+
+@media (max-width: $media-md) {
+  .breadCrumb {
+    width: 90vw;
+  }
+}

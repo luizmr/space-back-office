@@ -11,11 +11,11 @@ import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import Add from '@eduzz/houston-icons/Add';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
 
-import { UsersDataOutput } from 'models/panel';
+import { UsersDataOutput } from 'models/assignPermission';
 
 import mockUsers from './mock.json';
 
-const GivePermissionPanel = () => {
+const AssignPermissionPanel = () => {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [sort, setSort] = useState<any>(null);
@@ -39,20 +39,20 @@ const GivePermissionPanel = () => {
     <div className='container-permission-panel'>
       <div className='panel-header'>
         <Typography fontWeight='bold' size='large'>
-          {t('givepermission.title')}
+          {t('assignpermission.title')}
         </Typography>
         <Button
           startIcon={<Add />}
           onClick={() => {
-            history.push('/give-permission/new');
+            history.push('/assign-permission/new');
           }}
         >
-          <Typography>{t('givepermission.add-permission')}</Typography>
+          <Typography>{t('assignpermission.add-permission')}</Typography>
         </Button>
       </div>
       <div className='panel-header__sub-title'>
         <Typography fontWeight='regular' size='normal'>
-          {t('givepermission.subtitle')}
+          {t('assignpermission.subtitle')}
         </Typography>
       </div>
       <Table stripedRows sort={sort} onSort={onSort}>
@@ -75,7 +75,7 @@ const GivePermissionPanel = () => {
                 <Tooltip placement='bottom' title={`${t('common.edit-permission')}`}>
                   <ButtonIcon
                     onClick={() => {
-                      history.push(`give-permission/edit/${row.id}`);
+                      history.push(`assign-permission/edit/${row.id}`);
                     }}
                   >
                     <EditSolid />
@@ -97,4 +97,4 @@ const GivePermissionPanel = () => {
   );
 };
 
-export default GivePermissionPanel;
+export default AssignPermissionPanel;
