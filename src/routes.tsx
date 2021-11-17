@@ -11,6 +11,7 @@ import GivePermissionPanel from 'pages/givePermissionPanel';
 import NotAuthorizedPage from 'pages/notAuthorizedPage';
 import PolicyInfo from 'components/PolicyInfo';
 import GiverPermissionNew from 'pages/givePermissionNew';
+import GiverPermissionEdit from 'pages/givePermissionEdit';
 
 const publicRoutes = [
   {
@@ -30,6 +31,11 @@ const privateRoutes = [
     key: 'give-permission-new',
     Component: GiverPermissionNew,
     path: '/give-permission/new'
+  },
+  {
+    key: 'give-permission-edit',
+    Component: GiverPermissionEdit,
+    path: '/give-permission/edit/:id'
   }
 ];
 
