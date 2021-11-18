@@ -69,7 +69,6 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
                       handleChangePermission(e);
                     }}
                     name={obj.slug}
-                    color='primary'
                   />
                 }
                 label={obj.name}

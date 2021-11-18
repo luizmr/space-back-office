@@ -25,7 +25,7 @@ function AssignPermissionEdit() {
   return (
     <div className='assignPermissionEdit__container'>
       <div className='assignPermissionEdit__header'>
-        <Typography fontWeight='regular' size='x-large'>
+        <Typography fontWeight='semibold' size='large'>
           Edição de permissão
         </Typography>
       </div>
