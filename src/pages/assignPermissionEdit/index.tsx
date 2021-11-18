@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 
 // models
 import { PermissionsOutput } from 'models/assignPermission';
+import ToastComponent from 'components/toast';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -23,6 +24,12 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const [member, setMember] = useState<string>('Space');
   const [group, setGroup] = useState<string>('11');
   const [loadingButton, setLoadingButton] = useState<boolean>(false);
+  const [toast, setToast] = useState<any>({
+    show: false,
+    type: 'success',
+    message: t('assignpermission.saved-successfully')
+  });
+
   const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
 
   const memberOfId = match.params.id;
@@ -35,8 +42,13 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
     setLoadingButton(true);
     setTimeout(() => {
       setLoadingButton(false);
+      setToast({ ...toast, show: true });
       history.push('/assign-permission');
     }, 1500);
+  };
+
+  const handleClose = () => {
+    setToast({ ...toast, show: false });
   };
 
   return (
@@ -62,6 +74,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
       <div className='assignPermissionEdit__footer'>
         <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
       </div>
+      <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
     </div>
   );
 }

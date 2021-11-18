@@ -56,7 +56,8 @@
     "permissions-description": "Selecione quais permissões o membro vai ter acesso:",
     "edit-permission-title": "Edição de permissão",
     "delete-subtitle": "Antes de deletar a atribuição, tenha certeza de quais são as implicações desta ação.",
-    "delete-success": "Atribuição de permissão deletada com sucesso"
+    "delete-success": "Atribuição de permissão deletada com sucesso",
+    "saved-successfully": "Permissões editadas com sucesso"
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",

@@ -56,7 +56,8 @@
     "permissions-description": "Select which permissions this member will have access to:",
     "edit-permission-title": "Permission edit",
     "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action.",
-    "delete-success": "Assignment of permission successfully deleted"
+    "delete-success": "Assignment of permission successfully deleted",
+    "saved-successfully": "Permissions successfully edited"
   },
   "dashboard": {
     "assign-permission": "Assign permission",

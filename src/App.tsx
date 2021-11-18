@@ -20,15 +20,10 @@ function App() {
   };
 
   useEffect(() => {
-    setLoaded(false);
-    if (localStorage.getItem('logado') === 'true' && !token) {
-      handleLogin();
-      setTimeout(() => {
-        setLoaded(true);
-      }, 1000);
-    } else {
+    handleLogin();
+    setTimeout(() => {
       setLoaded(true);
-    }
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -51,7 +46,7 @@ function App() {
     }
   }, [currentTime]);
 
-  return <>{localStorage.getItem('logado') === 'true' ? loaded && <AppRoutes /> : <AppRoutes />}</>;
+  return <>{loaded && <AppRoutes />}</>;
 }
 
 export default App;
