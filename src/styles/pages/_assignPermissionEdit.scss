@@ -1,0 +1,36 @@
+.assignPermissionEdit__container {
+  max-width: 624px;
+  margin: 64px auto;
+  position: relative;
+
+  .assignPermissionEdit__header {
+    margin-bottom: 40px;
+  }
+
+  .assignPermissionEdit__infos {
+    p {
+      margin-bottom: 8px;
+    }
+  }
+
+  .assignPermissionEdit__delete {
+    button {
+      color: #f44336;
+      border-color: #fdd9d7;
+      &:hover {
+        border-color: #f44336;
+      }
+    }
+  }
+
+  .assignPermissionEdit__footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    width: 624px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 72px;
+  }
+}

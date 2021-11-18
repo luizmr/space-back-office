@@ -11,6 +11,7 @@ import AssignPermissionPanel from 'pages/assignPermissionPanel';
 import NotAuthorizedPage from 'pages/notAuthorizedPage';
 import PolicyInfo from 'components/PolicyInfo';
 import AssignPermissionNew from 'pages/assignPermissionNew';
+import AssignPermissionEdit from 'pages/assignPermissionEdit';
 import Dashboard from 'pages/dashboard';
 import BreadCrumbs from 'components/breadcrumbs';
 import NotFound from 'pages/notFound';
@@ -44,6 +45,13 @@ const privateRoutes = [
     key: 'assign-permission-new',
     Component: AssignPermissionNew,
     path: '/assign-permission/new',
+    name: '',
+    breadCrumb: false
+  },
+  {
+    key: 'assign-permission-edit',
+    Component: AssignPermissionEdit,
+    path: '/assign-permission/edit/:id',
     name: '',
     breadCrumb: false
   }
