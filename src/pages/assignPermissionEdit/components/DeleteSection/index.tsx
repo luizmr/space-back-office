@@ -18,8 +18,10 @@ const DeleteSection = ({ id }: Props) => {
   const history = useHistory();
   const [modalShow, setModalShow] = useState<boolean>(false);
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleDeleteMemberOf = () => {
+    setLoading(true);
     setShowToast(true);
     setTimeout(() => {
       history.push('/assign-permission');
@@ -45,7 +47,12 @@ const DeleteSection = ({ id }: Props) => {
           </Typography>
         </Button>
       </div>
-      <ModalComponent modalShow={modalShow} setModalShow={setModalShow} handleDeleteApp={handleDeleteMemberOf} />
+      <ModalComponent
+        modalShow={modalShow}
+        setModalShow={setModalShow}
+        handleDeleteApp={handleDeleteMemberOf}
+        loading={loading}
+      />
       <ToastComponent
         open={showToast}
         string={t('assignpermission.delete-success')}

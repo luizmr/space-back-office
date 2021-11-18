@@ -105,5 +105,29 @@
         color: #f44336;
       }
     }
+
+    .button-disabled-contained {
+      text-transform: none;
+      transition: all 0.3s ease-in-out;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 21px;
+      padding: 9px 16px;
+      color: $secondary-text-color;
+      background-color: #b0bec5;
+      border: 1px solid #b0bec5;
+      pointer-events: none;
+    }
+
+    .button-disabled-text {
+      text-transform: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 21px;
+      padding: 9px 16px;
+      color: $secondary-text-color;
+      background-color: transparent;
+      pointer-events: none;
+    }
   }
 }

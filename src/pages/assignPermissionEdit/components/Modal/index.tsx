@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '@eduzz/houston-ui/Button';
 import ModalPanel from 'components/modalPanel';
 
-function ModalComponent({ modalShow, setModalShow, handleDeleteApp }: any) {
+function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: any) {
   const { t } = useTranslation('common');
   return (
     <>
@@ -16,10 +16,20 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp }: any) {
           <>
             <div className='modal-panel__title'>{t('common.confirm-operation')}</div>
             <div className='modal-panel__buttons' style={{ marginTop: '24px' }}>
-              <Button variant='text' onClick={() => setModalShow(false)} className='button-cancel'>
+              <Button
+                variant='text'
+                onClick={() => setModalShow(false)}
+                className={loading ? 'button-disabled-text' : 'button-cancel'}
+                disabled={loading}
+              >
                 {t('common.cancel')}
               </Button>
-              <Button variant='outlined' onClick={() => handleDeleteApp()} className='button-error'>
+              <Button
+                variant='outlined'
+                onClick={() => handleDeleteApp()}
+                className={loading ? 'button-disabled-contained' : 'button-error'}
+                disabled={loading}
+              >
                 {t('common.confirm')}
               </Button>
             </div>
