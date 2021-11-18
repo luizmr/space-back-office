@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 
 // models
 import { PermissionsOutput } from 'models/assignPermission';
+import ToastComponent from 'components/toast';
 
 function AssignPermissionEdit() {
   const { t } = useTranslation('common');
@@ -21,6 +22,12 @@ function AssignPermissionEdit() {
   const [member, setMember] = useState<string>('Space');
   const [group, setGroup] = useState<string>('11');
   const [loadingButton, setLoadingButton] = useState<boolean>(false);
+  const [toast, setToast] = useState<any>({
+    show: false,
+    type: 'success',
+    message: t('assignpermission.saved-successfully')
+  });
+
   const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
 
   useEffect(() => {
@@ -31,8 +38,13 @@ function AssignPermissionEdit() {
     setLoadingButton(true);
     setTimeout(() => {
       setLoadingButton(false);
+      setToast({ ...toast, show: true });
       history.push('/assign-permission');
     }, 1500);
+  };
+
+  const handleClose = () => {
+    setToast({ ...toast, show: false });
   };
 
   return (
@@ -70,6 +82,7 @@ function AssignPermissionEdit() {
       <div className='assignPermissionEdit__footer'>
         <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
       </div>
+      <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
     </div>
   );
 }
