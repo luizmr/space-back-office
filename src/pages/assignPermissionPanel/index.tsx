@@ -38,7 +38,7 @@ const AssignPermissionPanel = () => {
   return (
     <div className='container-permission-panel'>
       <div className='panel-header'>
-        <Typography fontWeight='bold' size='large'>
+        <Typography fontWeight='semibold' size='large'>
           {t('assignpermission.title')}
         </Typography>
         <Button
@@ -46,8 +46,9 @@ const AssignPermissionPanel = () => {
           onClick={() => {
             history.push('/assign-permission/new');
           }}
+          variant='outlined'
         >
-          <Typography>{t('assignpermission.add-permission')}</Typography>
+          <Typography fontWeight='semibold'>{t('dashboard.assign-permission')}</Typography>
         </Button>
       </div>
       <div className='panel-header__sub-title'>
@@ -69,8 +70,8 @@ const AssignPermissionPanel = () => {
             <Table.Row data={row} index={index} key={row.id}>
               <Table.Cell>{row.updated_at ? row.updated_at : row.created_at}</Table.Cell>
               <Table.Cell>{row.application}</Table.Cell>
-              <Table.Cell>{row.name}</Table.Cell>
               <Table.Cell>{row.permissionGroup}</Table.Cell>
+              <Table.Cell>{row.name}</Table.Cell>
               <Table.Cell align='right'>
                 <Tooltip placement='bottom' title={`${t('common.edit-permission')}`}>
                   <ButtonIcon
