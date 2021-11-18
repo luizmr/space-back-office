@@ -9,21 +9,22 @@
   }
 
   .assignPermissionEdit__header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .assignPermissionEdit__infos {
     p {
-      margin-bottom: 8px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
   }
 
   .assignPermissionEdit__delete {
     button {
-      color: #f44336;
+      color: $danger-3;
       border-color: #fdd9d7;
       &:hover {
-        border-color: #f44336;
+        border-color: $danger-3;
       }
     }
   }
@@ -31,11 +32,35 @@
   .assignPermissionEdit__footer {
     position: fixed;
     bottom: 0;
-    background-color: #fff;
+    background-color: $white;
     width: 624px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     height: 72px;
+  }
+
+  .form__permission-step {
+    p {
+      color: $primary-text-color;
+    }
+    p:nth-child(1) {
+      text-transform: uppercase;
+    }
+    p:nth-child(2),
+    p:nth-child(1) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .form__form-group {
+    label {
+      span:first-child {
+        color: $secondary-text-color;
+      }
+      span:last-child {
+        color: $primary-text-color;
+      }
+    }
   }
 }

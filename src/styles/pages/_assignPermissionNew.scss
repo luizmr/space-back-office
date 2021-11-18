@@ -1,5 +1,5 @@
 .assign-permission {
-  background: #eceff1;
+  background: $border-color-1;
   display: flex;
   justify-content: center;
   position: relative;
@@ -8,7 +8,7 @@
     width: 624px;
     padding-bottom: 34px;
     padding-top: 32px;
-    color: #37474f;
+    color: $primary-text-color;
   }
 
   .assign-permission__btns {
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-    color: #0d47a1;
+    color: $primary-color-1;
   }
 
   .assign-permission__progressline {
@@ -26,7 +26,7 @@
     bottom: 0;
     left: 0;
     height: 2px;
-    background-color: #4caf50;
+    background-color: $approve;
   }
 }
 
@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #37474f;
+  color: $primary-text-color;
   p {
     margin-top: 32px;
     margin-bottom: 16px;
@@ -46,7 +46,7 @@
 }
 
 .assign-permission__done {
-  background: #eceff1;
+  background: $border-color-1;
   height: 173px;
   margin-bottom: 107px;
 }
@@ -70,7 +70,7 @@
       }
 
       p {
-        color: #37474f;
+        color: $primary-text-color;
       }
 
       .done-section__buttons {
@@ -99,8 +99,7 @@
 .assign-permission__new-form {
   padding-bottom: 50px;
   padding-top: 50px;
-  // min-height: calc(100vh + 58px);
-  background-color: #f9fafb;
+  background-color: $bg-color;
   color: $primary-text-color;
 
   .assign-permission__new-form__body {
@@ -109,7 +108,6 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    // align-items: flex-start;
 
     .assign-permission__new-form__form {
       width: 100%;
@@ -120,16 +118,6 @@
 
       form {
         width: 100%;
-        .helperSuccess {
-          .MuiFormHelperText-root {
-            color: #4caf50 !important;
-          }
-        }
-        .helperNotSuccess {
-          .MuiFormHelperText-root {
-            color: #f44336 !important;
-          }
-        }
 
         .form__permission-step {
           p {
@@ -155,31 +143,25 @@
           }
         }
       }
-      .MuiFormControl-root {
-        margin-bottom: 25px;
-      }
-      .MuiFormControl-root:last-child {
-        margin-bottom: 0px !important;
-      }
 
       .assign-permission__new-form__submit {
         text-align: right;
         margin-top: 40px;
 
         button:last-child {
-          background: #4caf50;
+          background: $approve;
           color: white;
           margin-left: 20px;
           &:disabled {
-            color: #546e7a;
-            background-color: #b0bec5;
+            color: $secondary-text-color;
+            background-color: $secondary-color-2;
           }
         }
       }
 
       p {
         margin: 0;
-        background-color: #f9fafb;
+        background-color: $bg-color;
         padding-left: 5px;
         padding-top: 2px;
       }
