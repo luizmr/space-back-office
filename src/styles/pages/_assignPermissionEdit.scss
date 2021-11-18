@@ -8,6 +8,10 @@
     margin-bottom: 12px;
   }
 
+  hr {
+    margin: 2rem 0;
+  }
+
   .assignPermissionEdit__header {
     margin-bottom: 20px;
   }
@@ -20,9 +24,25 @@
   }
 
   .assignPermissionEdit__delete {
+    padding-bottom: 150px;
+
+    p:first-child {
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
     button {
       color: $danger-3;
       border-color: #fdd9d7;
+      p {
+        margin: 0;
+      }
+      svg {
+        font-size: 20px !important;
+      }
       &:hover {
         border-color: $danger-3;
       }
@@ -38,6 +58,10 @@
     justify-content: flex-end;
     align-items: center;
     height: 72px;
+
+    button:first-child {
+      margin-right: 16px;
+    }
   }
 
   .form__permission-step {

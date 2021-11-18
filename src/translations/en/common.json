@@ -30,6 +30,7 @@
     "permission-group": "Permission Group",
     "edit-permission": "Edit permission",
     "delete-permission": "Delete permission",
+    "delete": "Delete",
     "date": "Date",
     "go-back": "Go back",
     "save": "Save",
@@ -51,7 +52,8 @@
     "group-description": "Choose de permission group that you want:",
     "permissions": "Permissions",
     "permissions-description": "Select which permissions this member will have access to:",
-    "edit-permission-title": "Permission edit"
+    "edit-permission-title": "Permission edit",
+    "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action."
   },
   "dashboard": {
     "assign-permission": "Assign permission",

@@ -30,6 +30,7 @@
     "permission-group": "Grupo de permissão",
     "edit-permission": "Editar permissão",
     "delete-permission": "Deletar permissão",
+    "delete": "Deletar",
     "date": "Data",
     "go-back": "Voltar",
     "save": "Salvar",
@@ -51,7 +52,8 @@
     "group-description": "Escolha o grupo de permissão que você deseja:",
     "permissions": "Permissões",
     "permissions-description": "Selecione quais permissões o membro vai ter acesso:",
-    "edit-permission-title": "Edição de permissão"
+    "edit-permission-title": "Edição de permissão",
+    "delete-subtitle": "Antes de deletar a atribuição, tenha certeza de quais são as implicações desta ação."
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",

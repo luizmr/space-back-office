@@ -4,12 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import Button from '@eduzz/houston-ui/Button';
 import Typography from '@eduzz/houston-ui/Typography';
+import DeleteIcon from '@mui/icons-material/Delete';
 import MemberGroup from 'pages/assignPermissionEdit/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionEdit/components/MemberPermissions';
 
-import { PermissionsOutput } from 'models/assignPermission';
 import Informations from './components/Informations';
 import Footer from './components/Footer';
+
+// models
+import { PermissionsOutput } from 'models/assignPermission';
 
 function AssignPermissionEdit() {
   const { t } = useTranslation('common');
@@ -35,7 +38,7 @@ function AssignPermissionEdit() {
   return (
     <div className='assignPermissionEdit__container'>
       <div className='assignPermissionEdit__header'>
-        <Typography fontWeight='regular' size='x-large'>
+        <Typography fontWeight='semibold' size='large'>
           {t('assignpermission.edit-permission-title')}
         </Typography>
       </div>
@@ -52,7 +55,17 @@ function AssignPermissionEdit() {
         </>
       </div>
       <div className='assignPermissionEdit__delete'>
-        <Button variant='outlined'>{t('common.delete-permission')}</Button>
+        <Typography fontWeight='bold' size='small'>
+          {t('common.delete')}
+        </Typography>
+        <Typography fontWeight='regular' size='normal'>
+          {t('assignpermission.delete-subtitle')}
+        </Typography>
+        <Button startIcon={<DeleteIcon />} variant='outlined'>
+          <Typography fontWeight='semibold' size='small'>
+            {t('common.delete-permission')}
+          </Typography>
+        </Button>
       </div>
       <div className='assignPermissionEdit__footer'>
         <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
