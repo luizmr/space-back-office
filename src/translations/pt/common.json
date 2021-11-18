@@ -34,7 +34,9 @@
     "date": "Data",
     "go-back": "Voltar",
     "save": "Salvar",
-    "informations": "Informações"
+    "informations": "Informações",
+    "confirm": "Confirmar",
+    "confirm-operation": "Você tem certeza que deseja confirmar esta operação?"
   },
   "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -53,7 +55,8 @@
     "permissions": "Permissões",
     "permissions-description": "Selecione quais permissões o membro vai ter acesso:",
     "edit-permission-title": "Edição de permissão",
-    "delete-subtitle": "Antes de deletar a atribuição, tenha certeza de quais são as implicações desta ação."
+    "delete-subtitle": "Antes de deletar a atribuição, tenha certeza de quais são as implicações desta ação.",
+    "delete-success": "Atribuição de permissão deletada com sucesso"
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",

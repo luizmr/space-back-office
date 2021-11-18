@@ -34,7 +34,9 @@
     "date": "Date",
     "go-back": "Go back",
     "save": "Save",
-    "informations": "Informations"
+    "informations": "Informations",
+    "confirm": "Confirm",
+    "confirm-operation": "Are you sure you want to confirm this operation?"
   },
   "assignpermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
@@ -53,7 +55,8 @@
     "permissions": "Permissions",
     "permissions-description": "Select which permissions this member will have access to:",
     "edit-permission-title": "Permission edit",
-    "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action."
+    "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action.",
+    "delete-success": "Assignment of permission successfully deleted"
   },
   "dashboard": {
     "assign-permission": "Assign permission",

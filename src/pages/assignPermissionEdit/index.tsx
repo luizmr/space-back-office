@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
-import Button from '@eduzz/houston-ui/Button';
+import { match } from 'react-router';
 import Typography from '@eduzz/houston-ui/Typography';
-import DeleteIcon from '@mui/icons-material/Delete';
 import MemberGroup from 'pages/assignPermissionEdit/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionEdit/components/MemberPermissions';
-
+import DeleteSection from './components/DeleteSection';
 import Informations from './components/Informations';
 import Footer from './components/Footer';
 
 // models
 import { PermissionsOutput } from 'models/assignPermission';
 
-function AssignPermissionEdit() {
+interface AuditCompareRouteParams {
+  id: string;
+}
+
+function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [application, setApplication] = useState<any>({ id: '1', name: 'Vitrine' });
@@ -22,6 +24,8 @@ function AssignPermissionEdit() {
   const [group, setGroup] = useState<string>('11');
   const [loadingButton, setLoadingButton] = useState<boolean>(false);
   const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
+
+  const memberOfId = match.params.id;
 
   useEffect(() => {
     setMember('Valbl');
@@ -54,19 +58,7 @@ function AssignPermissionEdit() {
           <hr />
         </>
       </div>
-      <div className='assignPermissionEdit__delete'>
-        <Typography fontWeight='bold' size='small'>
-          {t('common.delete')}
-        </Typography>
-        <Typography fontWeight='regular' size='normal'>
-          {t('assignpermission.delete-subtitle')}
-        </Typography>
-        <Button startIcon={<DeleteIcon />} variant='outlined'>
-          <Typography fontWeight='semibold' size='small'>
-            {t('common.delete-permission')}
-          </Typography>
-        </Button>
-      </div>
+      <DeleteSection id={memberOfId} />
       <div className='assignPermissionEdit__footer'>
         <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
       </div>

@@ -1,0 +1,109 @@
+.modal-panel {
+  h2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg {
+      margin-left: 20px;
+      transform: scale(1.8);
+    }
+
+    .header-text-icon {
+      margin-left: 10px;
+    }
+  }
+
+  div[class*='MuiDialogTitle'] {
+    padding: 20px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 24px;
+    border: none;
+    width: 100%;
+    color: $white;
+  }
+
+  div[class*='MuiDialogContent'] {
+    padding: 64px !important;
+  }
+
+  div[class*='MuiCircularProgress'] {
+    margin: 100px auto !important;
+    display: flex;
+  }
+
+  .modal-panel__edit-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      transition: all 0.3s ease-in-out;
+      svg {
+        color: $white;
+        transform: scale(1);
+        margin: 0;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        background-color: $white;
+
+        svg {
+          color: $primary-color-1;
+        }
+      }
+    }
+  }
+
+  .modal-panel__title {
+    margin-top: 16px;
+    color: $secondary-text-color;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  .modal-panel__buttons {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button:last-child {
+      margin-left: 32px;
+    }
+
+    .button-cancel {
+      text-transform: none;
+      color: $secondary-text-color;
+      transition: all 0.3s ease-in-out;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 21px;
+      padding: 9px 16px;
+
+      &:hover {
+        background-color: #f3f3f3;
+      }
+    }
+
+    .button-error {
+      text-transform: none;
+      transition: all 0.3s ease-in-out;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 21px;
+      padding: 9px 16px;
+      color: $white;
+      background-color: #f44336;
+      border: 1px solid #f44336;
+
+      &:hover {
+        background-color: $white !important;
+        color: #f44336;
+      }
+    }
+  }
+}
