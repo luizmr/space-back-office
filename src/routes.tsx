@@ -108,11 +108,6 @@ export const AppRoutes = () => {
     if (token) {
       buildRoutes(jwt.decode(tokenUser));
       setLoading(false);
-    } else {
-      if (!localStorage.getItem('logado')) {
-        buildRoutes(tokenUser);
-        setLoading(false);
-      }
     }
   }, [token]);
 

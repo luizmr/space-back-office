@@ -94,7 +94,6 @@ function Navbar() {
       type: 'REMOVE_TOKEN',
       token: null
     });
-    history.push('/');
     setTimeout(() => loginService.logout(), 100);
   };
 
