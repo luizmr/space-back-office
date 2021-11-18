@@ -19,7 +19,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Enter from '@eduzz/houston-icons/Enter';
 
 //utils
-
 import { LogoEduzz } from 'assets';
 
 interface ObjOptions {
@@ -36,15 +35,16 @@ function Navbar() {
   const history = useHistory();
   const location = useLocation();
   const { t, i18n } = useTranslation('common');
+
   const [language, setLanguage] = useState<string | null>('br');
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
   const [options, setOptions] = useState<ObjOptions[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const [{ token }, dispatch] = useStateValue();
   const tokenUser = token ? token.split(' ')[1] : '';
   const user: any = jwt.decode(tokenUser);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (Boolean(anchorEl)) return handleClose();
