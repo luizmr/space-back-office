@@ -1,32 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-// import { match } from 'react-router';
 
 import Button from '@eduzz/houston-ui/Button';
 import Typography from '@eduzz/houston-ui/Typography';
 import MemberGroup from 'pages/assignPermissionEdit/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionEdit/components/MemberPermissions';
-import SaveSolid from '@eduzz/houston-icons/SaveSolid';
 
 import { PermissionsOutput } from 'models/assignPermission';
 import Informations from './components/Informations';
+import Footer from './components/Footer';
 
 function AssignPermissionEdit() {
   const { t } = useTranslation('common');
+  const history = useHistory();
   const [application, setApplication] = useState<any>({ id: '1', name: 'Vitrine' });
   const [member, setMember] = useState<string>('Space');
   const [group, setGroup] = useState<string>('11');
+  const [loadingButton, setLoadingButton] = useState<boolean>(false);
   const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
 
   useEffect(() => {
     setMember('Valbl');
   }, []);
 
+  const handleConfirm = () => {
+    setLoadingButton(true);
+    setTimeout(() => {
+      setLoadingButton(false);
+      history.push('/assign-permission');
+    }, 1500);
+  };
+
   return (
     <div className='assignPermissionEdit__container'>
       <div className='assignPermissionEdit__header'>
         <Typography fontWeight='regular' size='x-large'>
-          Edição de permissão
+          {t('assignpermission.edit-permission-title')}
         </Typography>
       </div>
       <div className='assignPermissionEdit__infos'>
@@ -42,14 +52,10 @@ function AssignPermissionEdit() {
         </>
       </div>
       <div className='assignPermissionEdit__delete'>
-        <Button variant='outlined'>Deletar permissão</Button>
-        <hr />
+        <Button variant='outlined'>{t('common.delete-permission')}</Button>
       </div>
       <div className='assignPermissionEdit__footer'>
-        <Button variant='text'>Cancelar</Button>
-        <Button startIcon={<SaveSolid />} variant='contained'>
-          Salvar
-        </Button>
+        <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
       </div>
     </div>
   );

@@ -29,8 +29,11 @@
     "application": "Aplicação",
     "permission-group": "Grupo de permissão",
     "edit-permission": "Editar permissão",
+    "delete-permission": "Deletar permissão",
     "date": "Data",
-    "go-back": "Voltar"
+    "go-back": "Voltar",
+    "save": "Salvar",
+    "informations": "Informações"
   },
   "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -47,7 +50,8 @@
     "group": "Grupos de permissão",
     "group-description": "Escolha o grupo de permissão que você deseja:",
     "permissions": "Permissões",
-    "permissions-description": "Selecione quais permissões o membro vai ter acesso:"
+    "permissions-description": "Selecione quais permissões o membro vai ter acesso:",
+    "edit-permission-title": "Edição de permissão"
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",

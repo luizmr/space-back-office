@@ -29,8 +29,11 @@
     "application": "Application",
     "permission-group": "Permission Group",
     "edit-permission": "Edit permission",
+    "delete-permission": "Delete permission",
     "date": "Date",
-    "go-back": "Go back"
+    "go-back": "Go back",
+    "save": "Save",
+    "informations": "Informations"
   },
   "assignpermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
@@ -47,7 +50,8 @@
     "group": "Permission groups",
     "group-description": "Choose de permission group that you want:",
     "permissions": "Permissions",
-    "permissions-description": "Select which permissions this member will have access to:"
+    "permissions-description": "Select which permissions this member will have access to:",
+    "edit-permission-title": "Permission edit"
   },
   "dashboard": {
     "assign-permission": "Assign permission",

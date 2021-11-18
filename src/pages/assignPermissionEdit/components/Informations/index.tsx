@@ -10,7 +10,7 @@ function Informations({ application, member }: any) {
   return (
     <>
       <Typography fontWeight='bold' size='normal'>
-        Informações
+        {t('common.informations')}
       </Typography>
       <TextField
         id='form-app'

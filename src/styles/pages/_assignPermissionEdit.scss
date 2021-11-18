@@ -1,7 +1,12 @@
 .assignPermissionEdit__container {
   max-width: 624px;
+  height: 100vh;
   margin: 64px auto;
   position: relative;
+
+  p {
+    margin-bottom: 12px;
+  }
 
   .assignPermissionEdit__header {
     margin-bottom: 40px;
