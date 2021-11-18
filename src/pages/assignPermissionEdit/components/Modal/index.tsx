@@ -28,7 +28,7 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: a
                 variant='outlined'
                 onClick={() => handleDeleteApp()}
                 className={loading ? 'button-disabled-contained' : 'button-error'}
-                disabled={loading}
+                loading={loading}
               >
                 {t('common.confirm')}
               </Button>
