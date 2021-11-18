@@ -20,15 +20,8 @@ function App() {
   };
 
   useEffect(() => {
-    setLoaded(false);
-    if (localStorage.getItem('logado') === 'true' && !token) {
-      handleLogin();
-      setTimeout(() => {
-        setLoaded(true);
-      }, 1000);
-    } else {
-      setLoaded(true);
-    }
+    handleLogin();
+    setLoaded(true);
   }, []);
 
   useEffect(() => {

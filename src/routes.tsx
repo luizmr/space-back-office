@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import { useStateValue } from 'store/TokenProvider';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from 'components/Navbar';
-import HomePage from 'pages/HomePage';
 import Login from 'pages/login';
 import ScrollToTop from 'components/scrollToTop';
 import LoadingPage from 'pages/loadingPage';
@@ -15,16 +14,6 @@ import AssignPermissionEdit from 'pages/assignPermissionEdit';
 import Dashboard from 'pages/dashboard';
 import BreadCrumbs from 'components/breadcrumbs';
 import NotFound from 'pages/notFound';
-
-const publicRoutes = [
-  {
-    key: 'home',
-    Component: HomePage,
-    path: '/',
-    name: '',
-    breadCrumb: false
-  }
-];
 
 const privateRoutes = [
   {
@@ -110,7 +99,7 @@ const CustomRoute = ({ key, Component, path, Routes, breadCrumb }: RouteInterfac
 
 export const AppRoutes = () => {
   const [{ token }] = useStateValue();
-  const [routeOptions, setRouteOptions] = useState<Array<any>>(publicRoutes);
+  const [routeOptions, setRouteOptions] = useState<Array<any>>(privateRoutes);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -128,18 +117,14 @@ export const AppRoutes = () => {
   }, [token]);
 
   const buildRoutes = (users: any) => {
-    if (!token) {
-      setRouteOptions(publicRoutes);
-    } else {
-      if (typeof users.role === 'string') {
-        if (users.role === 'LojaAppIsEmployee') {
-          setRouteOptions(privateRoutes);
-        } else {
-          setRouteOptions(notAuthorizedRoutes);
-        }
-      } else {
+    if (typeof users.role === 'string') {
+      if (users.role === 'LojaAppIsEmployee') {
         setRouteOptions(privateRoutes);
+      } else {
+        setRouteOptions(notAuthorizedRoutes);
       }
+    } else {
+      setRouteOptions(privateRoutes);
     }
   };
   return (
