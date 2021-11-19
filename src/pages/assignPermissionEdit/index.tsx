@@ -13,6 +13,10 @@ import Footer from './components/Footer';
 import { PermissionsOutput } from 'models/assignPermission';
 import ToastComponent from 'components/toast';
 
+import memberOfMock from './mock.json';
+// services
+// import { MemberOfService } from 'services';
+
 interface AuditCompareRouteParams {
   id: string;
 }
@@ -23,6 +27,8 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const [application, setApplication] = useState<any>({ id: '1', name: 'Vitrine' });
   const [member, setMember] = useState<string>('Space');
   const [group, setGroup] = useState<string>('11');
+  const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const [loadingButton, setLoadingButton] = useState<boolean>(false);
   const [toast, setToast] = useState<any>({
     show: false,
@@ -30,12 +36,25 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
     message: t('assignpermission.saved-successfully')
   });
 
-  const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
-
   const memberOfId = match.params.id;
 
   useEffect(() => {
-    setMember('Valbl');
+    // MemberOfService.get(memberOfId)
+    //   .then(({ data }) => {
+    //     setMember(data.user.name);
+    //     setApplication(data.app.name);
+    //     setGroup(data.permissionGroup.id);
+    //     setPermissions(data.permissions);
+    //   })
+    //   .catch(() => {});
+
+    setMember(memberOfMock.user.name);
+    setApplication(memberOfMock.app);
+    setGroup(memberOfMock.permissionGroup.id);
+    setPermissions(memberOfMock.permissions);
+    setTimeout(() => {
+      setLoading(true);
+    }, 100);
   }, []);
 
   const handleConfirm = () => {
@@ -52,30 +71,34 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   };
 
   return (
-    <div className='assignPermissionEdit__container'>
-      <div className='assignPermissionEdit__header'>
-        <Typography fontWeight='semibold' size='large'>
-          {t('assignpermission.edit-permission-title')}
-        </Typography>
-      </div>
-      <div className='assignPermissionEdit__infos'>
-        <Informations application={application} member={member} />
-        <hr />
-      </div>
-      <div className='assignPermissionEdit__permissions-group'>
-        <>
-          <MemberGroup group={group} setGroup={setGroup} appId={application.id} />
-          <hr />
-          <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
-          <hr />
-        </>
-      </div>
-      <DeleteSection id={memberOfId} />
-      <div className='assignPermissionEdit__footer'>
-        <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
-      </div>
-      <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
-    </div>
+    <>
+      {loading && (
+        <div className='assignPermissionEdit__container'>
+          <div className='assignPermissionEdit__header'>
+            <Typography fontWeight='semibold' size='large'>
+              {t('assignpermission.edit-permission-title')}
+            </Typography>
+          </div>
+          <div className='assignPermissionEdit__infos'>
+            <Informations application={application} member={member} />
+            <hr />
+          </div>
+          <div className='assignPermissionEdit__permissions-group'>
+            <>
+              <MemberGroup group={group} setGroup={setGroup} appId={application.id} />
+              <hr />
+              <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
+              <hr />
+            </>
+          </div>
+          <DeleteSection id={memberOfId} />
+          <div className='assignPermissionEdit__footer'>
+            <Footer handleConfirm={handleConfirm} loadingButton={loadingButton} />
+          </div>
+          <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
+        </div>
+      )}
+    </>
   );
 }
 

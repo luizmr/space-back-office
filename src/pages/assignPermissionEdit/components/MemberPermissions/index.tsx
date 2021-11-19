@@ -11,6 +11,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import mock from 'pages/assignPermissionNew/mock.json';
 import { PermissionsOutput } from 'models/assignPermission';
 
+// services
+// import { AppService, MemberOfService } from 'services';
+
 function MemberPermissions({ group, permissions, setPermissions }: any) {
   const { t } = useTranslation('common');
 
@@ -29,7 +32,7 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
       }
     });
 
-    setPermissions(newPermissionsArray);
+    // setPermissions(newPermissionsArray);
   };
 
   useEffect(() => {
@@ -40,6 +43,20 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
       setPermissions([]);
     }
   }, [group]);
+
+  useEffect(() => {
+    //  AppService.getPermissionsGroup
+    const newPermissionsArray: Array<PermissionsOutput> = [];
+    mock.permissions[0].permissions.forEach(permission => {
+      const foundPermission = permissions.find((userPermission: any) => permission.id === userPermission.id);
+      if (foundPermission) {
+        newPermissionsArray.push(foundPermission);
+      } else {
+        newPermissionsArray.push(permission);
+      }
+    });
+    setPermissions(newPermissionsArray);
+  }, []);
 
   return (
     <>
