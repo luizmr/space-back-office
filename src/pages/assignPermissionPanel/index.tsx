@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { UsersDataOutput } from 'models/assignPermission';
 
-import { MemberOfService } from 'services';
+// import { MemberOfService } from 'services';
 import AssignPermissionTable from './components/AssignPermissionTable';
 import AssignPermissionHeader from './components/AssignPermissionHeader';
+import mock from './mock.json';
 
 const AssignPermissionPanel = () => {
   // const [page, setPage] = useState(1);
@@ -12,13 +13,14 @@ const AssignPermissionPanel = () => {
   const [rows, setRows] = useState<UsersDataOutput[]>([]);
 
   useEffect(() => {
-    MemberOfService.getAll()
-      .then(response => {
-        setRows(response.data);
-      })
-      .catch(err => {
-        setRows([]);
-      });
+    // MemberOfService.getAll()
+    //   .then(response => {
+    //     setRows(response.data);
+    //   })
+    //   .catch(err => {
+    //     setRows([]);
+    //   });
+    setRows(mock);
   }, []);
 
   return (
