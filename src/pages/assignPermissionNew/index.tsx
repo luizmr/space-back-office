@@ -57,7 +57,7 @@ const AssignPermissionNew = () => {
         <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} apps={apps} members={members} />
       )}
       {currentStep === 3 && <FormDone />}
-      <ToastComponent open={false} string={t('error.load-data-error')} handleClose={handleCloseToast} />
+      <ToastComponent open={openToast} string={t('error.load-data-error')} handleClose={handleCloseToast} />
     </div>
   );
 };
