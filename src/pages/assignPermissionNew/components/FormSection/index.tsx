@@ -28,7 +28,9 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [group, setGroup] = useState<string>('');
-  const [permissions, setPermissions] = useState<Array<PermissionsOutput>>([]);
+  const [permissions, setPermissions] = useState<
+    { permissionGroupId: string; permissions: Array<PermissionsOutput> }[]
+  >([]);
 
   const form = useForm({
     initialValues: { app: '0', member: '0' },
@@ -45,7 +47,11 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
       const permissionsFalseArray: { permissionId: string; autorize: boolean }[] = [];
 
       permissions.forEach(obj => {
-        !obj.authorize && permissionsFalseArray.push({ permissionId: obj.id, autorize: false });
+        if (obj.permissionGroupId === group) {
+          obj.permissions.forEach(el => {
+            !el.authorize && permissionsFalseArray.push({ permissionId: el.id, autorize: false });
+          });
+        }
       });
 
       try {

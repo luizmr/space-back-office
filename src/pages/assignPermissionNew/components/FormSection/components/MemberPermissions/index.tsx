@@ -16,34 +16,45 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
   const { t } = useTranslation('common');
 
   const handleChangePermission = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const permissionsArray = [...permissions];
+    const permissionsArray: { permissionGroupId: string; permissions: Array<PermissionsOutput> }[] = [...permissions];
     const newPermissionsArray: Array<PermissionsOutput> = [];
+    const finalPermissionsArray: { permissionGroupId: string; permissions: Array<PermissionsOutput> }[] = [];
 
     permissionsArray.forEach(obj => {
-      if (obj.slug === event.target.name) {
-        newPermissionsArray.push({
-          ...obj,
-          authorize: event.target.checked
+      if (obj.permissionGroupId === group) {
+        obj.permissions.forEach(el => {
+          if (el.slug === event.target.name) {
+            newPermissionsArray.push({
+              ...el,
+              authorize: event.target.checked
+            });
+          } else {
+            newPermissionsArray.push(el);
+          }
         });
-      } else {
-        newPermissionsArray.push(obj);
       }
+      finalPermissionsArray.push(obj);
     });
 
-    setPermissions(newPermissionsArray);
+    setPermissions([...finalPermissionsArray, { permissionGroupId: group, permissions: newPermissionsArray }]);
   };
 
   useEffect(() => {
     if (group.length) {
       // const permissionsFound = mock.permissions.find(obj => obj.groupId === group);
       // setPermissions(permissionsFound!.permissions);
-      PermissionGroupService.getPermission(group)
-        .then(response => {
-          setPermissions(response.data);
-        })
-        .catch(err => {
-          setPermissions([]);
-        });
+      const groupSaved = permissions.find(
+        (obj: { permissionGroupId: string; permissions: Array<PermissionsOutput> }) => obj.permissionGroupId === group
+      );
+      if (!groupSaved) {
+        PermissionGroupService.getPermission(group)
+          .then(response => {
+            setPermissions([...permissions, { permissionGroupId: group, permissions: response.data }]);
+          })
+          .catch(err => {
+            setPermissions([...permissions]);
+          });
+      }
     } else {
       setPermissions([]);
     }
@@ -68,21 +79,29 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
           </div>
 
           <FormGroup className='form__form-group'>
-            {permissions.map((obj: PermissionsOutput) => (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={obj.authorize}
-                    onChange={e => {
-                      handleChangePermission(e);
-                    }}
-                    name={obj.slug}
-                  />
-                }
-                label={obj.name}
-                key={obj.id}
-              />
-            ))}
+            {permissions.map((obj: { permissionGroupId: string; permissions: Array<PermissionsOutput> }) => {
+              if (obj.permissionGroupId === group) {
+                return (
+                  <>
+                    {obj.permissions.map((el: PermissionsOutput) => (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={el.authorize}
+                            onChange={e => {
+                              handleChangePermission(e);
+                            }}
+                            name={el.slug}
+                          />
+                        }
+                        label={el.name}
+                        key={el.id}
+                      />
+                    ))}
+                  </>
+                );
+              }
+            })}
           </FormGroup>
         </FormControl>
       ) : (
