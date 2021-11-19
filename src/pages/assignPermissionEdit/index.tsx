@@ -25,6 +25,7 @@ import { PermissionsOutput, UsersEditDataOutput } from 'models/assignPermission'
 
 import memberOfMock from './mock.json';
 import mock from 'pages/assignPermissionNew/mock.json';
+// import mockPanel from 'pages/assignPermissionPanel/mock.json';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -160,6 +161,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         permissionGroupId: group,
         permissions: permissionsFalseArray
       });
+      // mockPanel[mockPanel.findIndex((user) => user.id === memberId)].permissionGroup = permi
     }
   });
 

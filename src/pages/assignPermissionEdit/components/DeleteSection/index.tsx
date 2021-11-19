@@ -9,6 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModalComponent from '../Modal';
 import ToastComponent from 'components/toast';
 
+import mock from 'pages/assignPermissionPanel/mock.json';
+
 // import { MemberOfService } from 'services';
 
 type Props = {
@@ -32,6 +34,10 @@ const DeleteSection = ({ id }: Props) => {
     //     }, 2000);
     //   })
     //   .catch();
+    mock.splice(
+      mock.findIndex(user => user.id === Number(id)),
+      1
+    );
     setShowToast(true);
     setTimeout(() => {
       history.push('/assign-permission');
