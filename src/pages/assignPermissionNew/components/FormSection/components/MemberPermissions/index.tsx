@@ -32,8 +32,9 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
             newPermissionsArray.push(el);
           }
         });
+      } else {
+        finalPermissionsArray.push(obj);
       }
-      finalPermissionsArray.push(obj);
     });
 
     setPermissions([...finalPermissionsArray, { permissionGroupId: group, permissions: newPermissionsArray }]);
