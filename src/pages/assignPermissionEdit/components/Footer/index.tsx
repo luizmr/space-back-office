@@ -6,11 +6,10 @@ import Button from '@eduzz/houston-ui/Button';
 import SaveSolid from '@eduzz/houston-icons/SaveSolid';
 
 interface Props {
-  handleConfirm: () => void;
   loadingButton: boolean;
 }
 
-function Footer({ handleConfirm, loadingButton }: Props) {
+function Footer({ loadingButton }: Props) {
   const { t } = useTranslation('common');
   const history = useHistory();
 
@@ -24,7 +23,7 @@ function Footer({ handleConfirm, loadingButton }: Props) {
       >
         {t('common.cancel')}
       </Button>
-      <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' onClick={handleConfirm}>
+      <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' type='submit'>
         {t('common.save')}
       </Button>
     </>

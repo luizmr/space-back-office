@@ -10,6 +10,17 @@ export interface UsersDataOutput {
   permissionGroup: { id: string; name: string; slug: string };
 }
 
+export interface UsersEditDataOutput {
+  id: string;
+  user: {
+    idUserCompany: string;
+    name: string;
+  };
+  app: AppsOutput;
+  permissionGroup: { id: string; name: string; slug: string };
+  permissions: Array<PermissionsOutput>;
+}
+
 export interface AppsOutput {
   id: string;
   name: string;

@@ -10,10 +10,10 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 
 // utils
 import { GroupsOutput } from 'models/assignPermission';
-// import mock from 'pages/assignPermissionNew/mock.json';
-import { AppService } from 'services';
+import mock from 'pages/assignPermissionNew/mock.json';
+// import { AppService } from 'services';
 
-function MemberGroup({ group, setGroup, appId }: any) {
+function MemberGroup({ group, setGroup, appId, edit = false }: any) {
   const { t } = useTranslation('common');
   const [groups, setGroups] = useState<Array<GroupsOutput>>([]);
 
@@ -23,27 +23,29 @@ function MemberGroup({ group, setGroup, appId }: any) {
 
   // useEffect(() => {
   //   if (group.length > 0) {
-
-  // const groupsFound = mock.groups.find(obj => obj.appId === appId);
-  // setGroups(groupsFound!.groups);
+  //     const groupsFound = mock.groups.find(obj => obj.appId === appId);
+  //     setGroups(groupsFound!.groups);
   //   }
   // }, [group]);
 
   useEffect(() => {
     if (appId !== 0) {
-      // groupsFound = mock.groups.find(obj => obj.appId === appId);
-      // setGroups(groupsFound!.groups);
-      AppService.getPermissionsGroup(appId, { active: '1' })
-        .then(response => {
-          setGroups(response.data);
-        })
-        .catch(err => {
-          setGroups([]);
-        });
+      const groupsFound = mock.groups.find(obj => obj.appId === appId);
+      setGroups(groupsFound!.groups);
+
+      // AppService.getPermissionsGroup(appId, { active: '1' })
+      //   .then(response => {
+      //     setGroups(response.data);
+      //   })
+      //   .catch(err => {
+      //     setGroups([]);
+      //   });
     } else {
       setGroups([]);
     }
-    setGroup('');
+    if (!edit) {
+      setGroup('');
+    }
   }, [appId]);
 
   return (

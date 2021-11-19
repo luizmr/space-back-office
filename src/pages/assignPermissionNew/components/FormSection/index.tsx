@@ -42,12 +42,12 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
       setSubmitting(true);
       const { member } = values;
 
-      const permissionsFalseArray: { permissionId: string; autorize: boolean }[] = [];
+      const permissionsFalseArray: { permissionId: string; authorize: boolean }[] = [];
 
       permissions.forEach(obj => {
         if (obj.permissionGroupId === group) {
           obj.permissions.forEach(el => {
-            !el.authorize && permissionsFalseArray.push({ permissionId: el.id, autorize: false });
+            !el.authorize && permissionsFalseArray.push({ permissionId: el.id, authorize: false });
           });
         }
       });

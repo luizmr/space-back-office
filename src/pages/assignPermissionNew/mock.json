@@ -150,7 +150,7 @@
         {
           "id": "4",
           "name": "Criar app",
-          "slug": "create-plugin",
+          "slug": "create-app",
           "authorize": true
         }
       ]
@@ -162,13 +162,13 @@
           "id": "1",
           "name": "Comentar app parceiro",
           "slug": "comment-app",
-          "authorize": false
+          "authorize": true
         },
         {
-          "id": "1",
+          "id": "2",
           "name": "Comentar plugin parceiro",
           "slug": "comment-plugin",
-          "authorize": false
+          "authorize": true
         }
       ]
     },
@@ -179,13 +179,13 @@
           "id": "1",
           "name": "Comentar app usuario",
           "slug": "comment-app",
-          "authorize": false
+          "authorize": true
         },
         {
-          "id": "1",
+          "id": "2",
           "name": "Comentar plugin usuario",
           "slug": "comment-plugin",
-          "authorize": false
+          "authorize": true
         }
       ]
     },

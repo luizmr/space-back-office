@@ -32,13 +32,23 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
       }
     });
 
-    // setPermissions(newPermissionsArray);
+    setPermissions(newPermissionsArray);
   };
 
   useEffect(() => {
     if (group.length) {
-      const permissionsFound = mock.permissions.find(obj => obj.groupId === group);
-      setPermissions(permissionsFound!.permissions);
+      const permissionsFound = mock.permissions.find(obj => obj.groupId === group)!;
+      const newPermissionsArray: Array<PermissionsOutput> = [];
+      permissionsFound.permissions.forEach((permission: any) => {
+        const foundPermission = permissions.find((userPermission: any) => permission.slug === userPermission.slug);
+        if (foundPermission) {
+          newPermissionsArray.push(foundPermission);
+        } else {
+          newPermissionsArray.push(permission);
+        }
+      });
+      setPermissions(newPermissionsArray);
+      // setPermissions(permissionsFound!.permissions);
     } else {
       setPermissions([]);
     }
@@ -46,16 +56,16 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
 
   useEffect(() => {
     //  AppService.getPermissionsGroup
-    const newPermissionsArray: Array<PermissionsOutput> = [];
-    mock.permissions[0].permissions.forEach(permission => {
-      const foundPermission = permissions.find((userPermission: any) => permission.id === userPermission.id);
-      if (foundPermission) {
-        newPermissionsArray.push(foundPermission);
-      } else {
-        newPermissionsArray.push(permission);
-      }
-    });
-    setPermissions(newPermissionsArray);
+    // const newPermissionsArray: Array<PermissionsOutput> = [];
+    // mock.permissions[0].permissions.forEach(permission => {
+    //   const foundPermission = permissions.find((userPermission: any) => permission.id === userPermission.id);
+    //   if (foundPermission) {
+    //     newPermissionsArray.push(foundPermission);
+    //   } else {
+    //     newPermissionsArray.push(permission);
+    //   }
+    // });
+    // setPermissions(newPermissionsArray);
   }, []);
 
   return (
