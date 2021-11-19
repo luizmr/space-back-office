@@ -9,6 +9,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModalComponent from '../Modal';
 import ToastComponent from 'components/toast';
 
+import { MemberOfService } from 'services';
+
 type Props = {
   id: string;
 };
@@ -22,10 +24,14 @@ const DeleteSection = ({ id }: Props) => {
 
   const handleDeleteMemberOf = () => {
     setLoading(true);
-    setShowToast(true);
-    setTimeout(() => {
-      history.push('/assign-permission');
-    }, 2000);
+    MemberOfService.deleteMemberOf(id)
+      .then(() => {
+        setShowToast(true);
+        setTimeout(() => {
+          history.push('/assign-permission');
+        }, 2000);
+      })
+      .catch();
   };
 
   const handleCloseShowToast = () => {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import useProgress from '@eduzz/houston-ui/Progress/useProgress';
 import { useStateValue } from 'store/TokenProvider';
 import jwt from 'jsonwebtoken';
-import axios from 'axios';
+// import axios from 'axios';
 
 // components
 import FormDone from './components/FormDone';
@@ -14,7 +14,7 @@ import HeaderSection from './components/HeaderSection';
 import { SelectFieldOutput } from 'models/assignPermission';
 import createSelectArray from 'utils/createSelectArray';
 import mock from './mock.json';
-import { CompanyService } from 'services';
+// import { CompanyService } from 'services';
 import ToastComponent from 'components/toast';
 
 const AssignPermissionNew = () => {
@@ -29,21 +29,21 @@ const AssignPermissionNew = () => {
 
   useEffect(() => {
     setCurrentStep(0);
-    axios
-      .all([CompanyService.getApp(user.CompanyId), CompanyService.getUsers(user.CompanyId)])
-      .then(
-        axios.spread(function (apps, users) {
-          // setApps(createSelectArray(apps.data));
-          setApps(createSelectArray(mock.apps));
-          // setMembers(createSelectArray(users.data));
-          setMembers(createSelectArray(mock.apps));
-        })
-      )
-      .catch(err => {
-        setApps([]);
-        setMembers([]);
-        setOpenToast(true);
-      });
+    setApps(createSelectArray(mock.apps));
+    setMembers(createSelectArray(mock.users));
+    // axios
+    //   .all([CompanyService.getApp(user.CompanyId), CompanyService.getUsers(user.CompanyId)])
+    //   .then(
+    //     axios.spread(function (apps, users) {
+    //       // setApps(createSelectArray(apps.data));
+    //       // setMembers(createSelectArray(users.data));
+    //     })
+    //   )
+    //   .catch(err => {
+    //     setApps([]);
+    //     setMembers([]);
+    //     setOpenToast(true);
+    //   });
   }, []);
 
   const handleCloseToast = () => {

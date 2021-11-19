@@ -3,28 +3,28 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { match } from 'react-router';
 import Typography from '@eduzz/houston-ui/Typography';
-// import MemberGroup from 'pages/assignPermissionEdit/components/MemberGroup';
-// import MemberPermissions from 'pages/assignPermissionEdit/components/MemberPermissions';
+
 import Form from '@eduzz/houston-ui/Forms/Form';
 import useForm from '@eduzz/houston-forms/useForm';
+
+import ToastComponent from 'components/toast';
 import MemberGroup from 'pages/assignPermissionNew/components/FormSection/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionNew/components/FormSection/components/MemberPermissions';
 import DeleteSection from './components/DeleteSection';
 import Informations from './components/Informations';
 import Footer from './components/Footer';
 
+// services
+// import {
+// MemberOfService
+// PermissionGroupService
+// } from 'services';
+
 // models
 import { PermissionsOutput, UsersEditDataOutput } from 'models/assignPermission';
-import ToastComponent from 'components/toast';
 
 import memberOfMock from './mock.json';
 import mock from 'pages/assignPermissionNew/mock.json';
-
-// services
-import {
-  MemberOfService
-  // PermissionGroupService
-} from 'services';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -119,7 +119,8 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
     validationSchema: yup => {
       return yup.object().shape({
         app: yup.string(),
-        member: yup.string()
+        userCompanyId: yup.string(),
+        memberId: yup.string()
       });
     },
     onSubmit: async values => {
@@ -136,23 +137,28 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         }
       });
 
-      console.log({ userCompanyId, memberId, permissionGroupId: group, permissions: permissionsFalseArray });
-      try {
-        await MemberOfService.put({
-          userCompanyId,
-          memberId,
-          permissionGroupId: group,
-          permissions: permissionsFalseArray
-        });
-        setTimeout(() => {
-          setSubmitting(false);
-          setToast({ ...toast, show: true });
-          history.push('/assign-permission');
-        }, 1000);
-      } catch {
+      // try {
+      //   await MemberOfService.put({
+      //     userCompanyId,
+      //     memberId,
+      //     permissionGroupId: group,
+      //     permissions: permissionsFalseArray
+      //   });
+      setTimeout(() => {
         setSubmitting(false);
-        setToast({ ...toast, show: true, type: 'error', message: 'Erro ao editar permissão' });
-      }
+        setToast({ ...toast, show: true });
+        history.push('/assign-permission');
+      }, 1000);
+      // } catch {
+      //   setSubmitting(false);
+      //   setToast({ ...toast, show: true, type: 'error', message: 'Erro ao editar permissão' });
+      // }
+      console.log({
+        userCompanyId,
+        memberId,
+        permissionGroupId: group,
+        permissions: permissionsFalseArray
+      });
     }
   });
 
