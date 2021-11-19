@@ -1,10 +1,13 @@
 export interface UsersDataOutput {
   id: number;
-  updated_at?: string;
-  created_at: string;
-  application: string;
-  name: string;
-  permissionGroup: string;
+  updated_At?: string;
+  created_At: string;
+  user: {
+    name: string;
+    userCompanyId: string;
+  };
+  app: AppsOutput;
+  permissionGroup: { id: string; name: string; slug: string };
 }
 
 export interface AppsOutput {
