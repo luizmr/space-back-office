@@ -12,7 +12,7 @@ import MemberGroup from './components/MemberGroup';
 import MemberPermissions from './components/MemberPermissions';
 
 // models
-import { PermissionsOutput, SelectFieldOutput } from 'models/assignPermission';
+import { PermissionsStateOutput, SelectFieldOutput } from 'models/assignPermission';
 import { MemberOfService } from 'services';
 
 type Props = {
@@ -28,9 +28,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [group, setGroup] = useState<string>('');
-  const [permissions, setPermissions] = useState<
-    { permissionGroupId: string; permissions: Array<PermissionsOutput> }[]
-  >([]);
+  const [permissions, setPermissions] = useState<PermissionsStateOutput[]>([]);
 
   const form = useForm({
     initialValues: { app: '0', member: '0' },

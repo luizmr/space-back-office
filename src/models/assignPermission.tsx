@@ -43,3 +43,8 @@ export interface SelectFieldOutput {
   label: string;
   value: string;
 }
+
+export interface PermissionsStateOutput {
+  permissionGroupId: string;
+  permissions: Array<PermissionsOutput>;
+}

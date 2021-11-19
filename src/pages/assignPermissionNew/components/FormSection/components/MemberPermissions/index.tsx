@@ -9,16 +9,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // utils
 // import mock from 'pages/assignPermissionNew/mock.json';
-import { PermissionsOutput } from 'models/assignPermission';
+import { PermissionsOutput, PermissionsStateOutput } from 'models/assignPermission';
 import { PermissionGroupService } from 'services';
 
 function MemberPermissions({ group, permissions, setPermissions }: any) {
   const { t } = useTranslation('common');
 
   const handleChangePermission = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const permissionsArray: { permissionGroupId: string; permissions: Array<PermissionsOutput> }[] = [...permissions];
+    const permissionsArray: PermissionsStateOutput[] = [...permissions];
     const newPermissionsArray: Array<PermissionsOutput> = [];
-    const finalPermissionsArray: { permissionGroupId: string; permissions: Array<PermissionsOutput> }[] = [];
+    const finalPermissionsArray: PermissionsStateOutput[] = [];
 
     permissionsArray.forEach(obj => {
       if (obj.permissionGroupId === group) {
@@ -43,9 +43,7 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
     if (group.length) {
       // const permissionsFound = mock.permissions.find(obj => obj.groupId === group);
       // setPermissions(permissionsFound!.permissions);
-      const groupSaved = permissions.find(
-        (obj: { permissionGroupId: string; permissions: Array<PermissionsOutput> }) => obj.permissionGroupId === group
-      );
+      const groupSaved = permissions.find((obj: PermissionsStateOutput) => obj.permissionGroupId === group);
       if (!groupSaved) {
         PermissionGroupService.getPermission(group)
           .then(response => {
@@ -79,7 +77,7 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
           </div>
 
           <FormGroup className='form__form-group'>
-            {permissions.map((obj: { permissionGroupId: string; permissions: Array<PermissionsOutput> }) => {
+            {permissions.map((obj: PermissionsStateOutput) => {
               if (obj.permissionGroupId === group) {
                 return (
                   <>
