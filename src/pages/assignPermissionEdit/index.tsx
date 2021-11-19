@@ -113,7 +113,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const form = useForm({
     initialValues: {
       app: memberAllData.app.id,
-      userCompanyId: memberAllData.user.idUserCompany,
+      userCompanyId: memberAllData.user.userCompanyId,
       memberId: memberAllData.id
     },
     validationSchema: yup => {

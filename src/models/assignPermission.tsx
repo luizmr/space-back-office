@@ -13,7 +13,7 @@ export interface UsersDataOutput {
 export interface UsersEditDataOutput {
   id: string;
   user: {
-    idUserCompany: string;
+    userCompanyId: string;
     name: string;
   };
   app: AppsOutput;
