@@ -1,0 +1,7 @@
+{
+  "id": "1",
+  "user": { "id": "1", "userCompany": "Space-Vitrine", "name": "João" },
+  "app": { "id": "1", "name": "Vitrine", "slug": "vitrine" },
+  "permissionGroup": { "id": "11", "name": "Colaborador vitrine", "slug": "colaborador-vitrine" },
+  "permissions": [{ "id": "1", "name": "Comentar app colaborador", "slug": "comment-app", "authorize": false }]
+}

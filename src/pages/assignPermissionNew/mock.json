@@ -133,13 +133,25 @@
           "id": "1",
           "name": "Comentar app colaborador",
           "slug": "comment-app",
-          "authorize": false
+          "authorize": true
         },
         {
-          "id": "1",
+          "id": "2",
           "name": "Comentar plugin colaborador",
           "slug": "comment-plugin",
-          "authorize": false
+          "authorize": true
+        },
+        {
+          "id": "3",
+          "name": "Criar plugin",
+          "slug": "create-plugin",
+          "authorize": true
+        },
+        {
+          "id": "4",
+          "name": "Criar app",
+          "slug": "create-plugin",
+          "authorize": true
         }
       ]
     },
