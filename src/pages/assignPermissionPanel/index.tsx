@@ -1,99 +1,30 @@
-import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-
-import { useTranslation } from 'react-i18next';
-
-import Table from '@eduzz/houston-ui/Table';
-import Tooltip from '@eduzz/houston-ui/Tooltip';
-import Typography from '@eduzz/houston-ui/Typography';
-import Button from '@eduzz/houston-ui/Button';
-import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
-import Add from '@eduzz/houston-icons/Add';
-import EditSolid from '@eduzz/houston-icons/EditSolid';
+import React, { useEffect, useState } from 'react';
 
 import { UsersDataOutput } from 'models/assignPermission';
 
-import mockUsers from './mock.json';
+import { MemberOfService } from 'services';
+import AssignPermissionTable from './components/AssignPermissionTable';
+import AssignPermissionHeader from './components/AssignPermissionHeader';
 
 const AssignPermissionPanel = () => {
-  const { t } = useTranslation('common');
-  const history = useHistory();
-  const [sort, setSort] = useState<any>(null);
   // const [page, setPage] = useState(1);
   // const [perPage, setPerPage] = useState(10);
-  const [rows, setRows] = useState<UsersDataOutput[]>(mockUsers);
+  const [rows, setRows] = useState<UsersDataOutput[]>([]);
 
-  const onSort = useCallback((data: { field: string; direction: string }) => {
-    setSort(data);
-    setRows(rows => {
-      return rows.sort((a, b) => {
-        if ((a.updated_at ? a.updated_at : a.created_at) > (b.updated_at ? b.updated_at : b.created_at))
-          return data.direction === 'asc' ? 1 : -1;
-        if ((a.updated_at ? a.updated_at : a.created_at) == (b.updated_at ? b.updated_at : b.created_at)) return 0;
-        return data.direction === 'asc' ? -1 : 1;
+  useEffect(() => {
+    MemberOfService.getAll()
+      .then(response => {
+        setRows(response.data);
+      })
+      .catch(err => {
+        setRows([]);
       });
-    });
   }, []);
 
   return (
     <div className='container-permission-panel'>
-      <div className='panel-header'>
-        <Typography fontWeight='semibold' size='large'>
-          {t('assignpermission.title')}
-        </Typography>
-        <Button
-          startIcon={<Add />}
-          onClick={() => {
-            history.push('/assign-permission/new');
-          }}
-          variant='outlined'
-        >
-          <Typography fontWeight='semibold'>{t('dashboard.assign-permission')}</Typography>
-        </Button>
-      </div>
-      <div className='panel-header__sub-title'>
-        <Typography fontWeight='regular' size='normal'>
-          {t('assignpermission.subtitle')}
-        </Typography>
-      </div>
-      <Table stripedRows sort={sort} onSort={onSort}>
-        <Table.Header>
-          <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
-          <Table.Column>{t('common.application')}</Table.Column>
-          <Table.Column>{t('common.permission-group')}</Table.Column>
-          <Table.Column>{t('common.user')}</Table.Column>
-          <Table.Column align='right'>{t('common.action')}</Table.Column>
-        </Table.Header>
-        <Table.Body>
-          <Table.Empty count={rows.length} />
-          {rows.map((row, index) => (
-            <Table.Row data={row} index={index} key={row.id}>
-              <Table.Cell>{row.updated_at ? row.updated_at : row.created_at}</Table.Cell>
-              <Table.Cell>{row.application}</Table.Cell>
-              <Table.Cell>{row.permissionGroup}</Table.Cell>
-              <Table.Cell>{row.name}</Table.Cell>
-              <Table.Cell align='right'>
-                <Tooltip placement='bottom' title={`${t('common.edit-permission')}`}>
-                  <ButtonIcon
-                    onClick={() => {
-                      history.push(`assign-permission/edit/${row.id}`);
-                    }}
-                  >
-                    <EditSolid />
-                  </ButtonIcon>
-                </Tooltip>
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-        {/* <Table.Pagination
-          page={page}
-          perPage={perPage}
-          total={10}
-          onChangePage={setPage}
-          onChangePerPage={setPerPage}
-        /> */}
-      </Table>
+      <AssignPermissionHeader />
+      <AssignPermissionTable rows={rows} setRows={setRows} />
     </div>
   );
 };

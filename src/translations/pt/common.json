@@ -66,7 +66,8 @@
   },
   "error": {
     "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
-    "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!"
+    "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!",
+    "load-data-error": "Um erro inesperado ocorreu ao carregar as informações, tente novamente!"
   },
   "breadcrumb": {
     "home": "Back Office",
