@@ -144,9 +144,10 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
       //     permissionGroupId: group,
       //     permissions: permissionsFalseArray
       //   });
+      setToast({ ...toast, show: true });
       setTimeout(() => {
         setSubmitting(false);
-        setToast({ ...toast, show: true });
+        // setToast({ ...toast, show: true });
         history.push('/assign-permission');
       }, 1000);
       // } catch {
