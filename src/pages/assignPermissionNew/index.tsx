@@ -9,13 +9,12 @@ import axios from 'axios';
 import FormDone from './components/FormDone';
 import FormSection from './components/FormSection';
 import HeaderSection from './components/HeaderSection';
+import ToastComponent from 'components/toast';
 
 // utils
 import { SelectFieldOutput } from 'models/assignPermission';
-import createSelectArray from 'utils/createSelectArray';
-import mock from './mock.json';
 import { CompanyService } from 'services';
-import ToastComponent from 'components/toast';
+import createSelectArray from 'utils/createSelectArray';
 
 const AssignPermissionNew = () => {
   const { t } = useTranslation('common');
@@ -29,8 +28,6 @@ const AssignPermissionNew = () => {
 
   useEffect(() => {
     setCurrentStep(0);
-    setApps(createSelectArray(mock.apps));
-    setMembers(createSelectArray(mock.users));
     axios
       .all([
         CompanyService.getApp('C4E64E81-DFB6-4824-9E68-FC34356A14BB'),
@@ -38,8 +35,8 @@ const AssignPermissionNew = () => {
       ])
       .then(
         axios.spread(function (apps, users) {
-          // setApps(createSelectArray(apps.data));
-          // setMembers(createSelectArray(users.data));
+          setApps(createSelectArray(apps.data));
+          setMembers(createSelectArray(users.data));
         })
       )
       .catch(err => {
