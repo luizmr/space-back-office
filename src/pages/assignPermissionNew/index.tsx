@@ -32,6 +32,8 @@ const AssignPermissionNew = () => {
       .all([
         CompanyService.getApp('C4E64E81-DFB6-4824-9E68-FC34356A14BB'),
         CompanyService.getUsers('C4E64E81-DFB6-4824-9E68-FC34356A14BB')
+        // CompanyService.getApp(user.CompanyId),
+        // CompanyService.getUsers(user.CompanyId)
       ])
       .then(
         axios.spread(function (apps, users) {

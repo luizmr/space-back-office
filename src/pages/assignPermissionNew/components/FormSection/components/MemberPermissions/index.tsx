@@ -10,7 +10,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // utils
 import mock from 'pages/assignPermissionNew/mock.json';
 import { PermissionsOutput, PermissionsStateOutput } from 'models/assignPermission';
-// import { PermissionGroupService } from 'services';
+import { PermissionGroupService } from 'services';
 
 function MemberPermissions({ group, permissions, setPermissions }: any) {
   const { t } = useTranslation('common');
@@ -47,13 +47,13 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
       if (!groupSaved) {
         const permissionsFound = mock.permissions.find(obj => obj.groupId === group);
         setPermissions([...permissions, { permissionGroupId: group, permissions: permissionsFound?.permissions }]);
-        // PermissionGroupService.getPermission(group)
-        //   .then(response => {
-        //     setPermissions([...permissions, { permissionGroupId: group, permissions: response.data }]);
-        //   })
-        //   .catch(err => {
-        //     setPermissions([...permissions]);
-        //   });
+        PermissionGroupService.getPermission(group)
+          .then(response => {
+            setPermissions([...permissions, { permissionGroupId: group, permissions: response.data }]);
+          })
+          .catch(err => {
+            setPermissions([...permissions]);
+          });
       }
     } else {
       setPermissions([]);

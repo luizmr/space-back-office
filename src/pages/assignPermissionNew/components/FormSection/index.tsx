@@ -52,16 +52,11 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
         }
       });
 
-      console.log({
-        userCompanyId: member,
-        permissionGroupId: group,
-        permissions: permissionsFalseArray
-      });
-
       setTimeout(() => {
         setSubmitting(false);
         setCurrentStep(3);
       }, 1000);
+
       // try {
       //   await MemberOfService.post({
       //     userCompanyId: member,
