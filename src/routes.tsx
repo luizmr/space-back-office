@@ -103,7 +103,8 @@ export const AppRoutes = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
+    setLoading(false);
     const tokenUser = token ? token.split(' ')[1] : '';
     if (token) {
       buildRoutes(jwt.decode(tokenUser));

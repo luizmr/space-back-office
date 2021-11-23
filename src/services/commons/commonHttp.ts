@@ -3,7 +3,7 @@ import axios from 'axios';
 import { config } from 'environment';
 
 const httpCommon = axios.create({
-  baseURL: config.url.API_URL,
+  baseURL: config.url.AUTH_URL,
   headers: {
     'Content-type': 'application/json'
   }
