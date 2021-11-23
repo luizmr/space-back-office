@@ -67,7 +67,9 @@
   "error": {
     "permission-error": "An error occurred while completing the assignment, try again!",
     "dashboard-error": "An error occurred while loading the dashboard info, try again!",
-    "load-data-error": "An unexpected error occurred loading the information, please try again!"
+    "load-data-error": "An unexpected error occurred loading the information, please try again!",
+    "assign-permission-edit-error": "An error occurred while editing the Member permissions assignment, try again!",
+    "assign-permission-delete-error": "An error occurred when deleting the Member permissions assignment, try again!"
   },
   "breadcrumb": {
     "home": "Back Office",

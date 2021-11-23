@@ -4,9 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { match } from 'react-router';
 import Typography from '@eduzz/houston-ui/Typography';
 
-import Form from '@eduzz/houston-ui/Forms/Form';
-import useForm from '@eduzz/houston-forms/useForm';
-
 import ToastComponent from 'components/toast';
 import MemberGroup from 'pages/assignPermissionNew/components/FormSection/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionNew/components/FormSection/components/MemberPermissions';
@@ -15,17 +12,12 @@ import Informations from './components/Informations';
 import Footer from './components/Footer';
 
 // services
-// import {
-// MemberOfService
-// PermissionGroupService
-// } from 'services';
+import { MemberOfService } from 'services';
 
 // models
 import { PermissionsOutput, UsersEditDataOutput } from 'models/assignPermission';
 
 import memberOfMock from './mock.json';
-import mock from 'pages/assignPermissionNew/mock.json';
-// import mockPanel from 'pages/assignPermissionPanel/mock.json';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -36,7 +28,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const history = useHistory();
   const [application, setApplication] = useState<any>({ id: '1', name: 'Vitrine' });
   const [member, setMember] = useState<string>('Space');
-  const [group, setGroup] = useState<string>('11');
+  const [group, setGroup] = useState<string>('');
   const [memberAllData, setMemberAllData] = useState<UsersEditDataOutput>(memberOfMock);
   const [permissions, setPermissions] = useState<
     { permissionGroupId: string; permissions: Array<PermissionsOutput> }[]
@@ -52,118 +44,52 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const memberOfId = match.params.id;
 
   useEffect(() => {
-    // MemberOfService.get(memberOfId)
-    //   .then(({ data }) => {
-    //     setMemberAllData(data);
-    //     setMember(data.user.name);
-    //     setApplication(data.app.name);
-    //     setGroup(data.permissionGroup.id);
-
-    // PermissionGroupService.getPermission(data.permissionGroup.id)
-    //   .then(({ data }) => {
-    //     const newPermissionsArray: Array<PermissionsOutput> = [];
-    //     data.permissions.forEach((permission: PermissionsOutput) => {
-    //       const foundPermission: PermissionsOutput | undefined = memberOfMock.permissions.find(
-    //         (userPermission: PermissionsOutput) => permission.slug === userPermission.slug
-    //       );
-    //       if (foundPermission) {
-    //         newPermissionsArray.push(foundPermission);
-    //       } else {
-    //         newPermissionsArray.push(permission);
-    //       }
-    //     });
-    //     setPermissions([
-    //       {
-    //         permissionGroupId: memberOfMock.permissionGroup.id,
-    //         permissions: newPermissionsArray
-    //       }
-    //     ]);
-    //   })
-    //   .catch(() => {});
-    //   })
-    //   .catch(() => {});
-    setMemberAllData(memberOfMock);
-    setMember(memberOfMock.user.name);
-    setApplication(memberOfMock.app);
-    setGroup(memberOfMock.permissionGroup.id);
-
-    const permissionsFound = mock.permissions.find(obj => obj.groupId === memberOfMock.permissionGroup.id)!;
-    const newPermissionsArray: Array<PermissionsOutput> = [];
-    permissionsFound.permissions.forEach((permission: any) => {
-      const foundPermission: any = memberOfMock.permissions.find(
-        (userPermission: any) => permission.slug === userPermission.slug
-      );
-      if (foundPermission) {
-        newPermissionsArray.push(foundPermission);
-      } else {
-        newPermissionsArray.push(permission);
-      }
-    });
-    setPermissions([
-      {
-        permissionGroupId: memberOfMock.permissionGroup.id,
-        permissions: newPermissionsArray
-      }
-    ]);
-
-    setTimeout(() => {
-      setLoading(true);
-    }, 100);
+    MemberOfService.get(memberOfId)
+      .then(({ data }) => {
+        setMemberAllData(data);
+        setMember(data.user.name);
+        setApplication(data.app.name);
+        setGroup(data.permissionGroup.id);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: t('error.load-data-error') });
+      });
   }, []);
 
-  const form = useForm({
-    initialValues: {
-      app: memberAllData.app.id,
+  const handleEdit = () => {
+    setSubmitting(true);
+    const permissionsFalseArray: { permissionId: string; authorize: boolean }[] = [];
+
+    permissions.forEach(obj => {
+      if (obj.permissionGroupId === group) {
+        obj.permissions.forEach(el => {
+          !el.authorize && permissionsFalseArray.push({ permissionId: el.id, authorize: false });
+        });
+      }
+    });
+    MemberOfService.put({
       userCompanyId: memberAllData.user.userCompanyId,
-      memberId: memberAllData.id
-    },
-    validationSchema: yup => {
-      return yup.object().shape({
-        app: yup.string(),
-        userCompanyId: yup.string(),
-        memberId: yup.string()
-      });
-    },
-    onSubmit: async values => {
-      setSubmitting(true);
-      const { userCompanyId, memberId } = values;
-
-      const permissionsFalseArray: { permissionId: string; authorize: boolean }[] = [];
-
-      permissions.forEach(obj => {
-        if (obj.permissionGroupId === group) {
-          obj.permissions.forEach(el => {
-            !el.authorize && permissionsFalseArray.push({ permissionId: el.id, authorize: false });
-          });
-        }
-      });
-
-      // try {
-      //   await MemberOfService.put({
-      //     userCompanyId,
-      //     memberId,
-      //     permissionGroupId: group,
-      //     permissions: permissionsFalseArray
-      //   });
-      setToast({ ...toast, show: true });
-      setTimeout(() => {
+      memberId: memberAllData.id,
+      permissionGroupId: group,
+      permissions: permissionsFalseArray
+    })
+      .then(response => {
+        setToast({
+          show: true,
+          type: 'success',
+          message: t('assignpermission.saved-successfully')
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          history.push('/assign-permission');
+        }, 1000);
+      })
+      .catch(err => {
         setSubmitting(false);
-        // setToast({ ...toast, show: true });
-        history.push('/assign-permission');
-      }, 1000);
-      // } catch {
-      //   setSubmitting(false);
-      //   setToast({ ...toast, show: true, type: 'error', message: 'Erro ao editar permissão' });
-      // }
-      console.log({
-        userCompanyId,
-        memberId,
-        permissionGroupId: group,
-        permissions: permissionsFalseArray
+        setToast({ ...toast, show: true, type: 'error', message: t('error.assign-permission-edit-error') });
       });
-      // mockPanel[mockPanel.findIndex((user) => user.id === memberId)].permissionGroup = permi
-    }
-  });
+  };
 
   const handleClose = () => {
     setToast({ ...toast, show: false });
@@ -182,18 +108,16 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
             <Informations application={application} member={member} />
             <hr />
           </div>
-          <Form context={form}>
-            <div className='assignPermissionEdit__permissions-group'>
-              <MemberGroup group={group} setGroup={setGroup} appId={application.id} edit />
-              <hr />
-              <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
-              <hr />
-            </div>
-            <DeleteSection id={memberOfId} />
-            <div className='assignPermissionEdit__footer'>
-              <Footer loadingButton={submitting} />
-            </div>
-          </Form>
+          <div className='assignPermissionEdit__permissions-group'>
+            <MemberGroup group={group} setGroup={setGroup} appId={memberAllData.app.id} edit />
+            <hr />
+            <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
+            <hr />
+          </div>
+          <DeleteSection id={memberOfId} />
+          <div className='assignPermissionEdit__footer'>
+            <Footer loadingButton={submitting} handleEdit={handleEdit} />
+          </div>
           <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
         </div>
       )}

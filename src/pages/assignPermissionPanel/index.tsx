@@ -16,12 +16,10 @@ const AssignPermissionPanel = () => {
     MemberOfService.getAll()
       .then(response => {
         setRows(response.data);
-        console.log(response.data);
       })
       .catch(err => {
         setRows([]);
       });
-    // setRows(mock);
   }, []);
 
   return (

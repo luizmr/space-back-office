@@ -16,8 +16,8 @@ const put = (data: any) => {
   return http.put('/MemberOf', data);
 };
 
-const deleteMemberOf = (data: any) => {
-  return http.delete('/MemberOf', data);
+const deleteMemberOf = (id: string) => {
+  return http.delete(`/MemberOf/${id}`);
 };
 
 export default {

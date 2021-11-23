@@ -67,7 +67,9 @@
   "error": {
     "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
     "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!",
-    "load-data-error": "Um erro inesperado ocorreu ao carregar as informações, tente novamente!"
+    "load-data-error": "Um erro inesperado ocorreu ao carregar as informações, tente novamente!",
+    "assign-permission-edit-error": "Um erro ocorreu durante a edição da atribuição de permissão do Membro, tente novamente!",
+    "assign-permission-delete-error": "Um erro ocorreu ao excluir a atribuição de permissões do Membro, tente novamente!"
   },
   "breadcrumb": {
     "home": "Back Office",

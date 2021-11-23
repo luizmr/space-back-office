@@ -9,9 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModalComponent from '../Modal';
 import ToastComponent from 'components/toast';
 
-import mock from 'pages/assignPermissionPanel/mock.json';
-
-// import { MemberOfService } from 'services';
+import { MemberOfService } from 'services';
 
 type Props = {
   id: string;
@@ -23,25 +21,23 @@ const DeleteSection = ({ id }: Props) => {
   const [modalShow, setModalShow] = useState<boolean>(false);
   const [showToast, setShowToast] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [toastType, setToastType] = useState<string>('success');
 
   const handleDeleteMemberOf = () => {
     setLoading(true);
-    // MemberOfService.deleteMemberOf(id)
-    //   .then(() => {
-    //     setShowToast(true);
-    //     setTimeout(() => {
-    //       history.push('/assign-permission');
-    //     }, 2000);
-    //   })
-    //   .catch();
-    mock.splice(
-      mock.findIndex(user => user.id === Number(id)),
-      1
-    );
-    setShowToast(true);
-    setTimeout(() => {
-      history.push('/assign-permission');
-    }, 2000);
+    MemberOfService.deleteMemberOf(id)
+      .then(() => {
+        setToastType('success');
+        setShowToast(true);
+        setTimeout(() => {
+          history.push('/assign-permission');
+        }, 2000);
+      })
+      .catch(() => {
+        setLoading(false);
+        setToastType('error');
+        setShowToast(true);
+      });
   };
 
   const handleCloseShowToast = () => {
@@ -71,8 +67,10 @@ const DeleteSection = ({ id }: Props) => {
       />
       <ToastComponent
         open={showToast}
-        string={t('assignpermission.delete-success')}
-        type={'success'}
+        string={
+          toastType === 'error' ? t('error.assign-permission-delete-error') : t('assignpermission.delete-success')
+        }
+        type={toastType}
         handleClose={handleCloseShowToast}
         callClose={false}
       />

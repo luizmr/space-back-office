@@ -16,18 +16,10 @@ function Informations({ application, member }: any) {
         id='form-app'
         label={t('common.application')}
         placeholder={t('common.application')}
-        name='app'
         disabled
-        value={application.name}
+        value={application}
       />
-      <TextField
-        id='form-member'
-        label={t('common.member')}
-        placeholder={t('common.member')}
-        name='member'
-        disabled
-        value={member}
-      />
+      <TextField id='form-member' label={t('common.member')} placeholder={t('common.member')} disabled value={member} />
     </>
   );
 }

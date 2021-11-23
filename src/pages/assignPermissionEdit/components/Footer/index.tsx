@@ -7,9 +7,10 @@ import SaveSolid from '@eduzz/houston-icons/SaveSolid';
 
 interface Props {
   loadingButton: boolean;
+  handleEdit: () => void;
 }
 
-function Footer({ loadingButton }: Props) {
+function Footer({ loadingButton, handleEdit }: Props) {
   const { t } = useTranslation('common');
   const history = useHistory();
 
@@ -23,7 +24,7 @@ function Footer({ loadingButton }: Props) {
       >
         {t('common.cancel')}
       </Button>
-      <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' type='submit'>
+      <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' onClick={() => handleEdit()}>
         {t('common.save')}
       </Button>
     </>

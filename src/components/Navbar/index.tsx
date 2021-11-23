@@ -45,7 +45,6 @@ function Navbar() {
   const [{ token }, dispatch] = useStateValue();
   const tokenUser = token ? token.split(' ')[1] : '';
   const user: any = jwt.decode(tokenUser);
-  // console.log('token', token, user);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (Boolean(anchorEl)) return handleClose();
