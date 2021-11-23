@@ -1,11 +1,11 @@
 import http from 'services/commons/commonHttp';
 
 const getApp = (id: any) => {
-  return http.get(`/Company/apps/${id}`);
+  return http.get(`/Company/${id}/Apps`);
 };
 
 const getUsers = (id: any) => {
-  return http.get(`/Company/users/${id}`);
+  return http.get(`/Company/${id}/Users`);
 };
 
 export default {
