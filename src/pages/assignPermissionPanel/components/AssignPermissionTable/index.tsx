@@ -6,13 +6,15 @@ import Tooltip from '@eduzz/houston-ui/Tooltip';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
 import { UsersDataOutput } from 'models/assignPermission';
+import { FormataStringData } from 'utils/formataStringData';
 
 type Props = {
   setRows: React.Dispatch<React.SetStateAction<UsersDataOutput[]>>;
   rows: UsersDataOutput[];
+  loading: boolean;
 };
 
-const AssignPermissionTable = ({ setRows, rows }: Props) => {
+const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [sort, setSort] = useState<any>(null);
@@ -29,7 +31,7 @@ const AssignPermissionTable = ({ setRows, rows }: Props) => {
     });
   }, []);
   return (
-    <Table stripedRows sort={sort} onSort={onSort}>
+    <Table stripedRows sort={sort} onSort={onSort} loading={loading}>
       <Table.Header>
         <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
         <Table.Column>{t('common.application')}</Table.Column>
@@ -41,7 +43,9 @@ const AssignPermissionTable = ({ setRows, rows }: Props) => {
         <Table.Empty count={rows.length} />
         {rows.map((row, index) => (
           <Table.Row data={row} index={index} key={row.id}>
-            <Table.Cell>{row.updated_At ? row.updated_At : row.created_At}</Table.Cell>
+            <Table.Cell>
+              {row.updated_At ? FormataStringData(row.updated_At) : FormataStringData(row.created_At)}
+            </Table.Cell>
             <Table.Cell>{row.app.name}</Table.Cell>
             <Table.Cell>{row.permissionGroup.name}</Table.Cell>
             <Table.Cell>{row.user.name}</Table.Cell>
