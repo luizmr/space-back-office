@@ -13,7 +13,7 @@ import MemberPermissions from './components/MemberPermissions';
 
 // models
 import { PermissionsStateOutput, SelectFieldOutput } from 'models/assignPermission';
-// import { MemberOfService } from 'services';
+import { MemberOfService } from 'services';
 
 type Props = {
   currentStep: number;
@@ -52,25 +52,20 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
         }
       });
 
-      setTimeout(() => {
+      try {
+        await MemberOfService.post({
+          userCompanyId: member,
+          permissionGroupId: group,
+          permissions: permissionsFalseArray
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          setCurrentStep(3);
+        }, 1000);
+      } catch {
         setSubmitting(false);
-        setCurrentStep(3);
-      }, 1000);
-
-      // try {
-      //   await MemberOfService.post({
-      //     userCompanyId: member,
-      //     permissionGroupId: group,
-      //     permissions: permissionsFalseArray
-      //   });
-      //   setTimeout(() => {
-      //     setSubmitting(false);
-      //     setCurrentStep(3);
-      //   }, 1000);
-      // } catch {
-      //   setSubmitting(false);
-      //   setOpen(true);
-      // }
+        setOpen(true);
+      }
     }
   });
 
