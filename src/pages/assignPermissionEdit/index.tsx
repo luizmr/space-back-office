@@ -155,13 +155,13 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
       //   setSubmitting(false);
       //   setToast({ ...toast, show: true, type: 'error', message: 'Erro ao editar permissão' });
       // }
+
       console.log({
         userCompanyId,
         memberId,
         permissionGroupId: group,
         permissions: permissionsFalseArray
       });
-      // mockPanel[mockPanel.findIndex((user) => user.id === memberId)].permissionGroup = permi
     }
   });
 
