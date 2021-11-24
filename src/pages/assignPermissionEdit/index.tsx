@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import { MemberOfService } from 'services';
 
 // models
-import { PermissionsOutput, UsersEditDataOutput } from 'models/assignPermission';
+import { AppsOutput, PermissionsStateOutput, UsersEditDataOutput } from 'models/assignPermission';
 
 import memberOfMock from './mock.json';
 
@@ -26,16 +26,23 @@ interface AuditCompareRouteParams {
 function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const { t } = useTranslation('common');
   const history = useHistory();
-  const [application, setApplication] = useState<any>({ id: '1', name: 'Vitrine' });
+  const [application, setApplication] = useState<AppsOutput>({ id: '1', name: 'Vitrine', slug: 'vitrine' });
   const [member, setMember] = useState<string>('Space');
   const [group, setGroup] = useState<string>('');
   const [memberAllData, setMemberAllData] = useState<UsersEditDataOutput>(memberOfMock);
-  const [permissions, setPermissions] = useState<
-    { permissionGroupId: string; permissions: Array<PermissionsOutput> }[]
-  >([]);
+  const [permissions, setPermissions] = useState<PermissionsStateOutput[]>([
+    {
+      permissionGroupId: '',
+      permissions: [{ id: '', slug: '', authorize: true, name: '' }]
+    }
+  ]);
+  const [permissionsEdit, setPermissionsEdit] = useState<PermissionsStateOutput>({
+    permissionGroupId: '',
+    permissions: [{ id: '', slug: '', authorize: true, name: '' }]
+  });
   const [loading, setLoading] = useState<boolean>(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
-  const [toast, setToast] = useState<any>({
+  const [toast, setToast] = useState<{ show: boolean; type: string; message: string }>({
     show: false,
     type: 'success',
     message: t('assignpermission.saved-successfully')
@@ -50,6 +57,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         setMember(data.user.name);
         setApplication(data.app.name);
         setGroup(data.permissionGroup.id);
+        setPermissionsEdit({ permissionGroupId: data.permissionGroup.id, permissions: data.permissions });
         setLoading(true);
       })
       .catch(() => {
@@ -68,6 +76,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         });
       }
     });
+
     MemberOfService.put({
       userCompanyId: memberAllData.user.userCompanyId,
       memberId: memberAllData.id,
@@ -111,7 +120,12 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
           <div className='assignPermissionEdit__permissions-group'>
             <MemberGroup group={group} setGroup={setGroup} appId={memberAllData.app.id} edit />
             <hr />
-            <MemberPermissions permissions={permissions} group={group} setPermissions={setPermissions} />
+            <MemberPermissions
+              permissions={permissions}
+              permissionsEdit={permissionsEdit}
+              group={group}
+              setPermissions={setPermissions}
+            />
             <hr />
           </div>
           <DeleteSection id={memberOfId} />

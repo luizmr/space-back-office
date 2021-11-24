@@ -11,7 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { PermissionsOutput, PermissionsStateOutput } from 'models/assignPermission';
 import { PermissionGroupService } from 'services';
 
-function MemberPermissions({ group, permissions, setPermissions }: any) {
+function MemberPermissions({ group, permissions, permissionsEdit = [], setPermissions }: any) {
   const { t } = useTranslation('common');
 
   const handleChangePermission = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,8 +45,23 @@ function MemberPermissions({ group, permissions, setPermissions }: any) {
 
       if (!groupSaved) {
         PermissionGroupService.getPermission(group)
-          .then(response => {
-            setPermissions([...permissions, { permissionGroupId: group, permissions: response.data }]);
+          .then(({ data }) => {
+            if (permissionsEdit.permissionGroupId === group) {
+              const newPermissions: PermissionsOutput[] = [];
+              data.forEach((permission: PermissionsOutput) => {
+                const foundPermission: PermissionsOutput | false = permissionsEdit.permissions.find(
+                  (userPermission: PermissionsOutput) => permission.slug === userPermission.slug
+                );
+                if (foundPermission) {
+                  newPermissions.push({ ...permission, ...foundPermission });
+                } else {
+                  newPermissions.push(permission);
+                }
+              });
+              setPermissions([...permissions, { permissionGroupId: group, permissions: newPermissions }]);
+            } else {
+              setPermissions([...permissions, { permissionGroupId: group, permissions: data }]);
+            }
           })
           .catch(err => {
             setPermissions([...permissions]);
