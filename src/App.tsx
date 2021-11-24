@@ -20,7 +20,7 @@ function App() {
   };
 
   useEffect(() => {
-    // handleLogin();
+    handleLogin();
     setTimeout(() => {
       setLoaded(true);
     }, 1000);

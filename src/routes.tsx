@@ -99,12 +99,11 @@ const CustomRoute = ({ key, Component, path, Routes, breadCrumb }: RouteInterfac
 
 export const AppRoutes = () => {
   const [{ token }] = useStateValue();
-  const [routeOptions, setRouteOptions] = useState<Array<any>>(privateRoutes);
+  const [routeOptions, setRouteOptions] = useState<Array<any>>(notAuthorizedRoutes);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // setLoading(true);
-    setLoading(false);
+    setLoading(true);
     const tokenUser = token ? token.split(' ')[1] : '';
     if (token) {
       buildRoutes(jwt.decode(tokenUser));
@@ -113,14 +112,10 @@ export const AppRoutes = () => {
   }, [token]);
 
   const buildRoutes = (users: any) => {
-    if (typeof users.role === 'string') {
-      if (users.role === 'LojaAppIsEmployee') {
-        setRouteOptions(privateRoutes);
-      } else {
-        setRouteOptions(notAuthorizedRoutes);
-      }
-    } else {
+    if (users.CompanyId) {
       setRouteOptions(privateRoutes);
+    } else {
+      setRouteOptions(notAuthorizedRoutes);
     }
   };
   return (

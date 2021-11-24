@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useProgress from '@eduzz/houston-ui/Progress/useProgress';
 import { useStateValue } from 'store/TokenProvider';
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
 // components
@@ -24,17 +24,12 @@ const AssignPermissionNew = () => {
   const [openToast, setOpenToast] = useState<boolean>(false);
   const [{ token }, dispatch] = useStateValue();
   const tokenUser = token ? token.split(' ')[1] : '';
-  // const user: any = jwt.decode(tokenUser);
+  const user: any = jwt.decode(tokenUser);
 
   useEffect(() => {
     setCurrentStep(0);
     axios
-      .all([
-        CompanyService.getApp('C4E64E81-DFB6-4824-9E68-FC34356A14BB'),
-        CompanyService.getUsers('C4E64E81-DFB6-4824-9E68-FC34356A14BB')
-        // CompanyService.getApp(user.CompanyId),
-        // CompanyService.getUsers(user.CompanyId)
-      ])
+      .all([CompanyService.getApp(user.CompanyId), CompanyService.getUsers(user.CompanyId)])
       .then(
         axios.spread(function (apps, users) {
           setApps(createSelectArray(apps.data));
