@@ -15,6 +15,8 @@ import MemberPermissions from './components/MemberPermissions';
 import { PermissionsStateOutput, SelectFieldOutput } from 'models/assignPermission';
 import { MemberOfService } from 'services';
 
+import { slugError } from 'utils/errorDic';
+
 type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
@@ -27,6 +29,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>(t('error.permission-error'));
   const [group, setGroup] = useState<string>('');
   const [permissions, setPermissions] = useState<PermissionsStateOutput[]>([]);
 
@@ -63,7 +66,12 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
           setSubmitting(false);
           setCurrentStep(3);
         }, 1000);
-      } catch {
+      } catch (error: any) {
+        const errorSlug = error.response.data.detail.split(':');
+        const foundError = slugError.find(({ slug, api }) => api === errorSlug[0] && slug === errorSlug[2]);
+        if (foundError) {
+          setErrorMessage(t('error.User_already_exist_for_group_permission'));
+        }
         setSubmitting(false);
         setOpen(true);
       }
@@ -154,7 +162,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
           </div>
         </div>
       </div>
-      <ToastComponent open={open} handleClose={handleClose} string={t('error.permission-error')} />
+      <ToastComponent open={open} handleClose={handleClose} string={errorMessage} />
     </>
   );
 };

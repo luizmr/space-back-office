@@ -69,7 +69,8 @@
     "dashboard-error": "An error occurred while loading the dashboard info, try again!",
     "load-data-error": "An unexpected error occurred loading the information, please try again!",
     "assign-permission-edit-error": "An error occurred while editing the Member permissions assignment, try again!",
-    "assign-permission-delete-error": "An error occurred when deleting the Member permissions assignment, try again!"
+    "assign-permission-delete-error": "An error occurred when deleting the Member permissions assignment, try again!",
+    "User_already_exist_for_group_permission": "This user is already assigned to a permission group."
   },
   "breadcrumb": {
     "home": "Back Office",
