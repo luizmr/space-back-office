@@ -70,7 +70,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
         const errorSlug = error.response.data.detail.split(':');
         const foundError = slugError.find(({ slug, api }) => api === errorSlug[0] && slug === errorSlug[2]);
         if (foundError) {
-          setErrorMessage(t('error.User_already_exist_for_group_permission'));
+          setErrorMessage(t(`${foundError.message}`));
         }
         setSubmitting(false);
         setOpen(true);
