@@ -40,7 +40,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
     },
     onSubmit: async values => {
       setSubmitting(true);
-      const { member } = values;
+      const { member, app } = values;
 
       const permissionsFalseArray: { permissionId: string; authorize: boolean }[] = [];
 
@@ -56,7 +56,8 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
         await MemberOfService.post({
           userCompanyId: member,
           permissionGroupId: group,
-          permissions: permissionsFalseArray
+          permissions: permissionsFalseArray,
+          appId: app
         });
         setTimeout(() => {
           setSubmitting(false);
