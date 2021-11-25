@@ -15,7 +15,7 @@ function Footer({ loadingButton, handleEdit }: Props) {
   const history = useHistory();
 
   return (
-    <>
+    <div className='assignPermissionEdit__footer-main'>
       <Button
         variant='text'
         onClick={() => {
@@ -27,7 +27,7 @@ function Footer({ loadingButton, handleEdit }: Props) {
       <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' onClick={() => handleEdit()}>
         {t('common.save')}
       </Button>
-    </>
+    </div>
   );
 }
 

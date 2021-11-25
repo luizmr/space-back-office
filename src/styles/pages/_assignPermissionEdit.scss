@@ -49,21 +49,6 @@
     }
   }
 
-  .assignPermissionEdit__footer {
-    position: fixed;
-    bottom: 0;
-    background-color: $white;
-    width: 624px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 72px;
-
-    button:first-child {
-      margin-right: 16px;
-    }
-  }
-
   .form__permission-step {
     p {
       color: $primary-text-color;
@@ -85,6 +70,25 @@
       span:last-child {
         color: $primary-text-color;
       }
+    }
+  }
+}
+
+.assignPermissionEdit__footer {
+  position: fixed;
+  bottom: 0;
+  background-color: $white;
+  width: 100%;
+  .assignPermissionEdit__footer-main {
+    width: 624px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 72px;
+
+    button:first-child {
+      margin-right: 16px;
     }
   }
 }

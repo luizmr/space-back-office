@@ -108,33 +108,35 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   return (
     <>
       {loading && (
-        <div className='assignPermissionEdit__container'>
-          <div className='assignPermissionEdit__header'>
-            <Typography fontWeight='semibold' size='large'>
-              {t('assignpermission.edit-permission-title')}
-            </Typography>
+        <>
+          <div className='assignPermissionEdit__container'>
+            <div className='assignPermissionEdit__header'>
+              <Typography fontWeight='semibold' size='large'>
+                {t('assignpermission.edit-permission-title')}
+              </Typography>
+            </div>
+            <div className='assignPermissionEdit__infos'>
+              <Informations application={application} member={member} />
+              <hr />
+            </div>
+            <div className='assignPermissionEdit__permissions-group'>
+              <MemberGroup group={group} setGroup={setGroup} appId={memberAllData.app.id} edit />
+              <hr />
+              <MemberPermissions
+                permissions={permissions}
+                permissionsEdit={permissionsEdit}
+                group={group}
+                setPermissions={setPermissions}
+              />
+              <hr />
+            </div>
+            <DeleteSection id={memberOfId} />
+            <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
           </div>
-          <div className='assignPermissionEdit__infos'>
-            <Informations application={application} member={member} />
-            <hr />
-          </div>
-          <div className='assignPermissionEdit__permissions-group'>
-            <MemberGroup group={group} setGroup={setGroup} appId={memberAllData.app.id} edit />
-            <hr />
-            <MemberPermissions
-              permissions={permissions}
-              permissionsEdit={permissionsEdit}
-              group={group}
-              setPermissions={setPermissions}
-            />
-            <hr />
-          </div>
-          <DeleteSection id={memberOfId} />
           <div className='assignPermissionEdit__footer'>
             <Footer loadingButton={submitting} handleEdit={handleEdit} />
           </div>
-          <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
-        </div>
+        </>
       )}
     </>
   );
