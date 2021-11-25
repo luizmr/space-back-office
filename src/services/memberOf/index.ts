@@ -12,8 +12,8 @@ const post = (data: any) => {
   return http.post('/MemberOf', data);
 };
 
-const put = (data: any) => {
-  return http.put('/MemberOf', data);
+const put = (id: string, data: any) => {
+  return http.put(`/MemberOf/${id}`, data);
 };
 
 const deleteMemberOf = (id: string) => {

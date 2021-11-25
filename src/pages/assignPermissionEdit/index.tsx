@@ -77,11 +77,12 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
       }
     });
 
-    MemberOfService.put({
-      userCompanyId: memberAllData.user.userCompanyId,
-      memberId: memberAllData.id,
+    MemberOfService.put(memberAllData.id, {
+      userCompanyId: memberAllData.user.id,
+      oldPermissionGroupId: memberAllData.permissionGroup.id,
       permissionGroupId: group,
-      permissions: permissionsFalseArray
+      permissions: permissionsFalseArray,
+      appId: memberAllData.app.id
     })
       .then(response => {
         setToast({
