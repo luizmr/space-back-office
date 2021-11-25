@@ -15,7 +15,6 @@ export interface UsersEditDataOutput {
   user: {
     id: string;
     name: string;
-    userCompanyId: string;
   };
   app: AppsOutput;
   permissionGroup: { id: string; name: string; slug: string };

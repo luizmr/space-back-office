@@ -78,7 +78,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
     });
 
     MemberOfService.put(memberAllData.id, {
-      userCompanyId: memberAllData.user.userCompanyId,
+      userCompanyId: memberAllData.user.id,
       oldPermissionGroupId: memberAllData.permissionGroup.id,
       permissionGroupId: group,
       permissions: permissionsFalseArray,
