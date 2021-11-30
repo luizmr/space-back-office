@@ -1,17 +1,17 @@
-.assign-permission {
+.general-new {
   background: $border-color-1;
   display: flex;
   justify-content: center;
   position: relative;
 
-  .assign-permission__content {
+  .general-new__content {
     width: 624px;
     padding-bottom: 34px;
     padding-top: 32px;
     color: $primary-text-color;
   }
 
-  .assign-permission__btns {
+  .general-new__btns {
     position: absolute;
     top: 8px;
     right: 32px;
@@ -21,7 +21,7 @@
     color: $primary-color-1;
   }
 
-  .assign-permission__progressline {
+  .general-new__progressline {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-.assign-permission__content-finished {
+.general-new__content-finished {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,13 +45,13 @@
   }
 }
 
-.assign-permission__done {
+.general-new__done {
   background: $border-color-1;
   height: 173px;
   margin-bottom: 107px;
 }
 
-.assign-permission__form-done {
+.general-new__form-done {
   max-width: 624px;
   margin: 0 auto;
   margin-top: 44px;
@@ -84,11 +84,11 @@
 }
 
 @media screen and (max-width: $media-md) {
-  .assign-permission__form-done {
+  .general-new__form-done {
     max-width: 90vw;
   }
-  .assign-permission {
-    .assign-permission__content {
+  .general-new {
+    .general-new__content {
       max-width: 90vw;
     }
   }
@@ -96,20 +96,20 @@
 
 // ####################### FORM ##########################
 
-.assign-permission__new-form {
+.general-new__new-form {
   padding-bottom: 50px;
   padding-top: 50px;
   background-color: $bg-color;
   color: $primary-text-color;
 
-  .assign-permission__new-form__body {
+  .general-new__new-form__body {
     width: 624px;
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 
-    .assign-permission__new-form__form {
+    .general-new__new-form__form {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -144,7 +144,7 @@
         }
       }
 
-      .assign-permission__new-form__submit {
+      .general-new__new-form__submit {
         text-align: right;
         margin-top: 40px;
 
@@ -170,8 +170,8 @@
 }
 
 @media (max-width: $media-md) {
-  .assign-permission__new-form {
-    .assign-permission__new-form__body {
+  .general-new__new-form {
+    .general-new__new-form__body {
       width: 80vw;
     }
   }

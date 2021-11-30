@@ -33,7 +33,8 @@
     "confirm": "Confirmar",
     "confirm-operation": "Você tem certeza que deseja confirmar esta operação?",
     "phone": "Telefone",
-    "active": "Ativo"
+    "active": "Ativo",
+    "contact": "Contato"
   },
   "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -63,7 +64,14 @@
     "subtitle": "Aqui você pode administrar as companhias existents no Back Office.",
     "edit-company": "Editar companhia",
     "delete-company": "Deletar companhia",
-    "new-company": "Nova Companhia"
+    "new-company": "Nova Companhia",
+    "form-step-1": "Vamos começar definindo o nome da Companhia",
+    "form-step-2": "Agora, complete os campos com informações mais detalhadas sobre a Companhia",
+    "company-name": "Qual o nome da companhia?",
+    "company-email": "Qual o email da companhia?",
+    "company-phone": "Qual o telefone da companhia?",
+    "company-contact": "Qual o contato da companhia?",
+    "company-done": "Obrigado! A Companhia foi criada com sucesso."
   },
   "app": {
     "title": "Painel de Apps",

@@ -8,7 +8,7 @@ import { ConcluidoPlugin } from 'assets';
 
 type Props = {
   currentStep: number;
-  steps: Array<{ label: string; class: string; text: string }>;
+  steps: Array<{ text: string }>;
   buttonPath: string;
 };
 
@@ -19,8 +19,8 @@ function HeaderSection({ currentStep, steps, buttonPath }: Props) {
   return (
     <div>
       {currentStep <= steps.length - 1 ? (
-        <div className={steps[currentStep].class}>
-          <div className='assign-permission__btns'>
+        <div className='general-new'>
+          <div className='general-new__btns'>
             <Button
               onClick={() => {
                 history.push(buttonPath);
@@ -33,7 +33,7 @@ function HeaderSection({ currentStep, steps, buttonPath }: Props) {
               </Typography>
             </Button>
           </div>
-          <div className='assign-permission__content'>
+          <div className='general-new__content'>
             <Typography fontWeight='regular' size='small'>
               {t('common.step')} {currentStep + 1} {t('common.from-lower')} {steps.length}
             </Typography>
@@ -42,14 +42,14 @@ function HeaderSection({ currentStep, steps, buttonPath }: Props) {
             </Typography>
           </div>
           <div
-            className='assign-permission__progressline'
+            className='general-new__progressline'
             style={{ width: `calc((100vw/${steps.length + 1})*${currentStep + 1})` }}
           ></div>
         </div>
       ) : (
-        <div className='assign-permission__done'>
-          <div className='assign-permission__content'>
-            <div className='assign-permission__content-finished'>
+        <div className='general-new__done'>
+          <div className='general-new__content'>
+            <div className='general-new__content-finished'>
               <Typography fontWeight='semibold' size='x-large'>
                 {t('common.done')}
               </Typography>

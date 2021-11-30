@@ -13,7 +13,7 @@ function FormDone({ title, buttonPath }: Props) {
   const { t } = useTranslation('common');
   const history = useHistory();
   return (
-    <div className='assign-permission__form-done'>
+    <div className='general-new__form-done'>
       <div className='steps-section'>
         <div className='done-section'>
           <Typography size='normal' fontWeight='regular' className='partner-text-done'>
