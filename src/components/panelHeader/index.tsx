@@ -5,32 +5,39 @@ import Typography from '@eduzz/houston-ui/Typography';
 import Button from '@eduzz/houston-ui/Button';
 import Add from '@eduzz/houston-icons/Add';
 
-const AssignPermissionHeader = () => {
+type Props = {
+  title: string;
+  subtitle: string;
+  buttonTitle: string;
+  buttonPath: string;
+};
+
+const PanelHeader = ({ title, subtitle, buttonPath, buttonTitle }: Props) => {
   const { t } = useTranslation('common');
   const history = useHistory();
   return (
     <>
       <div className='panel-header'>
         <Typography fontWeight='semibold' size='large'>
-          {t('assignpermission.title')}
+          {t(title)}
         </Typography>
         <Button
           startIcon={<Add />}
           onClick={() => {
-            history.push('/assign-permission/new');
+            history.push(buttonPath);
           }}
           variant='outlined'
         >
-          <Typography fontWeight='semibold'>{t('dashboard.assign-permission')}</Typography>
+          <Typography fontWeight='semibold'>{t(buttonTitle)}</Typography>
         </Button>
       </div>
       <div className='panel-header__sub-title'>
         <Typography fontWeight='regular' size='normal'>
-          {t('assignpermission.subtitle')}
+          {t(subtitle)}
         </Typography>
       </div>
     </>
   );
 };
 
-export default AssignPermissionHeader;
+export default PanelHeader;

@@ -92,7 +92,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         });
         setTimeout(() => {
           setSubmitting(false);
-          history.push('/assign-permission');
+          history.push('/assign-permissions');
         }, 1000);
       })
       .catch(err => {

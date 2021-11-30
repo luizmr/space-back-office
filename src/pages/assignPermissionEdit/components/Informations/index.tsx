@@ -14,8 +14,8 @@ function Informations({ application, member }: any) {
       </Typography>
       <TextField
         id='form-app'
-        label={t('common.application')}
-        placeholder={t('common.application')}
+        label={t('dashboard.app')}
+        placeholder={t('dashboard.app')}
         disabled
         value={application}
       />

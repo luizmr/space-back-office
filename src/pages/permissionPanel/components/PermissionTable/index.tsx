@@ -5,16 +5,16 @@ import Table from '@eduzz/houston-ui/Table';
 import Tooltip from '@eduzz/houston-ui/Tooltip';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
-import { UsersDataOutput } from 'models/assignPermission';
 import { FormataStringData } from 'utils/formataStringData';
+import { PermissionDataOutput } from 'models/permission';
 
 type Props = {
-  setRows: React.Dispatch<React.SetStateAction<UsersDataOutput[]>>;
-  rows: UsersDataOutput[];
+  setRows: React.Dispatch<React.SetStateAction<PermissionDataOutput[]>>;
+  rows: PermissionDataOutput[];
   loading: boolean;
 };
 
-const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
+const PermissionTable = ({ setRows, rows, loading }: Props) => {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [sort, setSort] = useState<any>(null);
@@ -37,7 +37,7 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
         <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
         <Table.Column>{t('dashboard.app')}</Table.Column>
         <Table.Column>{t('dashboard.permission-group')}</Table.Column>
-        <Table.Column>{t('common.user')}</Table.Column>
+        <Table.Column>{t('dashboard.permission')}</Table.Column>
         <Table.Column align='right'>{t('common.action')}</Table.Column>
       </Table.Header>
       <Table.Body>
@@ -47,14 +47,14 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
             <Table.Cell>
               {row.updated_At ? FormataStringData(row.updated_At) : FormataStringData(row.created_At)}
             </Table.Cell>
-            <Table.Cell>{row.app.name}</Table.Cell>
+            <Table.Cell>{row.permissionGroup.app.name}</Table.Cell>
             <Table.Cell>{row.permissionGroup.name}</Table.Cell>
-            <Table.Cell>{row.user.name}</Table.Cell>
+            <Table.Cell>{row.name}</Table.Cell>
             <Table.Cell align='right'>
-              <Tooltip placement='bottom' title={`${t('assignpermission.edit-permission')}`}>
+              <Tooltip placement='bottom' title={`${t('permission.edit-permission')}`}>
                 <ButtonIcon
                   onClick={() => {
-                    history.push(`/assign-permissions/edit/${row.id}`);
+                    history.push(`/permissions/edit/${row.id}`);
                   }}
                 >
                   <EditSolid />
@@ -75,4 +75,4 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
   );
 };
 
-export default AssignPermissionTable;
+export default PermissionTable;

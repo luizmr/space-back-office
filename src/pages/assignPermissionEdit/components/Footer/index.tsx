@@ -19,7 +19,7 @@ function Footer({ loadingButton, handleEdit }: Props) {
       <Button
         variant='text'
         onClick={() => {
-          history.push('/assign-permission');
+          history.push('/assign-permissions');
         }}
       >
         {t('common.cancel')}

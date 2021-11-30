@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { UsersDataOutput } from 'models/assignPermission';
-
-import { MemberOfService } from 'services';
+// components
 import AssignPermissionTable from './components/AssignPermissionTable';
-import AssignPermissionHeader from './components/AssignPermissionHeader';
-// import mock from './mock.json';
+import PanelHeader from 'components/panelHeader';
+
+// utils
+import { UsersDataOutput } from 'models/assignPermission';
+import { MemberOfService } from 'services';
 
 const AssignPermissionPanel = () => {
   // const [page, setPage] = useState(1);
@@ -27,7 +28,12 @@ const AssignPermissionPanel = () => {
 
   return (
     <div className='container-permission-panel'>
-      <AssignPermissionHeader />
+      <PanelHeader
+        title={'assignpermission.title'}
+        subtitle={'assignpermission.subtitle'}
+        buttonPath={'/assign-permissions/new'}
+        buttonTitle={'dashboard.assign-permission'}
+      />
       <AssignPermissionTable rows={rows} setRows={setRows} loading={loading} />
     </div>
   );

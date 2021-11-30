@@ -21,22 +21,19 @@
     "previous": "Previous",
     "done": "Done!",
     "user": "User",
-    "app": "App",
     "member": "Member",
     "name": "Name",
     "edit": "Edit",
     "action": "Action",
-    "application": "Application",
-    "permission-group": "Permission Group",
-    "edit-permission": "Edit permission",
-    "delete-permission": "Delete permission",
     "delete": "Delete",
     "date": "Date",
     "go-back": "Go back",
     "save": "Save",
     "informations": "Informations",
     "confirm": "Confirm",
-    "confirm-operation": "Are you sure you want to confirm this operation?"
+    "confirm-operation": "Are you sure you want to confirm this operation?",
+    "phone": "Phone",
+    "active": "Active"
   },
   "assignpermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
@@ -45,8 +42,8 @@
     "permission-done": "Thanks! Permissions successfully assigned.",
     "back-to-panel": "Back to panel",
     "finish-assignment": "Finish assignment",
-    "title": "Permissions Showcase",
-    "subtitle": "User Permission Management",
+    "title": "Permission Assignments Panel",
+    "subtitle": "Here you can manage the existing permission assignments on Back Office",
     "select-app": "Select an app",
     "select-member": "Select a member",
     "add-permission": "Add permission",
@@ -57,10 +54,48 @@
     "edit-permission-title": "Permission edit",
     "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action.",
     "delete-success": "Assignment of permission successfully deleted",
-    "saved-successfully": "Permissions successfully edited"
+    "saved-successfully": "Permissions successfully edited",
+    "edit-permission": "Edit permission",
+    "delete-permission": "Delete permission"
+  },
+  "company": {
+    "title": "Companies Panel",
+    "subtitle": "Here you can manage the existing companies on Back Office.",
+    "edit-company": "Edit company",
+    "delete-company": "Delete company",
+    "new-company": "New Company"
+  },
+  "app": {
+    "title": "Apps Panel",
+    "subtitle": "Here you can manage the existing apps on Back Office.",
+    "edit-app": "Edit app",
+    "delete-app": "Delete app",
+    "new-app": "New App"
+  },
+  "permission-group": {
+    "title": "Permission Groups Panel",
+    "subtitle": "Here you can manage the existing permission groups on Back Office.",
+    "edit-permission-group": "Edit permission group",
+    "delete-permission-group": "Delete permission group",
+    "new-permission-group": "New Permission Group"
+  },
+  "permission": {
+    "title": "Permissions Panel",
+    "subtitle": "Here you can manage the existing permissions on Back Office.",
+    "edit-permission": "Edit permission",
+    "delete-permission": "Delete permission",
+    "new-permission": "New Permission"
   },
   "dashboard": {
     "assign-permission": "Assign permission",
+    "company": "Company",
+    "app": "App",
+    "permission-group": "Permission Group",
+    "permission": "Permission",
+    "companies": "Companies",
+    "apps": "Apps",
+    "permission-groups": "Permission groups",
+    "permissions": "Permissions",
     "title": "Welcome to the Back Office area",
     "subtitle": "Here you can manage everything your company can do:"
   },
@@ -74,7 +109,16 @@
   },
   "breadcrumb": {
     "home": "Back Office",
-    "assign-permission-panel": "Assign Permission Panel"
+    "assign-permission-panel": "Assign Permission Panel",
+    "assign-permission-edit": "Assign Permission Edit",
+    "company-panel": "Company Panel",
+    "company-edit": "Company Edit",
+    "app-panel": "App Panel",
+    "app-edit": "App Edit",
+    "permission-group-panel": "Permission Group Panel",
+    "permission-group-edit": "Permission Group Edit",
+    "permission-panel": "Permission Panel",
+    "permission-edit": "Permission Edit"
   },
   "not-found": {
     "text": "Sorry, we couldn't find what you are looking for. Try refreshing the page or check back later."

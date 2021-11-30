@@ -23,7 +23,13 @@ const CardDashboard = ({ icon, index, path, pathIsTrue }: Props) => {
   const classes = useStyles();
   const { t } = useTranslation('common');
 
-  const names = [t('dashboard.assign-permission')];
+  const names = [
+    t('dashboard.company'),
+    t('dashboard.app'),
+    t('dashboard.permission-group'),
+    t('dashboard.permission'),
+    t('dashboard.assign-permission')
+  ];
 
   return (
     <>

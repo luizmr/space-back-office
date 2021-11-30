@@ -25,10 +25,7 @@ const PolicyInfo = () => {
               <div className='left__column'></div>
               <div className='left__info'>
                 <Typography fontWeight='regular' size='small'>
-                  Loja de Apps {new Date().getFullYear()}.
-                </Typography>
-                <Typography fontWeight='regular' size='small'>
-                  {t('homepage.all-rights')}
+                  Loja de Apps {new Date().getFullYear()}. {t('homepage.all-rights')}
                 </Typography>
               </div>
             </div>

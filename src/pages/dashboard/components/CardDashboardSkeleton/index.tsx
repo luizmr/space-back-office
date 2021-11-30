@@ -21,24 +21,22 @@ type Props = {
 const CardDashboardSkeleton = ({ newButton }: Props) => {
   const classes = useStyles();
   return (
-    <div className='dashboard__card-link'>
-      <Card className={`dashboard__skeleton-card ${classes.card}`}>
-        {newButton && (
-          <Skeleton variant='circular' animation='wave' width={15} height={15} className='dashboard__button-skeleton' />
-        )}
-        <Skeleton
-          variant='rectangular'
-          animation={'wave'}
-          width={35}
-          height={35}
-          style={{
-            marginBottom: '20px',
-            marginTop: '8px'
-          }}
-        />
-        <Skeleton variant='rectangular' animation={'wave'} height={40} width={100} />
-      </Card>
-    </div>
+    <Card className={`dashboard__skeleton-card ${classes.card}`}>
+      {newButton && (
+        <Skeleton variant='circular' animation='wave' width={15} height={15} className='dashboard__button-skeleton' />
+      )}
+      <Skeleton
+        variant='rectangular'
+        animation={'wave'}
+        width={35}
+        height={35}
+        style={{
+          marginBottom: '20px',
+          marginTop: '8px'
+        }}
+      />
+      <Skeleton variant='rectangular' animation={'wave'} height={40} width={100} />
+    </Card>
   );
 };
 

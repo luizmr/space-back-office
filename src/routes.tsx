@@ -14,6 +14,10 @@ import AssignPermissionEdit from 'pages/assignPermissionEdit';
 import Dashboard from 'pages/dashboard';
 import BreadCrumbs from 'components/breadcrumbs';
 import NotFound from 'pages/notFound';
+import CompanyPanel from 'pages/companyPanel';
+import AppPanel from 'pages/appPanel';
+import PermissionGroupPanel from 'pages/permissionGroupPanel';
+import PermissionPanel from 'pages/permissionPanel';
 
 const privateRoutes = [
   {
@@ -26,23 +30,107 @@ const privateRoutes = [
   {
     key: 'assign-permission',
     Component: AssignPermissionPanel,
-    path: '/assign-permission',
+    path: '/assign-permissions',
     name: 'breadcrumb.assign-permission-panel',
     breadCrumb: true
   },
   {
     key: 'assign-permission-new',
     Component: AssignPermissionNew,
-    path: '/assign-permission/new',
+    path: '/assign-permissions/new',
     name: '',
     breadCrumb: false
   },
   {
     key: 'assign-permission-edit',
     Component: AssignPermissionEdit,
-    path: '/assign-permission/edit/:id',
+    path: '/assign-permissions/edit/:id',
+    name: 'breadcrumb.assign-permission-edit',
+    breadCrumb: true
+  },
+  {
+    key: 'company',
+    Component: CompanyPanel,
+    path: '/companies',
+    name: 'breadcrumb.company-panel',
+    breadCrumb: true
+  },
+  {
+    key: 'company-new',
+    Component: CompanyPanel,
+    path: '/companies/new',
     name: '',
     breadCrumb: false
+  },
+  {
+    key: 'company-edit',
+    Component: CompanyPanel,
+    path: '/companies/edit/:id',
+    name: 'breadcrumb.company-edit',
+    breadCrumb: false
+  },
+  {
+    key: 'app',
+    Component: AppPanel,
+    path: '/apps',
+    name: 'breadcrumb.app-panel',
+    breadCrumb: true
+  },
+  {
+    key: 'app-new',
+    Component: AppPanel,
+    path: '/apps/new',
+    name: '',
+    breadCrumb: false
+  },
+  {
+    key: 'app-edit',
+    Component: AppPanel,
+    path: '/apps/edit/:id',
+    name: 'breadcrumb.app-edit',
+    breadCrumb: true
+  },
+  {
+    key: 'permission-group',
+    Component: PermissionGroupPanel,
+    path: '/permission-groups',
+    name: 'breadcrumb.permission-group-panel',
+    breadCrumb: true
+  },
+  {
+    key: 'permission-group-new',
+    Component: PermissionGroupPanel,
+    path: '/permission-groups/new',
+    name: '',
+    breadCrumb: false
+  },
+  {
+    key: 'permission-group-edit',
+    Component: PermissionGroupPanel,
+    path: '/permission-groups/edit/:id',
+    name: 'breadcrumb.permission-group-edit',
+    breadCrumb: true
+  },
+  {
+    key: 'permission',
+    Component: PermissionPanel,
+    path: '/permissions',
+    name: 'breadcrumb.permission-panel',
+    breadCrumb: true
+  },
+  {
+    key: 'permission-new',
+    Component: PermissionPanel,
+    path: '/permissions/new',
+    name: '',
+    breadCrumb: false
+  },
+  {
+    key: 'permission-edit',
+    Component: PermissionPanel,
+    path: '/permissions/edit/:id',
+    name: 'breadcrumb.permission-edit',
+    breadCrumb: true
   }
 ];
 

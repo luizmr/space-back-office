@@ -2,10 +2,14 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Typography from '@eduzz/houston-ui/Typography';
+import SupervisedUserCircleOutlinedIcon from '@mui/icons-material/SupervisedUserCircleOutlined';
+import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 
 // Components
 import ToastComponent from 'components/toast';
-import SupervisedUserCircleOutlinedIcon from '@mui/icons-material/SupervisedUserCircleOutlined';
 import CardDashboard from './components/CardDashboard';
 import SkeletonFinalPage from './components/SkeletonFinalPage';
 
@@ -18,9 +22,33 @@ const Dashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [cards, setCards] = useState<DashboardCardOutput[]>([
     {
+      icon: <BusinessRoundedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
+      slug: 'company',
+      path: { new: '/companies/new', dashboard: '/companies' },
+      pathIsTrue: true
+    },
+    {
+      icon: <AppsRoundedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
+      slug: 'app',
+      path: { new: '/apps/new', dashboard: '/apps' },
+      pathIsTrue: true
+    },
+    {
+      icon: <GroupsRoundedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
+      slug: 'permission-group',
+      path: { new: '/permission-groups/new', dashboard: '/permission-groups' },
+      pathIsTrue: true
+    },
+    {
+      icon: <AssignmentOutlinedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
+      slug: 'permission',
+      path: { new: '/permissions/new', dashboard: '/permissions' },
+      pathIsTrue: true
+    },
+    {
       icon: <SupervisedUserCircleOutlinedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
       slug: 'assign-permission',
-      path: { new: '/assign-permission/new', dashboard: '/assign-permission' },
+      path: { new: '/assign-permissions/new', dashboard: '/assign-permissions' },
       pathIsTrue: true
     }
   ]);

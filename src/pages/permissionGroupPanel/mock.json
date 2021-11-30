@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "name": "Colaborador",
+    "slug": "colaborador",
+    "defaultGroup": true,
+    "app": {
+      "id": "1",
+      "name": "Vitrine",
+      "company": {
+        "id": "1",
+        "name": "Space"
+      }
+    },
+    "active": true
+  },
+  {
+    "id": "2",
+    "created_At": "2021-11-06 21:03:22",
+    "name": "Parceiro",
+    "slug": "parceiro",
+    "defaultGroup": true,
+    "app": {
+      "id": "1",
+      "name": "Vitrine",
+      "company": {
+        "id": "1",
+        "name": "Space"
+      }
+    },
+    "active": false
+  }
+]

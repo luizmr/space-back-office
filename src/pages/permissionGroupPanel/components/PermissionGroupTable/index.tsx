@@ -5,16 +5,18 @@ import Table from '@eduzz/houston-ui/Table';
 import Tooltip from '@eduzz/houston-ui/Tooltip';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
-import { UsersDataOutput } from 'models/assignPermission';
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import { FormataStringData } from 'utils/formataStringData';
+import { PermissionGroupDataOutput } from 'models/permissionGroup';
 
 type Props = {
-  setRows: React.Dispatch<React.SetStateAction<UsersDataOutput[]>>;
-  rows: UsersDataOutput[];
+  setRows: React.Dispatch<React.SetStateAction<PermissionGroupDataOutput[]>>;
+  rows: PermissionGroupDataOutput[];
   loading: boolean;
 };
 
-const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
+const PermissionGroupTable = ({ setRows, rows, loading }: Props) => {
   const { t } = useTranslation('common');
   const history = useHistory();
   const [sort, setSort] = useState<any>(null);
@@ -35,9 +37,10 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
     <Table stripedRows sort={sort} onSort={onSort} loading={loading}>
       <Table.Header>
         <Table.Column sortableField='date'>{t('common.date')}</Table.Column>
+        <Table.Column>{t('dashboard.company')}</Table.Column>
         <Table.Column>{t('dashboard.app')}</Table.Column>
         <Table.Column>{t('dashboard.permission-group')}</Table.Column>
-        <Table.Column>{t('common.user')}</Table.Column>
+        <Table.Column>{t('common.active')}</Table.Column>
         <Table.Column align='right'>{t('common.action')}</Table.Column>
       </Table.Header>
       <Table.Body>
@@ -47,14 +50,21 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
             <Table.Cell>
               {row.updated_At ? FormataStringData(row.updated_At) : FormataStringData(row.created_At)}
             </Table.Cell>
+            <Table.Cell>{row.app.company.name}</Table.Cell>
             <Table.Cell>{row.app.name}</Table.Cell>
-            <Table.Cell>{row.permissionGroup.name}</Table.Cell>
-            <Table.Cell>{row.user.name}</Table.Cell>
+            <Table.Cell>{row.name}</Table.Cell>
+            <Table.Cell>
+              {row.active ? (
+                <CheckCircleRoundedIcon style={{ color: '#4caf50' }} />
+              ) : (
+                <CancelRoundedIcon style={{ color: '#f44336' }} />
+              )}
+            </Table.Cell>
             <Table.Cell align='right'>
-              <Tooltip placement='bottom' title={`${t('assignpermission.edit-permission')}`}>
+              <Tooltip placement='bottom' title={`${t('permission-group.edit-permission-group')}`}>
                 <ButtonIcon
                   onClick={() => {
-                    history.push(`/assign-permissions/edit/${row.id}`);
+                    history.push(`/permission-groups/edit/${row.id}`);
                   }}
                 >
                   <EditSolid />
@@ -75,4 +85,4 @@ const AssignPermissionTable = ({ setRows, rows, loading }: Props) => {
   );
 };
 
-export default AssignPermissionTable;
+export default PermissionGroupTable;

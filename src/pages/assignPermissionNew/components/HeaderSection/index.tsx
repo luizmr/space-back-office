@@ -40,7 +40,7 @@ function HeaderSection({ currentStep }: Props) {
           <div className='assign-permission__btns'>
             <Button
               onClick={() => {
-                history.push('/assign-permission');
+                history.push('/assign-permissions');
               }}
               endIcon={<Cancel />}
               variant='text'

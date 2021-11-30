@@ -21,22 +21,19 @@
     "previous": "Anterior",
     "done": "Concluído!",
     "user": "Usuário",
-    "app": "Aplicação",
     "member": "Membro",
     "name": "Nome",
     "edit": "Editar",
     "action": "Ação",
-    "application": "Aplicação",
-    "permission-group": "Grupo de permissão",
-    "edit-permission": "Editar permissão",
-    "delete-permission": "Deletar permissão",
     "delete": "Deletar",
     "date": "Data",
     "go-back": "Voltar",
     "save": "Salvar",
     "informations": "Informações",
     "confirm": "Confirmar",
-    "confirm-operation": "Você tem certeza que deseja confirmar esta operação?"
+    "confirm-operation": "Você tem certeza que deseja confirmar esta operação?",
+    "phone": "Telefone",
+    "active": "Ativo"
   },
   "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -45,8 +42,8 @@
     "permission-done": "Obrigado! As permissões foram atribuídas com sucesso.",
     "back-to-panel": "Voltar para o painel",
     "finish-assignment": "Finalizar a atribuição",
-    "title": "Vitrine permissões",
-    "subtitle": "Gerenciamento de permissões dos usuários",
+    "title": "Painel de Atribuição de Permissões",
+    "subtitle": "Aqui você pode administrar as atribuições de permissões existents no Back Office.",
     "select-app": "Selecione uma aplicação",
     "select-member": "Selecione um membro",
     "add-permission": "Adicionar permissão",
@@ -57,10 +54,48 @@
     "edit-permission-title": "Edição de permissão",
     "delete-subtitle": "Antes de deletar a atribuição, tenha certeza de quais são as implicações desta ação.",
     "delete-success": "Atribuição de permissão deletada com sucesso",
-    "saved-successfully": "Permissões editadas com sucesso"
+    "saved-successfully": "Permissões editadas com sucesso",
+    "edit-permission": "Editar permissão",
+    "delete-permission": "Deletar permissão"
+  },
+  "company": {
+    "title": "Painel de Companhias",
+    "subtitle": "Aqui você pode administrar as companhias existents no Back Office.",
+    "edit-company": "Editar companhia",
+    "delete-company": "Deletar companhia",
+    "new-company": "Nova Companhia"
+  },
+  "app": {
+    "title": "Painel de Apps",
+    "subtitle": "Aqui você pode administrar os apps existents no Back Office.",
+    "edit-app": "Editar app",
+    "delete-app": "Deletar app",
+    "new-app": "Novo App"
+  },
+  "permission-group": {
+    "title": "Painel de Grupos de Permissão",
+    "subtitle": "Aqui você pode administrar os grupos de permissão existents no Back Office.",
+    "edit-permission-group": "Editar grupo de permissão",
+    "delete-permission-group": "Deletar grupo de permissão",
+    "new-permission-group": "Novo Grupo de Permissão"
+  },
+  "permission": {
+    "title": "Painel Permissões",
+    "subtitle": "Aqui você pode administrar as permissões existents no Back Office.",
+    "edit-permission": "Editar permissão",
+    "delete-permission": "Deletar permissão",
+    "new-permission": "Nova Permissão"
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",
+    "company": "Companhia",
+    "app": "Aplicação",
+    "permission-group": "Grupo de permissão",
+    "permission": "Permissão",
+    "companies": "Companhias",
+    "apps": "Apps",
+    "permission-groups": "Grupos de permissão",
+    "permissions": "Permissões",
     "title": "Bem vindo a área de Back Office",
     "subtitle": "Aqui você pode administrar tudo o que a sua companhia pode fazer:"
   },
@@ -74,7 +109,16 @@
   },
   "breadcrumb": {
     "home": "Back Office",
-    "assign-permission-panel": "Painel de Atribuir Permissão"
+    "assign-permission-panel": "Painel de Atribuir Permissão",
+    "assign-permission-edit": "Edição de Atribuição de Permissão",
+    "company-panel": "Painel de Companhia",
+    "company-edit": "Edição de Companhia",
+    "app-panel": "Painel de App",
+    "app-edit": "Edição de App",
+    "permission-group-panel": "Painel de Grupo de Permissão",
+    "permission-group-edit": "Edição de Grupo de Permissão",
+    "permission-panel": "Painel de Permissão",
+    "permission-edit": "Edição de Permissão"
   },
   "not-found": {
     "text": "Desculpe, não conseguimos encontrar o que você procura. Tente atualizar a página ou volte mais tarde."

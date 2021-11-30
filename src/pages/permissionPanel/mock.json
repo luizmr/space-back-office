@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "name": "Criar app",
+    "slug": "vitrine-create-app",
+    "permissionGroup": {
+      "id": "1",
+      "name": "Colaborador",
+      "app": {
+        "id": "1",
+        "name": "Vitrine"
+      }
+    },
+    "autorize": true
+  },
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "name": "Comentar app",
+    "slug": "vitrine-comment-app",
+    "permissionGroup": {
+      "id": "2",
+      "name": "Parceiro",
+      "app": {
+        "id": "1",
+        "name": "Vitrine"
+      }
+    },
+    "autorize": true
+  }
+]

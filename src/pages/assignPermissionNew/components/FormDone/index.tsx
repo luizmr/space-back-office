@@ -15,7 +15,7 @@ function FormDone() {
             {t('assignpermission.permission-done')}
           </Typography>
           <div className='done-section__buttons'>
-            <Button variant='outlined' onClick={() => history.push('/assign-permission')}>
+            <Button variant='outlined' onClick={() => history.push('/assign-permissions')}>
               {t('assignpermission.back-to-panel')}
             </Button>
           </div>

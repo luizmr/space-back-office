@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "name": "Vitrine",
+    "slug": "vitrine",
+    "defaultAccess": true,
+    "company": {
+      "id": "1",
+      "name": "Space"
+    }
+  },
+  {
+    "id": "2",
+    "created_At": "2021-11-03 21:03:22",
+    "name": "Billing",
+    "slug": "billing",
+    "defaultAccess": true,
+    "company": {
+      "id": "1",
+      "name": "Space"
+    }
+  }
+]

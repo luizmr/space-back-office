@@ -11,7 +11,7 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: a
         loading={false}
         modalShow={modalShow}
         backgroundColor={'#F44336'}
-        headerText={t('common.delete-permission')}
+        headerText={t('assignpermission.delete-permission')}
         bodyContent={
           <>
             <div className='modal-panel__title'>{t('common.confirm-operation')}</div>

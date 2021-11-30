@@ -30,7 +30,7 @@ const DeleteSection = ({ id }: Props) => {
         setToastType('success');
         setShowToast(true);
         setTimeout(() => {
-          history.push('/assign-permission');
+          history.push('/assign-permissions');
         }, 2000);
       })
       .catch(() => {
@@ -55,7 +55,7 @@ const DeleteSection = ({ id }: Props) => {
         </Typography>
         <Button startIcon={<DeleteIcon />} variant='outlined' onClick={() => setModalShow(true)}>
           <Typography fontWeight='semibold' size='small'>
-            {t('common.delete-permission')}
+            {t('assignpermission.delete-permission')}
           </Typography>
         </Button>
       </div>
