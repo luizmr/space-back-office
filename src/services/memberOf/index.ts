@@ -16,7 +16,7 @@ const put = (id: string, data: any) => {
   return http.put(`/MemberOf/${id}`, data);
 };
 
-const deleteMemberOf = (id: string) => {
+const remove = (id: string) => {
   return http.delete(`/MemberOf/${id}`);
 };
 
@@ -25,5 +25,5 @@ export default {
   get,
   post,
   put,
-  deleteMemberOf
+  remove
 };

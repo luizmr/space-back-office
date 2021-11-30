@@ -25,7 +25,7 @@ const DeleteSection = ({ id }: Props) => {
 
   const handleDeleteMemberOf = () => {
     setLoading(true);
-    MemberOfService.deleteMemberOf(id)
+    MemberOfService.remove(id)
       .then(() => {
         setToastType('success');
         setShowToast(true);

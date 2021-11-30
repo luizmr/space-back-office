@@ -5,5 +5,14 @@ import AppService from 'services/app';
 import CompanyService from 'services/company';
 import MemberOfService from 'services/memberOf';
 import PermissionGroupService from 'services/permissionGroup';
+import PermissionService from 'services/permission';
 
-export { AuthService, UserService, AppService, CompanyService, MemberOfService, PermissionGroupService };
+export {
+  AuthService,
+  UserService,
+  AppService,
+  CompanyService,
+  MemberOfService,
+  PermissionGroupService,
+  PermissionService
+};
