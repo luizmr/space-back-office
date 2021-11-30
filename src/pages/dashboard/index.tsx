@@ -88,7 +88,7 @@ const Dashboard = () => {
       )}
       <ToastComponent
         open={openSnackbar}
-        string={t('error.dashboard-error')}
+        string={'error.dashboard-error'}
         type={'warning'}
         handleClose={handleCloseSnackbar}
       />

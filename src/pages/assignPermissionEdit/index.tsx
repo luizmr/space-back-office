@@ -45,7 +45,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
   const [toast, setToast] = useState<{ show: boolean; type: string; message: string }>({
     show: false,
     type: 'success',
-    message: t('assignpermission.saved-successfully')
+    message: 'assignpermission.saved-successfully'
   });
 
   const memberOfId = match.params.id;
@@ -61,7 +61,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         setLoading(true);
       })
       .catch(() => {
-        setToast({ ...toast, show: true, type: 'error', message: t('error.load-data-error') });
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
       });
   }, []);
 
@@ -88,7 +88,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
         setToast({
           show: true,
           type: 'success',
-          message: t('assignpermission.saved-successfully')
+          message: 'assignpermission.saved-successfully'
         });
         setTimeout(() => {
           setSubmitting(false);
@@ -97,7 +97,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
       })
       .catch(err => {
         setSubmitting(false);
-        setToast({ ...toast, show: true, type: 'error', message: t('error.assign-permission-edit-error') });
+        setToast({ ...toast, show: true, type: 'error', message: 'error.assign-permission-edit-error' });
       });
   };
 

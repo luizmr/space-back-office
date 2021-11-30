@@ -67,9 +67,7 @@ const DeleteSection = ({ id }: Props) => {
       />
       <ToastComponent
         open={showToast}
-        string={
-          toastType === 'error' ? t('error.assign-permission-delete-error') : t('assignpermission.delete-success')
-        }
+        string={toastType === 'error' ? 'error.assign-permission-delete-error' : 'assignpermission.delete-success'}
         type={toastType}
         handleClose={handleCloseShowToast}
         callClose={false}

@@ -29,7 +29,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>(t('error.permission-error'));
+  const [errorMessage, setErrorMessage] = useState<string>('error.permission-error');
   const [group, setGroup] = useState<string>('');
   const [permissions, setPermissions] = useState<PermissionsStateOutput[]>([]);
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Toast from '@eduzz/houston-ui/Toast';
 
 type Props = {
@@ -10,20 +11,22 @@ type Props = {
 };
 
 export default function ToastComponent({ open, string, type = 'error', handleClose, callClose = true }: Props) {
+  const { t } = useTranslation('common');
+
   useEffect(() => {
     if (open) {
       type === 'success' &&
         callClose &&
-        Toast.success(string, {
+        Toast.success(t(string), {
           onOpen: () => {
             setTimeout(() => {
               handleClose();
             }, 3000);
           }
         });
-      type === 'success' && !callClose && Toast.success(string);
+      type === 'success' && !callClose && Toast.success(t(string));
       type === 'error' &&
-        Toast.error(string, {
+        Toast.error(t(string), {
           onOpen: () => {
             setTimeout(() => {
               handleClose();
@@ -31,7 +34,7 @@ export default function ToastComponent({ open, string, type = 'error', handleClo
           }
         });
       type === 'warning' &&
-        Toast.info(string, {
+        Toast.info(t(string), {
           onOpen: () => {
             setTimeout(() => {
               handleClose();

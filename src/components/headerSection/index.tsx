@@ -8,30 +8,13 @@ import { ConcluidoPlugin } from 'assets';
 
 type Props = {
   currentStep: number;
-  // steps: Array<{ label: string; class: string; text: string }>;
+  steps: Array<{ label: string; class: string; text: string }>;
+  buttonPath: string;
 };
 
-function HeaderSection({ currentStep }: Props) {
+function HeaderSection({ currentStep, steps, buttonPath }: Props) {
   const { t } = useTranslation('common');
   const history = useHistory();
-
-  const steps = [
-    {
-      label: '',
-      class: 'assign-permission',
-      text: t('assignpermission.form-step-1')
-    },
-    {
-      label: '',
-      class: 'assign-permission',
-      text: t('assignpermission.form-step-2')
-    },
-    {
-      label: '',
-      class: 'assign-permission',
-      text: t('assignpermission.form-step-3')
-    }
-  ];
 
   return (
     <div>
@@ -40,7 +23,7 @@ function HeaderSection({ currentStep }: Props) {
           <div className='assign-permission__btns'>
             <Button
               onClick={() => {
-                history.push('/assign-permissions');
+                history.push(buttonPath);
               }}
               endIcon={<Cancel />}
               variant='text'
@@ -55,7 +38,7 @@ function HeaderSection({ currentStep }: Props) {
               {t('common.step')} {currentStep + 1} {t('common.from-lower')} {steps.length}
             </Typography>
             <Typography fontWeight='semibold' size='large'>
-              {steps[currentStep].text}
+              {t(steps[currentStep].text)}
             </Typography>
           </div>
           <div
