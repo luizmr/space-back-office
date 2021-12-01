@@ -34,7 +34,9 @@
     "confirm-operation": "Você tem certeza que deseja confirmar esta operação?",
     "phone": "Telefone",
     "active": "Ativo",
-    "contact": "Contato"
+    "contact": "Contato",
+    "slug-available": "Slug disponível!",
+    "slug-unavailable": "Slug indisponível!"
   },
   "assignpermission": {
     "form-step-1": "Vamos começar identificando para qual aplicação o membro irá fazer parte",
@@ -71,14 +73,21 @@
     "company-email": "Qual o email da companhia?",
     "company-phone": "Qual o telefone da companhia?",
     "company-contact": "Qual o contato da companhia?",
-    "company-done": "Obrigado! A Companhia foi criada com sucesso."
+    "company-done": "Obrigado! A Companhia foi criada com sucesso.",
+    "select-company": "Selecione uma Companhia"
   },
   "app": {
     "title": "Painel de Apps",
     "subtitle": "Aqui você pode administrar os apps existents no Back Office.",
     "edit-app": "Editar app",
     "delete-app": "Deletar app",
-    "new-app": "Novo App"
+    "new-app": "Novo App",
+    "form-step-1": "Vamos começar selecionando a Companhia que seu App fará parte",
+    "form-step-2": "Agora, complete os campos com informações mais detalhadas sobre o App",
+    "app-name": "Qual o nome do app?",
+    "app-slug": "Qual o slug do app?",
+    "app-done": "Obrigado! O App foi criado com sucesso.",
+    "app-default": "Acesso padrão?"
   },
   "permission-group": {
     "title": "Painel de Grupos de Permissão",

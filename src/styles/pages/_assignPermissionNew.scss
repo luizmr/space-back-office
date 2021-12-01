@@ -119,6 +119,27 @@
       form {
         width: 100%;
 
+        .textfield-slug3 {
+          p {
+            color: $danger;
+          }
+        }
+
+        .textfield-slug2 {
+          p {
+            color: $approve;
+          }
+        }
+
+        .form__switch {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          p {
+            margin-right: 16px;
+          }
+        }
+
         .form__permission-step {
           p {
             color: $primary-text-color;

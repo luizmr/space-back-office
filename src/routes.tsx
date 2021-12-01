@@ -19,6 +19,7 @@ import AppPanel from 'pages/appPanel';
 import PermissionGroupPanel from 'pages/permissionGroupPanel';
 import PermissionPanel from 'pages/permissionPanel';
 import CompanyNew from 'pages/companyNew';
+import AppNew from 'pages/appNew';
 
 const privateRoutes = [
   {
@@ -79,7 +80,7 @@ const privateRoutes = [
   },
   {
     key: 'app-new',
-    Component: AppPanel,
+    Component: AppNew,
     path: '/apps/new',
     name: '',
     breadCrumb: false
@@ -204,7 +205,7 @@ export const AppRoutes = () => {
     if (users.CompanyId) {
       setRouteOptions(privateRoutes);
     } else {
-      setRouteOptions(privateRoutes);
+      setRouteOptions(notAuthorizedRoutes);
     }
   };
   return (

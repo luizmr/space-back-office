@@ -84,9 +84,9 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
 
   return (
     <>
-      <div className='assign-permission__new-form'>
-        <div className='assign-permission__new-form__body'>
-          <div className='assign-permission__new-form__form'>
+      <div className='general-new__new-form'>
+        <div className='general-new__new-form__body'>
+          <div className='general-new__new-form__form'>
             <Form context={form}>
               {currentStep === 0 && (
                 <SelectField
@@ -114,7 +114,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                 </>
               )}
 
-              <div className='assign-permission__new-form__submit'>
+              <div className='general-new__new-form__submit'>
                 {(currentStep === 1 || currentStep === 2) && (
                   <Button
                     variant='text'
@@ -122,6 +122,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                       setNextButton(true);
                       setCurrentStep(currentStep - 1);
                     }}
+                    disabled={submitting}
                   >
                     {t('common.previous')}
                   </Button>

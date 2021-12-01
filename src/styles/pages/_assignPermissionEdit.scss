@@ -35,7 +35,7 @@
     }
 
     button {
-      color: $danger-3;
+      color: $danger;
       border-color: #fdd9d7;
       p {
         margin: 0;
@@ -44,7 +44,7 @@
         font-size: 20px !important;
       }
       &:hover {
-        border-color: $danger-3;
+        border-color: $danger;
       }
     }
   }

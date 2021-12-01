@@ -34,7 +34,9 @@
     "confirm-operation": "Are you sure you want to confirm this operation?",
     "phone": "Phone",
     "active": "Active",
-    "contact": "Contact"
+    "contact": "Contact",
+    "slug-available": "Slug available!",
+    "slug-unavailable": "Slug unavailable!"
   },
   "assignpermission": {
     "form-step-1": "Let's start by identifying the application that the member will be part of",
@@ -71,14 +73,21 @@
     "company-email": "What is the email of the company?",
     "company-phone": "What is the phone number of the company?",
     "company-contact": "What is the contact of the company?",
-    "company-done": "Thanks! Company was successfully created."
+    "company-done": "Thanks! Company was successfully created.",
+    "select-company": "Select a company"
   },
   "app": {
     "title": "Apps Panel",
     "subtitle": "Here you can manage the existing apps on Back Office.",
     "edit-app": "Edit app",
     "delete-app": "Delete app",
-    "new-app": "New App"
+    "new-app": "New App",
+    "form-step-1": "Let's start by the Company your App will be part of",
+    "form-step-2": "Now, fill in the fields with more detailed information about the App",
+    "app-name": "What is the name of the app?",
+    "app-slug": "What is the slug of the app?",
+    "app-done": "Thanks! Company was successfully created.",
+    "app-default": "Default access?"
   },
   "permission-group": {
     "title": "Permission Groups Panel",
