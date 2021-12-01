@@ -14,7 +14,7 @@ import ToastComponent from 'components/toast';
 
 // utils
 import { AppService } from 'services';
-import { slugError } from 'utils/errorDic';
+// import { slugError } from 'utils/errorDic';
 import { SelectFieldOutput } from 'models/assignPermission';
 import ConvertToSlug from 'utils/convertToSlug';
 
@@ -46,26 +46,26 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
       setSubmitting(true);
       const { name, companyId, slug, defaultAccess } = values;
 
-      try {
-        await AppService.post({
-          name,
-          companyId,
-          slug,
-          defaultAccess
-        });
-        setTimeout(() => {
-          setSubmitting(false);
-          setCurrentStep(2);
-        }, 1000);
-      } catch (error: any) {
-        const errorSlug = error.response.data.detail.split(':');
-        const foundError = slugError.find(({ slug, api }) => api === errorSlug[0] && slug === errorSlug[2]);
-        if (foundError) {
-          setErrorMessage(t(`${foundError.message}`));
-        }
-        setSubmitting(false);
-        setOpen(true);
-      }
+      // try {
+      //   await AppService.post({
+      //     name,
+      //     companyId,
+      //     slug,
+      //     defaultAccess
+      //   });
+      //   setTimeout(() => {
+      setSubmitting(false);
+      setCurrentStep(2);
+      //   }, 1000);
+      // } catch (error: any) {
+      //   const errorSlug = error.response.data.detail.split(':');
+      //   const foundError = slugError.find(({ slug, api }) => api === errorSlug[0] && slug === errorSlug[2]);
+      //   if (foundError) {
+      //     setErrorMessage(t(`${foundError.message}`));
+      //   }
+      //   setSubmitting(false);
+      //   setOpen(true);
+      // }
     }
   });
 

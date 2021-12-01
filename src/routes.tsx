@@ -20,6 +20,7 @@ import PermissionGroupPanel from 'pages/permissionGroupPanel';
 import PermissionPanel from 'pages/permissionPanel';
 import CompanyNew from 'pages/companyNew';
 import AppNew from 'pages/appNew';
+import PermissionGroupNew from 'pages/permissionGroupNew';
 
 const privateRoutes = [
   {
@@ -101,7 +102,7 @@ const privateRoutes = [
   },
   {
     key: 'permission-group-new',
-    Component: PermissionGroupPanel,
+    Component: PermissionGroupNew,
     path: '/permission-groups/new',
     name: '',
     breadCrumb: false

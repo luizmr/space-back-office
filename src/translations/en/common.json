@@ -39,7 +39,7 @@
     "slug-unavailable": "Slug unavailable!"
   },
   "assignpermission": {
-    "form-step-1": "Let's start by identifying the application that the member will be part of",
+    "form-step-1": "Let's start by selecting the App that the member will be part of",
     "form-step-2": "Select the member who will be assigned the permission",
     "form-step-3": "Select the group the member will be part of and its permissions",
     "permission-done": "Thanks! Permissions successfully assigned.",
@@ -47,7 +47,6 @@
     "finish-assignment": "Finish assignment",
     "title": "Permission Assignments Panel",
     "subtitle": "Here you can manage the existing permission assignments on Back Office",
-    "select-app": "Select an app",
     "select-member": "Select a member",
     "add-permission": "Add permission",
     "group": "Permission groups",
@@ -82,19 +81,27 @@
     "edit-app": "Edit app",
     "delete-app": "Delete app",
     "new-app": "New App",
-    "form-step-1": "Let's start by the Company your App will be part of",
+    "form-step-1": "Let's start by selecting the Company your App will be part of",
     "form-step-2": "Now, fill in the fields with more detailed information about the App",
     "app-name": "What is the name of the app?",
     "app-slug": "What is the slug of the app?",
     "app-done": "Thanks! Company was successfully created.",
-    "app-default": "Default access?"
+    "app-default": "Default access?",
+    "select-app": "Select an app"
   },
   "permission-group": {
     "title": "Permission Groups Panel",
     "subtitle": "Here you can manage the existing permission groups on Back Office.",
     "edit-permission-group": "Edit permission group",
     "delete-permission-group": "Delete permission group",
-    "new-permission-group": "New Permission Group"
+    "new-permission-group": "New Permission Group",
+    "form-step-1": "Let's start by selecting the App your Permission Group will be part of",
+    "form-step-2": "Now, fill in the fields with more detailed information about the Permission Group",
+    "permission-group-name": "What is the name of the permission group?",
+    "permission-group-slug": "What is the slug of the permission group?",
+    "permission-group-done": "Thanks! Permission Group was successfully created.",
+    "permission-group-default": "Default group?",
+    "permission-group-active": "Active group?"
   },
   "permission": {
     "title": "Permissions Panel",

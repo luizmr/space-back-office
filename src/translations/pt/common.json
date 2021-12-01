@@ -47,7 +47,6 @@
     "finish-assignment": "Finalizar a atribuição",
     "title": "Painel de Atribuição de Permissões",
     "subtitle": "Aqui você pode administrar as atribuições de permissões existents no Back Office.",
-    "select-app": "Selecione uma aplicação",
     "select-member": "Selecione um membro",
     "add-permission": "Adicionar permissão",
     "group": "Grupos de permissão",
@@ -87,14 +86,22 @@
     "app-name": "Qual o nome do app?",
     "app-slug": "Qual o slug do app?",
     "app-done": "Obrigado! O App foi criado com sucesso.",
-    "app-default": "Acesso padrão?"
+    "app-default": "Acesso padrão?",
+    "select-app": "Selecione um app"
   },
   "permission-group": {
     "title": "Painel de Grupos de Permissão",
     "subtitle": "Aqui você pode administrar os grupos de permissão existents no Back Office.",
     "edit-permission-group": "Editar grupo de permissão",
     "delete-permission-group": "Deletar grupo de permissão",
-    "new-permission-group": "Novo Grupo de Permissão"
+    "new-permission-group": "Novo Grupo de Permissão",
+    "form-step-1": "Vamos começar selecionando o App que seu Grupo de Permissão fará parte",
+    "form-step-2": "Agora, complete os campos com informações mais detalhadas sobre o Grupo de Permissão",
+    "permission-group-name": "Qual o nome do grupo de permissão?",
+    "permission-group-slug": "Qual o slug do grupo de permissão?",
+    "permission-group-done": "Obrigado! O Grupo de Permissão foi criado com sucesso.",
+    "permission-group-default": "Grupo padrão?",
+    "permission-group-active": "Grupo ativo?"
   },
   "permission": {
     "title": "Painel Permissões",
@@ -106,7 +113,7 @@
   "dashboard": {
     "assign-permission": "Atribuir permissão",
     "company": "Companhia",
-    "app": "Aplicação",
+    "app": "App",
     "permission-group": "Grupo de permissão",
     "permission": "Permissão",
     "companies": "Companhias",

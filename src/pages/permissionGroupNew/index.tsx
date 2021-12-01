@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useProgress from '@eduzz/houston-ui/Progress/useProgress';
+import { useStateValue } from 'store/TokenProvider';
+import jwt from 'jsonwebtoken';
 
 // components
 import FormDone from 'components/formDone';
@@ -13,21 +15,23 @@ import steps from './utils/steps';
 import createSelectArray from 'utils/createSelectArray';
 import { SelectFieldOutput } from 'models/assignPermission';
 
-const AppNew = () => {
+const PermissionGroupNew = () => {
   const { nextStep, backStep, setCurrentStep, currentStep } = useProgress();
-  const [companies, setCompanies] = useState<SelectFieldOutput[]>([]);
+  const [apps, setApps] = useState<SelectFieldOutput[]>([]);
   const [openToast, setOpenToast] = useState<boolean>(false);
-
-  const buttonPath = '/apps';
+  const [{ token }, dispatch] = useStateValue();
+  const tokenUser = token ? token.split(' ')[1] : '';
+  const user: any = jwt.decode(tokenUser);
+  const buttonPath = '/permission-groups';
 
   useEffect(() => {
     setCurrentStep(0);
-    CompanyService.getAll()
+    CompanyService.getApp(user.CompanyId)
       .then(response => {
-        setCompanies(createSelectArray(response.data));
+        setApps(createSelectArray(response.data));
       })
       .catch(err => {
-        setCompanies([]);
+        setApps([]);
         setOpenToast(true);
       });
   }, []);
@@ -40,12 +44,12 @@ const AppNew = () => {
     <div>
       <HeaderSection currentStep={currentStep} steps={steps} buttonPath={buttonPath} />
       {(currentStep === 0 || currentStep === 1) && (
-        <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} companies={companies} />
+        <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} apps={apps} />
       )}
-      {currentStep === 2 && <FormDone title={'company.company-done'} buttonPath={buttonPath} />}
+      {currentStep === 2 && <FormDone title={'permission-group.permission-group-done'} buttonPath={buttonPath} />}
       <ToastComponent open={openToast} string={'error.load-data-error'} handleClose={handleCloseToast} />
     </div>
   );
 };
 
-export default AppNew;
+export default PermissionGroupNew;

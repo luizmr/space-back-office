@@ -20,6 +20,10 @@ const remove = (id: string) => {
   return http.delete(`/PermissionGroup/${id}`);
 };
 
+const checkSlug = (slug: any) => {
+  return http.get(`/PermissionGroup/slug/${slug}`);
+};
+
 const getPermission = (id: any) => {
   return http.get(`/PermissionGroup/permissions/${id}`);
 };
@@ -30,5 +34,6 @@ export default {
   post,
   put,
   remove,
+  checkSlug,
   getPermission
 };

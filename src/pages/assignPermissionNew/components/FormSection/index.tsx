@@ -93,7 +93,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                   id='app-select'
                   name='app'
                   label={t('dashboard.app')}
-                  options={[{ value: '0', label: t('assignpermission.select-app') }, ...apps]}
+                  options={[{ value: '0', label: t('app.select-app') }, ...apps]}
                 />
               )}
 

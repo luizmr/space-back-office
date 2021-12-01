@@ -1,52 +1,59 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // material-ui/icons
+import Typography from '@eduzz/houston-ui/Typography';
 import Button from '@eduzz/houston-ui/Button';
 import Form from '@eduzz/houston-ui/Forms/Form';
 import useForm from '@eduzz/houston-forms/useForm';
 import TextField from '@eduzz/houston-ui/Forms/Text';
-import phoneMask from '@eduzz/houston-forms/masks/phone';
+import SelectField from '@eduzz/houston-ui/Forms/Select';
+import Switch from '@eduzz/houston-ui/Forms/Switch';
 
 // components
 import ToastComponent from 'components/toast';
 
-// models
-// import { CompanyService } from 'services';
-
+// utils
+import { PermissionGroupService } from 'services';
 // import { slugError } from 'utils/errorDic';
+import { SelectFieldOutput } from 'models/assignPermission';
+import ConvertToSlug from 'utils/convertToSlug';
 
 type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  apps: Array<SelectFieldOutput>;
 };
 
-const FormSection = ({ currentStep, setCurrentStep }: Props) => {
+const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
   const { t } = useTranslation('common');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('error.permission-error');
+  const [slugValid, setSlugValid] = useState<number>(1);
 
   const form = useForm({
-    initialValues: { name: '', email: '', phone: '', contact: '' },
+    initialValues: { appId: '0', name: '', defaultGroup: true, slug: '', active: true },
     validationSchema: yup => {
       return yup.object().shape({
-        name: yup.string(),
-        email: yup.string().email().required(),
-        phone: yup.string().min(10).required(),
-        contact: yup.string().required()
+        appId: yup.string(),
+        name: yup.string().required(),
+        slug: yup.string(),
+        defaultGroup: yup.boolean(),
+        active: yup.boolean()
       });
     },
     onSubmit: async values => {
       setSubmitting(true);
-      const { name, email, phone, contact } = values;
+      const { name, appId, slug, defaultGroup, active } = values;
 
       // try {
-      //   await CompanyService.post({
+      //   await PermissionGroupService.post({
       //     name,
-      //     email,
-      //     phone,
-      //     contact
+      //     appId,
+      //     slug,
+      //     defaultGroup,
+      //     active
       //   });
       //   setTimeout(() => {
       setSubmitting(false);
@@ -68,6 +75,25 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
     setOpen(false);
   };
 
+  const handleCheckSlug = (value: any): void => {
+    if (value !== '') {
+      PermissionGroupService.checkSlug(value)
+        .then(() => {
+          setSlugValid(2);
+        })
+        .catch(() => {
+          setSlugValid(3);
+        });
+    } else {
+      setSlugValid(1);
+    }
+  };
+
+  const handleOnBlur = (e: string) => {
+    form.setFieldValue('slug', ConvertToSlug(e));
+    handleCheckSlug(e);
+  };
+
   return (
     <>
       <div className='general-new__new-form'>
@@ -75,40 +101,54 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
           <div className='general-new__new-form__form'>
             <Form context={form}>
               {currentStep === 0 && (
-                <TextField
-                  name='name'
-                  label={`${t('dashboard.company')}`}
-                  id='form-name'
-                  placeholder={`${t('company.company-name')}`}
-                  maxLength={100}
+                <SelectField
+                  id='app-select'
+                  name='appId'
+                  label={t('dashboard.app')}
+                  options={[{ value: '0', label: t('app.select-app') }, ...apps]}
                 />
               )}
 
               {currentStep === 1 && (
                 <>
                   <TextField
-                    name='contact'
-                    label={`* ${t('common.contact')}`}
-                    id='form-contact'
-                    placeholder={`${t('company.company-contact')}`}
+                    name='name'
+                    label={`* ${t('dashboard.permission-group')}`}
+                    id='form-name'
+                    placeholder={`${t('permission-group.permission-group-name')}`}
+                    onBlur={e => handleOnBlur(e)}
                     maxLength={100}
                   />
                   <TextField
-                    name='email'
-                    label={'* E-mail'}
-                    id='form-email'
-                    placeholder={`${t('company.company-email')}`}
-                    type='email'
-                    maxLength={100}
+                    name='slug'
+                    label={'Slug'}
+                    id='form-slug'
+                    className={`textfield-slug${slugValid}`}
+                    placeholder={`${t('permission-group.permission-group-slug')}`}
+                    helperText={
+                      slugValid === 1
+                        ? ''
+                        : slugValid === 2
+                        ? `${t('common.slug-available')}`
+                        : `${t('common.slug-unavailable')}`
+                    }
+                    onBlur={e => {
+                      handleCheckSlug(e);
+                    }}
+                    maxLength={200}
                   />
-                  <TextField
-                    name='phone'
-                    label={`* ${t('common.phone')}`}
-                    id='form-telefone'
-                    placeholder={`${t('company.company-phone')}`}
-                    mask={phoneMask}
-                    maxLength={30}
-                  />
+                  <div className='form__switch'>
+                    <Typography fontWeight='semibold' size='normal'>
+                      {t('permission-group.permission-group-default')}
+                    </Typography>
+                    <Switch name='defaultGroup' />
+                  </div>
+                  <div className='form__switch'>
+                    <Typography fontWeight='semibold' size='normal'>
+                      {t('permission-group.permission-group-active')}
+                    </Typography>
+                    <Switch name='active' />
+                  </div>
                 </>
               )}
 
@@ -128,19 +168,14 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
                 {currentStep === 1 ? (
                   <Button
                     loading={submitting}
-                    disabled={
-                      nextButton ||
-                      form.isSubmitting ||
-                      (form.getFieldValue('phone').length >= 1 && form.getFieldValue('phone').length < 10) ||
-                      !form.isValid
-                    }
+                    disabled={nextButton || form.isSubmitting || !form.isValid || slugValid === 2}
                     type='submit'
                   >
                     {t('common.confirm')}
                   </Button>
                 ) : (
                   <Button
-                    disabled={currentStep === 0 ? (form.getFieldValue('name') === '' ? true : false) : false}
+                    disabled={currentStep === 0 ? (form.getFieldValue('appId') === '0' ? true : false) : false}
                     onClick={() => {
                       setCurrentStep(currentStep + 1);
                       if (currentStep === 0) {
