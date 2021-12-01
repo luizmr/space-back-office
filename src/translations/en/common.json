@@ -149,7 +149,11 @@
     "subtitle": "Here you can manage everything your company can do:"
   },
   "error": {
-    "permission-error": "An error occurred while completing the assignment, try again!",
+    "permission-assignment-error": "An error occurred while completing the creation of permission assignment, try again!",
+    "company-error": "An error occurred while completing the creation of Company, try again!",
+    "app-error": "An error occurred while completing the creation of App, try again!",
+    "permission-error": "An error occurred while completing the creation of Permission, try again!",
+    "permission-group-error": "An error occurred while completing the creation of Permission Group, try again!",
     "dashboard-error": "An error occurred while loading the dashboard info, try again!",
     "load-data-error": "An unexpected error occurred loading the information, please try again!",
     "assign-permission-edit-error": "An error occurred while editing the Member permissions assignment, try again!",

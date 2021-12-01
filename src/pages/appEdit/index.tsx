@@ -46,7 +46,7 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   const handleEdit = () => {
     setSubmitting(true);
-    AppService.put({ ...app })
+    AppService.put(app.id, { ...app })
       .then(response => {
         setToast({
           show: true,

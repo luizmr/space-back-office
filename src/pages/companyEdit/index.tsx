@@ -34,20 +34,20 @@ function CompanyEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const companyId = match.params.id;
 
   useEffect(() => {
-    setCompany(mock.dataExample);
-    // CompanyService.get(companyId)
-    //   .then(({ data }) => {
-    //     setCompany(data);
-    setLoading(true);
-    //   })
-    //   .catch(() => {
-    //     setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
-    //   });
+    // setCompany(mock.dataExample);
+    CompanyService.get(companyId)
+      .then(({ data }) => {
+        setCompany(data);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
+      });
   }, []);
 
   const handleEdit = () => {
     setSubmitting(true);
-    CompanyService.put({ ...company })
+    CompanyService.put(company.id, { ...company })
       .then(response => {
         setToast({
           show: true,

@@ -12,8 +12,8 @@ const post = (data: any) => {
   return http.post('/App', data);
 };
 
-const put = (data: any) => {
-  return http.put('/App', data);
+const put = (id: string, data: any) => {
+  return http.put(`/App/${id}`, data);
 };
 
 const remove = (id: string) => {

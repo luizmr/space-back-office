@@ -10,10 +10,8 @@ import phoneMask from '@eduzz/houston-forms/masks/phone';
 // components
 import ToastComponent from 'components/toast';
 
-// models
-// import { CompanyService } from 'services';
-
-// import { slugError } from 'utils/errorDic';
+// services
+import { CompanyService } from 'services';
 
 type Props = {
   currentStep: number;
@@ -25,7 +23,7 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('error.permission-error');
+  const [errorMessage, setErrorMessage] = useState<string>('error.company-error');
 
   const form = useForm({
     initialValues: { name: '', email: '', phone: '', contact: '' },
@@ -41,26 +39,21 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
       setSubmitting(true);
       const { name, email, phone, contact } = values;
 
-      // try {
-      //   await CompanyService.post({
-      //     name,
-      //     email,
-      //     phone,
-      //     contact
-      //   });
-      //   setTimeout(() => {
-      setSubmitting(false);
-      setCurrentStep(2);
-      //   }, 1000);
-      // } catch (error: any) {
-      //   const errorSlug = error.response.data.detail.split(':');
-      //   const foundError = slugError.find(({ slug, api }) => api === errorSlug[0] && slug === errorSlug[2]);
-      //   if (foundError) {
-      //     setErrorMessage(t(`${foundError.message}`));
-      //   }
-      //   setSubmitting(false);
-      //   setOpen(true);
-      // }
+      try {
+        await CompanyService.post({
+          name,
+          email,
+          phone,
+          contact
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          setCurrentStep(2);
+        }, 1000);
+      } catch (error: any) {
+        setSubmitting(false);
+        setOpen(true);
+      }
     }
   });
 

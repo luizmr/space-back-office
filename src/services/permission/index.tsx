@@ -12,8 +12,8 @@ const post = (data: any) => {
   return http.post('/Permission', data);
 };
 
-const put = (data: any) => {
-  return http.put('/Permission', data);
+const put = (id: string, data: any) => {
+  return http.put(`/Permission/${id}`, data);
 };
 
 const remove = (id: string) => {

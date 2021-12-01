@@ -149,7 +149,11 @@
     "subtitle": "Aqui você pode administrar tudo o que a sua companhia pode fazer:"
   },
   "error": {
-    "permission-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
+    "permission-assignment-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
+    "company-error": "Um erro ocorreu durante a criação da Companhia, tente novamente!",
+    "app-error": "Um erro ocorreu durante a criação do App, tente novamente!",
+    "permission-group-error": "Um erro ocorreu durante a criação do Grupo de Permissão, tente novamente!",
+    "permission-error": "Um erro ocorreu durante a criação da Permissão, tente novamente!",
     "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!",
     "load-data-error": "Um erro inesperado ocorreu ao carregar as informações, tente novamente!",
     "assign-permission-edit-error": "Um erro ocorreu durante a edição da atribuição de permissão do Membro, tente novamente!",

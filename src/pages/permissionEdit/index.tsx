@@ -46,7 +46,7 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   const handleEdit = () => {
     setSubmitting(true);
-    PermissionService.put({ ...permission })
+    PermissionService.put(permission.id, { ...permission })
       .then(response => {
         setToast({
           show: true,
