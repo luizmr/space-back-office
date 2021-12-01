@@ -6,6 +6,7 @@ import ToastComponent from 'components/toast';
 import DeleteSection from './components/DeleteSection';
 import FooterEdit from 'components/footerEdit';
 import HeaderEdit from 'components/headerEdit';
+import EditMainComponent from './components/EditMainComponent';
 
 // services
 import { CompanyService } from 'services';
@@ -13,7 +14,7 @@ import { CompanyService } from 'services';
 // models
 import mock from './mock.json';
 import { CompanyOutput } from 'models/company';
-import Informations from 'pages/companyEdit/components/Informations';
+import ValidateEmail from 'utils/validateEmail';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -68,17 +69,25 @@ function CompanyEdit({ match }: { match: match<AuditCompareRouteParams> }) {
     setToast({ ...toast, show: false });
   };
 
+  const disableCondition =
+    !company.name.length || !company.contact.length || company.phone.length < 10 || !ValidateEmail(company.email);
+
   return (
     <>
       {loading && (
         <>
           <div className='general-edit__container'>
             <HeaderEdit title={'company.edit-company-title'} />
-            <Informations company={company} />
+            <EditMainComponent company={company} setCompany={setCompany} />
             <DeleteSection id={companyId} />
             <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
           </div>
-          <FooterEdit redirect={'/companies'} loadingButton={submitting} handleEdit={handleEdit} />
+          <FooterEdit
+            redirect={'/companies'}
+            loadingButton={submitting}
+            handleEdit={handleEdit}
+            disableCondition={disableCondition}
+          />
         </>
       )}
     </>

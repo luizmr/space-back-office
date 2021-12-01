@@ -9,9 +9,10 @@ interface Props {
   loadingButton: boolean;
   handleEdit: () => void;
   redirect: string;
+  disableCondition?: boolean;
 }
 
-function FooterEdit({ loadingButton, handleEdit, redirect }: Props) {
+function FooterEdit({ loadingButton, handleEdit, redirect, disableCondition = false }: Props) {
   const { t } = useTranslation('common');
   const history = useHistory();
 
@@ -26,7 +27,13 @@ function FooterEdit({ loadingButton, handleEdit, redirect }: Props) {
         >
           {t('common.cancel')}
         </Button>
-        <Button loading={loadingButton} startIcon={<SaveSolid />} variant='contained' onClick={() => handleEdit()}>
+        <Button
+          loading={loadingButton}
+          disabled={disableCondition}
+          startIcon={<SaveSolid />}
+          variant='contained'
+          onClick={() => handleEdit()}
+        >
           {t('common.save')}
         </Button>
       </div>
