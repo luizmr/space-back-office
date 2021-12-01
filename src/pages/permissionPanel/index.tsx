@@ -30,8 +30,8 @@ const PermissionPanel = () => {
   return (
     <div className='container-permission-panel'>
       <PanelHeader
-        title={'permission-group.title'}
-        subtitle={'permission-group.subtitle'}
+        title={'permission.title'}
+        subtitle={'permission.subtitle'}
         buttonPath={'/permissions/new'}
         buttonTitle={'permission.new-permission'}
       />

@@ -21,6 +21,7 @@ import PermissionPanel from 'pages/permissionPanel';
 import CompanyNew from 'pages/companyNew';
 import AppNew from 'pages/appNew';
 import PermissionGroupNew from 'pages/permissionGroupNew';
+import PermissionNew from 'pages/permissionNew';
 
 const privateRoutes = [
   {
@@ -123,7 +124,7 @@ const privateRoutes = [
   },
   {
     key: 'permission-new',
-    Component: PermissionPanel,
+    Component: PermissionNew,
     path: '/permissions/new',
     name: '',
     breadCrumb: false
@@ -203,10 +204,11 @@ export const AppRoutes = () => {
   }, [token]);
 
   const buildRoutes = (users: any) => {
+    console.log(users);
     if (users.CompanyId) {
       setRouteOptions(privateRoutes);
     } else {
-      setRouteOptions(notAuthorizedRoutes);
+      setRouteOptions(privateRoutes);
     }
   };
   return (

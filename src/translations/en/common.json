@@ -101,14 +101,22 @@
     "permission-group-slug": "What is the slug of the permission group?",
     "permission-group-done": "Thanks! Permission Group was successfully created.",
     "permission-group-default": "Default group?",
-    "permission-group-active": "Active group?"
+    "permission-group-active": "Active group?",
+    "select-permission-group": "Select a Permission Group"
   },
   "permission": {
     "title": "Permissions Panel",
     "subtitle": "Here you can manage the existing permissions on Back Office.",
     "edit-permission": "Edit permission",
     "delete-permission": "Delete permission",
-    "new-permission": "New Permission"
+    "new-permission": "New Permission",
+    "form-step-1": "Let's start by identifying the App",
+    "form-step-2": "Now, let's select the Permission Group your Permission will be part of",
+    "form-step-3": "Finally, fill in the fields with more detailed information about the Permission",
+    "permission-name": "What is the name of the permission?",
+    "permission-slug": "What is the slug of the permission?",
+    "permission-done": "Thanks! Permission was successfully created.",
+    "permission-authorize": "Permission authorized by default?"
   },
   "dashboard": {
     "assign-permission": "Assign permission",

@@ -46,7 +46,7 @@
     "back-to-panel": "Voltar para o painel",
     "finish-assignment": "Finalizar a atribuição",
     "title": "Painel de Atribuição de Permissões",
-    "subtitle": "Aqui você pode administrar as atribuições de permissões existents no Back Office.",
+    "subtitle": "Aqui você pode administrar as atribuições de permissões existentes no Back Office.",
     "select-member": "Selecione um membro",
     "add-permission": "Adicionar permissão",
     "group": "Grupos de permissão",
@@ -62,7 +62,7 @@
   },
   "company": {
     "title": "Painel de Companhias",
-    "subtitle": "Aqui você pode administrar as companhias existents no Back Office.",
+    "subtitle": "Aqui você pode administrar as companhias existentes no Back Office.",
     "edit-company": "Editar companhia",
     "delete-company": "Deletar companhia",
     "new-company": "Nova Companhia",
@@ -77,7 +77,7 @@
   },
   "app": {
     "title": "Painel de Apps",
-    "subtitle": "Aqui você pode administrar os apps existents no Back Office.",
+    "subtitle": "Aqui você pode administrar os apps existentes no Back Office.",
     "edit-app": "Editar app",
     "delete-app": "Deletar app",
     "new-app": "Novo App",
@@ -91,7 +91,7 @@
   },
   "permission-group": {
     "title": "Painel de Grupos de Permissão",
-    "subtitle": "Aqui você pode administrar os grupos de permissão existents no Back Office.",
+    "subtitle": "Aqui você pode administrar os grupos de permissão existentes no Back Office.",
     "edit-permission-group": "Editar grupo de permissão",
     "delete-permission-group": "Deletar grupo de permissão",
     "new-permission-group": "Novo Grupo de Permissão",
@@ -101,14 +101,22 @@
     "permission-group-slug": "Qual o slug do grupo de permissão?",
     "permission-group-done": "Obrigado! O Grupo de Permissão foi criado com sucesso.",
     "permission-group-default": "Grupo padrão?",
-    "permission-group-active": "Grupo ativo?"
+    "permission-group-active": "Grupo ativo?",
+    "select-permission-group": "Selecione um Grupo de Permissão"
   },
   "permission": {
-    "title": "Painel Permissões",
-    "subtitle": "Aqui você pode administrar as permissões existents no Back Office.",
+    "title": "Painel de Permissões",
+    "subtitle": "Aqui você pode administrar as permissões existentes no Back Office.",
     "edit-permission": "Editar permissão",
     "delete-permission": "Deletar permissão",
-    "new-permission": "Nova Permissão"
+    "new-permission": "Nova Permissão",
+    "form-step-1": "Vamos começar identificando o App",
+    "form-step-2": "Agora, vamos selecionar o Grupo de Permissão que sua Permissão fará parte",
+    "form-step-3": "Por fim, complete os campos com informações mais detalhadas sobre a Permissão",
+    "permission-name": "Qual o nome da permissão?",
+    "permission-slug": "Qual o slug da permissão?",
+    "permission-done": "Obrigado! A Permissão foi criada com sucesso.",
+    "permission-authorize": "Permissão autorizada por padrão?"
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",

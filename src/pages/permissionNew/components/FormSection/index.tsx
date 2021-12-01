@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // material-ui/icons
 import Typography from '@eduzz/houston-ui/Typography';
@@ -13,7 +13,7 @@ import Switch from '@eduzz/houston-ui/Forms/Switch';
 import ToastComponent from 'components/toast';
 
 // utils
-import { PermissionGroupService } from 'services';
+import { PermissionService, AppService } from 'services';
 // import { slugError } from 'utils/errorDic';
 import { SelectFieldOutput } from 'models/assignPermission';
 import ConvertToSlug from 'utils/convertToSlug';
@@ -22,38 +22,39 @@ type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   apps: Array<SelectFieldOutput>;
+  appSlug: string;
 };
 
-const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
+const FormSection = ({ currentStep, setCurrentStep, apps, appSlug }: Props) => {
   const { t } = useTranslation('common');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('error.permission-error');
   const [slugValid, setSlugValid] = useState<number>(1);
+  const [groups, setGroups] = useState<SelectFieldOutput[]>([]);
 
   const form = useForm({
-    initialValues: { appId: '0', name: '', defaultGroup: true, slug: '', active: true },
+    initialValues: { appId: '0', permissionGroupId: '0', name: '', slug: '', authorize: true },
     validationSchema: yup => {
       return yup.object().shape({
         appId: yup.string(),
+        permissionGroupId: yup.string(),
         name: yup.string().required(),
         slug: yup.string(),
-        defaultGroup: yup.boolean(),
-        active: yup.boolean()
+        authorize: yup.boolean()
       });
     },
     onSubmit: async values => {
       setSubmitting(true);
-      const { name, appId, slug, defaultGroup, active } = values;
+      const { name, permissionGroupId, slug, authorize } = values;
 
       // try {
-      //   await PermissionGroupService.post({
+      //   await PermissionService.post({
       //     name,
-      //     appId,
+      //     permissionGroupId,
       //     slug,
-      //     defaultGroup,
-      //     active
+      //     authorize
       //   });
       //   setTimeout(() => {
       setSubmitting(false);
@@ -77,7 +78,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
 
   const handleCheckSlug = (value: any): void => {
     if (value !== '') {
-      PermissionGroupService.checkSlug(value)
+      PermissionService.checkSlug(value)
         .then(() => {
           setSlugValid(2);
         })
@@ -90,9 +91,26 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
   };
 
   const handleOnBlur = (e: string) => {
-    form.setFieldValue('slug', ConvertToSlug(e));
+    form.setFieldValue(
+      'slug',
+      ConvertToSlug(e).startsWith(`${appSlug}-`) ? ConvertToSlug(e) : `${appSlug}-${ConvertToSlug(e)}`
+    );
     handleCheckSlug(e);
   };
+
+  useEffect(() => {
+    if (form.getFieldValue('appId') === '0') {
+      setGroups([]);
+    } else {
+      AppService.getPermissionsGroup(form.getFieldValue('appId'), { active: '1' })
+        .then(response => {
+          setGroups(response.data);
+        })
+        .catch(err => {
+          setGroups([]);
+        });
+    }
+  }, [form.getFieldValue('appId')]);
 
   return (
     <>
@@ -110,6 +128,15 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
               )}
 
               {currentStep === 1 && (
+                <SelectField
+                  id='permission-group-select'
+                  name='permission-groupId'
+                  label={t('dashboard.permission-group')}
+                  options={[{ value: '0', label: t('permission-group.permission-group-app') }, ...groups]}
+                />
+              )}
+
+              {currentStep === 2 && (
                 <>
                   <TextField
                     name='name'
@@ -117,7 +144,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                     id='form-name'
                     placeholder={`${t('permission-group.permission-group-name')}`}
                     onBlur={e => handleOnBlur(e)}
-                    maxLength={50}
+                    maxLength={200}
                   />
                   <TextField
                     name='slug'
@@ -135,25 +162,19 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                     onBlur={e => {
                       handleCheckSlug(e);
                     }}
-                    maxLength={100}
+                    maxLength={400}
                   />
                   <div className='form__switch'>
                     <Typography fontWeight='semibold' size='normal'>
-                      {t('permission-group.permission-group-default')}
+                      {t('permission-group.permission-group-authorize')}
                     </Typography>
-                    <Switch name='defaultGroup' />
-                  </div>
-                  <div className='form__switch'>
-                    <Typography fontWeight='semibold' size='normal'>
-                      {t('permission-group.permission-group-active')}
-                    </Typography>
-                    <Switch name='active' />
+                    <Switch name='authorize' />
                   </div>
                 </>
               )}
 
               <div className='general-new__new-form__submit'>
-                {currentStep === 1 && (
+                {(currentStep === 1 || currentStep === 2) && (
                   <Button
                     variant='text'
                     onClick={() => {
@@ -165,7 +186,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                     {t('common.previous')}
                   </Button>
                 )}
-                {currentStep === 1 ? (
+                {currentStep === 2 ? (
                   <Button
                     loading={submitting}
                     disabled={nextButton || form.isSubmitting || !form.isValid || slugValid === 2}
@@ -175,7 +196,15 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                   </Button>
                 ) : (
                   <Button
-                    disabled={currentStep === 0 ? (form.getFieldValue('appId') === '0' ? true : false) : false}
+                    disabled={
+                      currentStep === 0
+                        ? form.getFieldValue('appId') === '0'
+                          ? true
+                          : false
+                        : form.getFieldValue('permissionGroupId') === '0'
+                        ? true
+                        : false
+                    }
                     onClick={() => {
                       setCurrentStep(currentStep + 1);
                       if (currentStep === 0) {

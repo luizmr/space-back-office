@@ -20,10 +20,15 @@ const remove = (id: string) => {
   return http.delete(`/Permission/${id}`);
 };
 
+const checkSlug = (slug: any) => {
+  return http.get(`/Permission/slug/${slug}`);
+};
+
 export default {
   getAll,
   get,
   post,
   put,
-  remove
+  remove,
+  checkSlug
 };
