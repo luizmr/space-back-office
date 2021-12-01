@@ -130,7 +130,9 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                 {currentStep === 2 ? (
                   <Button
                     loading={submitting}
-                    disabled={nextButton || !form.isValid || form.isSubmitting || group.length === 0}
+                    disabled={
+                      nextButton || !form.isValid || form.isSubmitting || group.length === 0 || permissions.length === 0
+                    }
                     type='submit'
                   >
                     {t('assignpermission.finish-assignment')}
