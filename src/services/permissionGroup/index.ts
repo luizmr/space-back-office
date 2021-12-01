@@ -12,7 +12,7 @@ const post = (data: any) => {
   return http.post('/PermissionGroup', data);
 };
 
-const put = (id: string, data: any) => {
+const put = (data: any) => {
   return http.put('/PermissionGroup', data);
 };
 

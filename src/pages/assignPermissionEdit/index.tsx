@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { match } from 'react-router';
-import Typography from '@eduzz/houston-ui/Typography';
 
 import ToastComponent from 'components/toast';
 import MemberGroup from 'pages/assignPermissionNew/components/FormSection/components/MemberGroup';
 import MemberPermissions from 'pages/assignPermissionNew/components/FormSection/components/MemberPermissions';
 import DeleteSection from './components/DeleteSection';
 import Informations from './components/Informations';
-import Footer from './components/Footer';
 
 // services
 import { MemberOfService } from 'services';
@@ -18,13 +15,14 @@ import { MemberOfService } from 'services';
 import { AppsOutput, PermissionsStateOutput, UsersEditDataOutput } from 'models/assignPermission';
 
 import memberOfMock from './mock.json';
+import FooterEdit from 'components/footerEdit';
+import HeaderEdit from 'components/headerEdit';
 
 interface AuditCompareRouteParams {
   id: string;
 }
 
 function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
-  const { t } = useTranslation('common');
   const history = useHistory();
   const [application, setApplication] = useState<AppsOutput>({ id: '1', name: 'Vitrine', slug: 'vitrine' });
   const [member, setMember] = useState<string>('Space');
@@ -109,17 +107,10 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
     <>
       {loading && (
         <>
-          <div className='assignPermissionEdit__container'>
-            <div className='assignPermissionEdit__header'>
-              <Typography fontWeight='semibold' size='large'>
-                {t('assignpermission.edit-permission-title')}
-              </Typography>
-            </div>
-            <div className='assignPermissionEdit__infos'>
-              <Informations application={application} member={member} />
-              <hr />
-            </div>
-            <div className='assignPermissionEdit__permissions-group'>
+          <div className='general-edit__container'>
+            <HeaderEdit title={'assignpermission.edit-permission-title'} />
+            <Informations application={application} member={member} />
+            <div className='general-edit__permissions-group'>
               <MemberGroup group={group} setGroup={setGroup} appId={memberAllData.app.id} edit />
               <hr />
               <MemberPermissions
@@ -133,9 +124,7 @@ function AssignPermissionEdit({ match }: { match: match<AuditCompareRouteParams>
             <DeleteSection id={memberOfId} />
             <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
           </div>
-          <div className='assignPermissionEdit__footer'>
-            <Footer loadingButton={submitting} handleEdit={handleEdit} />
-          </div>
+          <FooterEdit redirect={'/assign-permissions'} loadingButton={submitting} handleEdit={handleEdit} />
         </>
       )}
     </>

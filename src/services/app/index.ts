@@ -12,7 +12,7 @@ const post = (data: any) => {
   return http.post('/App', data);
 };
 
-const put = (id: string, data: any) => {
+const put = (data: any) => {
   return http.put('/App', data);
 };
 

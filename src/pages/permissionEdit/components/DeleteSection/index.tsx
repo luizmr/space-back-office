@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useHistory } from 'react-router-dom';
 
 // components
@@ -7,7 +8,7 @@ import DeleteComponent from 'components/deleteComponent';
 import ModalDelete from 'components/modalDelete';
 
 // services
-import { MemberOfService } from 'services';
+import { PermissionService } from 'services';
 
 type Props = {
   id: string;
@@ -20,14 +21,14 @@ const DeleteSection = ({ id }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [toastType, setToastType] = useState<string>('success');
 
-  const handleDeleteMemberOf = () => {
+  const handleDeleteApp = () => {
     setLoading(true);
-    MemberOfService.remove(id)
+    PermissionService.remove(id)
       .then(() => {
         setToastType('success');
         setShowToast(true);
         setTimeout(() => {
-          history.push('/assign-permissions');
+          history.push('/permissions');
         }, 2000);
       })
       .catch(() => {
@@ -44,20 +45,20 @@ const DeleteSection = ({ id }: Props) => {
   return (
     <>
       <DeleteComponent
-        subtitle={'assignpermission.delete-subtitle'}
-        buttonText={'assignpermission.delete-permission'}
+        subtitle={'permission.delete-subtitle'}
+        buttonText={'permission.delete-permission'}
         handleOpen={() => setModalShow(true)}
       />
       <ModalDelete
         modalShow={modalShow}
         setModalShow={setModalShow}
-        handleDelete={handleDeleteMemberOf}
+        handleDelete={handleDeleteApp}
         loading={loading}
-        title={'assignpermission.delete-permission'}
+        title={'permission.delete-permission'}
       />
       <ToastComponent
         open={showToast}
-        string={toastType === 'error' ? 'error.assign-permission-delete-error' : 'assignpermission.delete-success'}
+        string={toastType === 'error' ? 'error.permission-delete-error' : 'permission.delete-success'}
         type={toastType}
         handleClose={handleCloseShowToast}
         callClose={false}

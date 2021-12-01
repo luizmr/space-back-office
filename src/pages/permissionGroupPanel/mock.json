@@ -8,6 +8,7 @@
     "app": {
       "id": "1",
       "name": "Vitrine",
+      "slug": "vitrine",
       "company": {
         "id": "1",
         "name": "Space"
@@ -24,6 +25,7 @@
     "app": {
       "id": "1",
       "name": "Vitrine",
+      "slug": "vitrine",
       "company": {
         "id": "1",
         "name": "Space"

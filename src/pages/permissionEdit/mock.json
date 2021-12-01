@@ -1,0 +1,24 @@
+{
+  "dataExample": {
+    "id": "1",
+    "name": "Criar app",
+    "slug": "vitrine-create-app",
+    "authorize": true,
+    "permissionGroup": {
+      "id": "1",
+      "name": "Colaborador",
+      "app": {
+        "id": "1",
+        "name": "Vitrine",
+        "slug": "vitrine"
+      }
+    }
+  },
+  "state": {
+    "id": "",
+    "name": "",
+    "slug": "",
+    "authorize": true,
+    "permissionGroup": { "id": "", "name": "", "app": { "id": "", "name": "", "slug": "" } }
+  }
+}

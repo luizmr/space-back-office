@@ -1,0 +1,22 @@
+{
+  "dataExample": {
+    "id": "1",
+    "name": "Space",
+    "contact": "Contact",
+    "email": "space@space.com",
+    "phone": "1433445123",
+    "publicKey": "12312312312312312312321",
+    "publicToken": "12312312312312312312312",
+    "privateKey": "298391283918239182938193812"
+  },
+  "state": {
+    "id": "",
+    "name": "",
+    "contact": "",
+    "email": "",
+    "phone": "",
+    "publicKey": "",
+    "publicToken": "",
+    "privateKey": ""
+  }
+}

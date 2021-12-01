@@ -28,7 +28,7 @@ const PermissionGroupPanel = () => {
   }, []);
 
   return (
-    <div className='container-permission-panel'>
+    <div className='general-panel'>
       <PanelHeader
         title={'permission-group.title'}
         subtitle={'permission-group.subtitle'}

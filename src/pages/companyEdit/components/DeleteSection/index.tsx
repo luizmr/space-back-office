@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useHistory } from 'react-router-dom';
 
 // components
@@ -7,7 +8,7 @@ import DeleteComponent from 'components/deleteComponent';
 import ModalDelete from 'components/modalDelete';
 
 // services
-import { MemberOfService } from 'services';
+import { CompanyService } from 'services';
 
 type Props = {
   id: string;
@@ -20,14 +21,14 @@ const DeleteSection = ({ id }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [toastType, setToastType] = useState<string>('success');
 
-  const handleDeleteMemberOf = () => {
+  const handleDeleteCompany = () => {
     setLoading(true);
-    MemberOfService.remove(id)
+    CompanyService.remove(id)
       .then(() => {
         setToastType('success');
         setShowToast(true);
         setTimeout(() => {
-          history.push('/assign-permissions');
+          history.push('/companies');
         }, 2000);
       })
       .catch(() => {
@@ -44,20 +45,20 @@ const DeleteSection = ({ id }: Props) => {
   return (
     <>
       <DeleteComponent
-        subtitle={'assignpermission.delete-subtitle'}
-        buttonText={'assignpermission.delete-permission'}
+        subtitle={'company.delete-subtitle'}
+        buttonText={'company.delete-company'}
         handleOpen={() => setModalShow(true)}
       />
       <ModalDelete
         modalShow={modalShow}
         setModalShow={setModalShow}
-        handleDelete={handleDeleteMemberOf}
+        handleDelete={handleDeleteCompany}
         loading={loading}
-        title={'assignpermission.delete-permission'}
+        title={'company.delete-company'}
       />
       <ToastComponent
         open={showToast}
-        string={toastType === 'error' ? 'error.assign-permission-delete-error' : 'assignpermission.delete-success'}
+        string={toastType === 'error' ? 'error.company-delete-error' : 'company.delete-success'}
         type={toastType}
         handleClose={handleCloseShowToast}
         callClose={false}

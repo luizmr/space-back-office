@@ -3,7 +3,15 @@ import { useTranslation } from 'react-i18next';
 import Button from '@eduzz/houston-ui/Button';
 import ModalPanel from 'components/modalPanel';
 
-function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: any) {
+type Props = {
+  modalShow: boolean;
+  setModalShow: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
+  handleDelete: () => void;
+  title: string;
+};
+
+function ModalDelete({ modalShow, setModalShow, handleDelete, loading, title }: Props) {
   const { t } = useTranslation('common');
   return (
     <>
@@ -11,7 +19,7 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: a
         loading={false}
         modalShow={modalShow}
         backgroundColor={'#F44336'}
-        headerText={t('assignpermission.delete-permission')}
+        headerText={t(title)}
         bodyContent={
           <>
             <div className='modal-panel__title'>{t('common.confirm-operation')}</div>
@@ -26,7 +34,7 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: a
               </Button>
               <Button
                 variant='outlined'
-                onClick={() => handleDeleteApp()}
+                onClick={() => handleDelete()}
                 className={loading ? 'button-disabled-contained' : 'button-error'}
                 loading={loading}
               >
@@ -40,4 +48,4 @@ function ModalComponent({ modalShow, setModalShow, handleDeleteApp, loading }: a
   );
 }
 
-export default ModalComponent;
+export default ModalDelete;

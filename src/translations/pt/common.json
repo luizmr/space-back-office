@@ -58,7 +58,7 @@
     "delete-success": "Atribuição de permissão deletada com sucesso",
     "saved-successfully": "Permissões editadas com sucesso",
     "edit-permission": "Editar permissão",
-    "delete-permission": "Deletar permissão"
+    "delete-permission": "Deletar Atribuição de Permissão"
   },
   "company": {
     "title": "Painel de Companhias",
@@ -73,7 +73,11 @@
     "company-phone": "Qual o telefone da companhia?",
     "company-contact": "Qual o contato da companhia?",
     "company-done": "Obrigado! A Companhia foi criada com sucesso.",
-    "select-company": "Selecione uma Companhia"
+    "saved-successfully": "Compania editada com sucesso",
+    "select-company": "Selecione uma Companhia",
+    "edit-company-title": "Edição de Companhia",
+    "delete-success": "Companhia deletada com sucesso",
+    "delete-subtitle": "Antes de deletar a Companhia, tenha certeza de quais são as implicações desta ação."
   },
   "app": {
     "title": "Painel de Apps",
@@ -87,7 +91,11 @@
     "app-slug": "Qual o slug do app?",
     "app-done": "Obrigado! O App foi criado com sucesso.",
     "app-default": "Acesso padrão?",
-    "select-app": "Selecione um app"
+    "saved-successfully": "App editado com sucesso",
+    "select-app": "Selecione um app",
+    "edit-app-title": "Edição de App",
+    "delete-success": "App deletado com sucesso",
+    "delete-subtitle": "Antes de deletar o App, tenha certeza de quais são as implicações desta ação."
   },
   "permission-group": {
     "title": "Painel de Grupos de Permissão",
@@ -102,7 +110,11 @@
     "permission-group-done": "Obrigado! O Grupo de Permissão foi criado com sucesso.",
     "permission-group-default": "Grupo padrão?",
     "permission-group-active": "Grupo ativo?",
-    "select-permission-group": "Selecione um Grupo de Permissão"
+    "select-permission-group": "Selecione um Grupo de Permissão",
+    "saved-successfully": "Grupo de Permissão editado com sucesso",
+    "edit-permission-group-title": "Edição de Grupo de Permissão",
+    "delete-success": "Grupo de Permissão deletado com sucesso",
+    "delete-subtitle": "Antes de deletar o Grupo de Permissão, tenha certeza de quais são as implicações desta ação."
   },
   "permission": {
     "title": "Painel de Permissões",
@@ -116,7 +128,11 @@
     "permission-name": "Qual o nome da permissão?",
     "permission-slug": "Qual o slug da permissão?",
     "permission-done": "Obrigado! A Permissão foi criada com sucesso.",
-    "permission-authorize": "Permissão autorizada por padrão?"
+    "permission-authorize": "Permissão autorizada por padrão?",
+    "saved-successfully": "Permissão editada com sucesso",
+    "edit-permission-title": "Edição de Permissão",
+    "delete-success": "Permissão deletada com sucesso",
+    "delete-subtitle": "Antes de deletar a Permissão, tenha certeza de quais são as implicações desta ação."
   },
   "dashboard": {
     "assign-permission": "Atribuir permissão",
@@ -137,6 +153,14 @@
     "load-data-error": "Um erro inesperado ocorreu ao carregar as informações, tente novamente!",
     "assign-permission-edit-error": "Um erro ocorreu durante a edição da atribuição de permissão do Membro, tente novamente!",
     "assign-permission-delete-error": "Um erro ocorreu ao excluir a atribuição de permissões do Membro, tente novamente!",
+    "company-edit-error": "Um erro ocorreu durante a edição da Companhia, tente novamente!",
+    "company-delete-error": "Um erro ocorreu ao excluir a Companhia, tente novamente!",
+    "app-edit-error": "Um erro ocorreu durante a edição do App, tente novamente!",
+    "app-delete-error": "Um erro ocorreu ao excluir o App, tente novamente!",
+    "permission-group-edit-error": "Um erro ocorreu durante a edição do Grupo de Permissão, tente novamente!",
+    "permission-group-delete-error": "Um erro ocorreu ao excluir o Grupo de Permissão, tente novamente!",
+    "permission-edit-error": "Um erro ocorreu durante a edição da Permissão, tente novamente!",
+    "permission-delete-error": "Um erro ocorreu ao excluir a Permissão, tente novamente!",
     "User_already_exist_for_group_permission": "Esse usuário já está atribuido a um grupo de permissão."
   },
   "breadcrumb": {

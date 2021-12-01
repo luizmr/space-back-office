@@ -53,12 +53,12 @@
     "group-description": "Choose de permission group that you want:",
     "permissions": "Permissions",
     "permissions-description": "Select which permissions this member will have access to:",
-    "edit-permission-title": "Permission edit",
+    "edit-permission-title": "Permission assignment edit",
     "delete-subtitle": "Before deleting the assignment, be sure what are the implications of this action.",
     "delete-success": "Assignment of permission successfully deleted",
     "saved-successfully": "Permissions successfully edited",
     "edit-permission": "Edit permission",
-    "delete-permission": "Delete permission"
+    "delete-permission": "Delete permission assignment"
   },
   "company": {
     "title": "Companies Panel",
@@ -73,7 +73,11 @@
     "company-phone": "What is the phone number of the company?",
     "company-contact": "What is the contact of the company?",
     "company-done": "Thanks! Company was successfully created.",
-    "select-company": "Select a company"
+    "select-company": "Select a company",
+    "saved-successfully": "Company successfully edited",
+    "edit-company-title": "Company edit",
+    "delete-success": "Company successfully deleted",
+    "delete-subtitle": "Before deleting the Company, be sure what are the implications of this action."
   },
   "app": {
     "title": "Apps Panel",
@@ -87,7 +91,11 @@
     "app-slug": "What is the slug of the app?",
     "app-done": "Thanks! Company was successfully created.",
     "app-default": "Default access?",
-    "select-app": "Select an app"
+    "select-app": "Select an app",
+    "saved-successfully": "App successfully edited",
+    "edit-app-title": "App edit",
+    "delete-success": "App successfully deleted",
+    "delete-subtitle": "Before deleting the App, be sure what are the implications of this action."
   },
   "permission-group": {
     "title": "Permission Groups Panel",
@@ -102,7 +110,11 @@
     "permission-group-done": "Thanks! Permission Group was successfully created.",
     "permission-group-default": "Default group?",
     "permission-group-active": "Active group?",
-    "select-permission-group": "Select a Permission Group"
+    "select-permission-group": "Select a Permission Group",
+    "saved-successfully": "Permission Group successfully edited",
+    "edit-permission-group-title": "Permission Group edit",
+    "delete-success": "Permission Group successfully deleted",
+    "delete-subtitle": "Before deleting the Permission Group, be sure what are the implications of this action."
   },
   "permission": {
     "title": "Permissions Panel",
@@ -116,7 +128,11 @@
     "permission-name": "What is the name of the permission?",
     "permission-slug": "What is the slug of the permission?",
     "permission-done": "Thanks! Permission was successfully created.",
-    "permission-authorize": "Permission authorized by default?"
+    "permission-authorize": "Permission authorized by default?",
+    "saved-successfully": "Permission successfully edited",
+    "edit-permission-title": "Permission edit",
+    "delete-success": "Permission successfully deleted",
+    "delete-subtitle": "Before deleting the Permission, be sure what are the implications of this action."
   },
   "dashboard": {
     "assign-permission": "Assign permission",
@@ -137,6 +153,14 @@
     "load-data-error": "An unexpected error occurred loading the information, please try again!",
     "assign-permission-edit-error": "An error occurred while editing the Member permissions assignment, try again!",
     "assign-permission-delete-error": "An error occurred when deleting the Member permissions assignment, try again!",
+    "company-edit-error": "An error occurred while editing the Company, try again!",
+    "company-delete-error": "An error occurred when deleting the Company, try again!",
+    "app-edit-error": "An error occurred while editing the App, try again!",
+    "app-delete-error": "An error occurred when deleting the App, try again!",
+    "permission-group-edit-error": "An error occurred while editing the Permission Group, try again!",
+    "permission-group-delete-error": "An error occurred when deleting the Permission Group, try again!",
+    "permission-edit-error": "An error occurred while editing the Permission, try again!",
+    "permission-delete-error": "An error occurred when deleting the Permission, try again!",
     "User_already_exist_for_group_permission": "This user is already assigned to a permission group."
   },
   "breadcrumb": {

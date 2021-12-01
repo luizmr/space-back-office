@@ -9,13 +9,14 @@
       "name": "Colaborador",
       "app": {
         "id": "1",
-        "name": "Vitrine"
+        "name": "Vitrine",
+        "slug": "vitrine"
       }
     },
-    "autorize": true
+    "authorize": true
   },
   {
-    "id": "1",
+    "id": "2",
     "created_At": "2021-11-03 21:03:22",
     "name": "Comentar app",
     "slug": "vitrine-comment-app",
@@ -24,9 +25,10 @@
       "name": "Parceiro",
       "app": {
         "id": "1",
-        "name": "Vitrine"
+        "name": "Vitrine",
+        "slug": "vitrine"
       }
     },
-    "autorize": true
+    "authorize": true
   }
 ]

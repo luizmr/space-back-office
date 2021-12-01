@@ -4,7 +4,14 @@ import { useTranslation } from 'react-i18next';
 import TextField from '@eduzz/houston-ui/Forms/Text';
 import Typography from '@eduzz/houston-ui/Typography';
 
-function Informations({ application, member }: any) {
+// utils
+import { PermissionGroupOutput } from 'models/permissionGroup';
+
+type Props = {
+  permissionGroup: PermissionGroupOutput;
+};
+
+function Informations({ permissionGroup }: Props) {
   const { t } = useTranslation('common');
 
   return (
@@ -13,13 +20,19 @@ function Informations({ application, member }: any) {
         {t('common.informations')}
       </Typography>
       <TextField
+        id='form-company'
+        label={t('dashboard.company')}
+        placeholder={t('dashboard.company')}
+        disabled
+        value={permissionGroup.app.company.name}
+      />
+      <TextField
         id='form-app'
         label={t('dashboard.app')}
         placeholder={t('dashboard.app')}
         disabled
-        value={application}
+        value={permissionGroup.app.name}
       />
-      <TextField id='form-member' label={t('common.member')} placeholder={t('common.member')} disabled value={member} />
       <hr />
     </div>
   );

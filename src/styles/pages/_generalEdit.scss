@@ -1,4 +1,4 @@
-.assignPermissionEdit__container {
+.general-edit__container {
   max-width: 624px;
   height: 100vh;
   margin: 64px auto;
@@ -12,18 +12,18 @@
     margin: 2rem 0;
   }
 
-  .assignPermissionEdit__header {
+  .general-edit__header {
     margin-bottom: 20px;
   }
 
-  .assignPermissionEdit__infos {
+  .general-edit__infos {
     p {
       margin-bottom: 20px;
       text-transform: uppercase;
     }
   }
 
-  .assignPermissionEdit__delete {
+  .general-edit__delete {
     padding-bottom: 150px;
 
     p:first-child {
@@ -74,12 +74,12 @@
   }
 }
 
-.assignPermissionEdit__footer {
+.general-edit__footer {
   position: fixed;
   bottom: 0;
   background-color: $white;
   width: 100%;
-  .assignPermissionEdit__footer-main {
+  .general-edit__footer-main {
     width: 624px;
     margin: 0 auto;
     display: flex;

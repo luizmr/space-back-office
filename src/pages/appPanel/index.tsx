@@ -28,7 +28,7 @@ const AppPanel = () => {
   }, []);
 
   return (
-    <div className='container-permission-panel'>
+    <div className='general-panel'>
       <PanelHeader title={'app.title'} subtitle={'app.subtitle'} buttonPath={'/apps/new'} buttonTitle={'app.new-app'} />
       <AppTable rows={rows} setRows={setRows} loading={loading} />
     </div>

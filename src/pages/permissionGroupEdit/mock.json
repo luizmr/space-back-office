@@ -1,0 +1,18 @@
+{
+  "dataExample": {
+    "id": "1",
+    "name": "Vitrine",
+    "slug": "vitrine",
+    "defaultGroup": true,
+    "active": true,
+    "app": { "id": "1", "name": "Vitrine", "slug": "vitrine", "company": { "id": "1", "name": "Space" } }
+  },
+  "state": {
+    "id": "",
+    "name": "",
+    "slug": "",
+    "defaultGroup": true,
+    "active": true,
+    "app": { "id": "", "name": "", "slug": "", "company": { "id": "", "name": "" } }
+  }
+}

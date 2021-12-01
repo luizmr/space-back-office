@@ -29,7 +29,7 @@ const CompanyPanel = () => {
   }, []);
 
   return (
-    <div className='container-permission-panel'>
+    <div className='general-panel'>
       <PanelHeader
         title={'company.title'}
         subtitle={'company.subtitle'}

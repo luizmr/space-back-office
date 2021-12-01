@@ -1,0 +1,16 @@
+{
+  "dataExample": {
+    "id": "1",
+    "name": "Vitrine",
+    "slug": "vitrine",
+    "defaultAccess": true,
+    "company": { "id": "1", "name": "Space" }
+  },
+  "state": {
+    "id": "",
+    "name": "",
+    "slug": "",
+    "defaultAccess": true,
+    "company": { "id": "", "name": "" }
+  }
+}

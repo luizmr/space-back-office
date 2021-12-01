@@ -1,4 +1,4 @@
-.container-permission-panel {
+.general-panel {
   max-width: 624px;
   margin: auto;
 
@@ -31,13 +31,13 @@
 }
 
 @media screen and (max-width: $media-md) {
-  .container-permission-panel {
+  .general-panel {
     width: 90vw;
   }
 }
 
 @media screen and (max-width: $media-sm) {
-  .container-permission-panel {
+  .general-panel {
     .panel-header {
       flex-direction: column;
 

@@ -10,3 +10,14 @@ export interface CompanyDataOutput {
   publicToken: string;
   privateKey: string;
 }
+
+export interface CompanyOutput {
+  id: string;
+  name: string;
+  contact: string;
+  email: string;
+  phone: string;
+  publicKey: string;
+  publicToken: string;
+  privateKey: string;
+}

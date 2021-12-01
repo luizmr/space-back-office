@@ -22,6 +22,10 @@ import CompanyNew from 'pages/companyNew';
 import AppNew from 'pages/appNew';
 import PermissionGroupNew from 'pages/permissionGroupNew';
 import PermissionNew from 'pages/permissionNew';
+import CompanyEdit from 'pages/companyEdit';
+import AppEdit from 'pages/appEdit';
+import PermissionGroupEdit from 'pages/permissionGroupEdit';
+import PermissionEdit from 'pages/permissionEdit';
 
 const privateRoutes = [
   {
@@ -68,7 +72,7 @@ const privateRoutes = [
   },
   {
     key: 'company-edit',
-    Component: CompanyPanel,
+    Component: CompanyEdit,
     path: '/companies/edit/:id',
     name: 'breadcrumb.company-edit',
     breadCrumb: false
@@ -89,7 +93,7 @@ const privateRoutes = [
   },
   {
     key: 'app-edit',
-    Component: AppPanel,
+    Component: AppEdit,
     path: '/apps/edit/:id',
     name: 'breadcrumb.app-edit',
     breadCrumb: true
@@ -110,7 +114,7 @@ const privateRoutes = [
   },
   {
     key: 'permission-group-edit',
-    Component: PermissionGroupPanel,
+    Component: PermissionGroupEdit,
     path: '/permission-groups/edit/:id',
     name: 'breadcrumb.permission-group-edit',
     breadCrumb: true
@@ -131,7 +135,7 @@ const privateRoutes = [
   },
   {
     key: 'permission-edit',
-    Component: PermissionPanel,
+    Component: PermissionEdit,
     path: '/permissions/edit/:id',
     name: 'breadcrumb.permission-edit',
     breadCrumb: true

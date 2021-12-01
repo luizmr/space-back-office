@@ -27,7 +27,7 @@ const AssignPermissionPanel = () => {
   }, []);
 
   return (
-    <div className='container-permission-panel'>
+    <div className='general-panel'>
       <PanelHeader
         title={'assignpermission.title'}
         subtitle={'assignpermission.subtitle'}
