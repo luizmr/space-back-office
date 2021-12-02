@@ -6,7 +6,7 @@ import PanelHeader from 'components/panelHeader';
 
 // utils
 import { AppDataOutput } from 'models/app';
-// import { AppService } from 'services';
+import { AppService } from 'services';
 import mock from './mock.json';
 
 const AppPanel = () => {
@@ -16,15 +16,15 @@ const AppPanel = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // AppService.getAll({companyId: ''})
-    //   .then(response => {
-    //     setRows(response.data);
-    setLoading(false);
-    //   })
-    //   .catch(err => {
-    //     setLoading(false);
-    //     setRows([]);
-    //   });
+    AppService.getAll({ companyId: '' })
+      .then(response => {
+        setRows(response.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setLoading(false);
+        setRows([]);
+      });
   }, []);
 
   return (

@@ -12,7 +12,7 @@ import ToastComponent from 'components/toast';
 
 // utils
 import { SelectFieldOutput } from 'models/assignPermission';
-import { CompanyService } from 'services';
+import { CompanyService, AppService } from 'services';
 import createSelectArray from 'utils/createSelectArray';
 import steps from './utils/steps';
 
@@ -29,7 +29,7 @@ const AssignPermissionNew = () => {
   useEffect(() => {
     setCurrentStep(0);
     axios
-      .all([CompanyService.getApp(user.CompanyId), CompanyService.getUsers(user.CompanyId)])
+      .all([AppService.getAll({ companyId: user.CompanyId }), CompanyService.getUsers(user.CompanyId)])
       .then(
         axios.spread(function (apps, users) {
           setApps(createSelectArray(apps.data));

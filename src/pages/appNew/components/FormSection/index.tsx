@@ -45,21 +45,21 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
       setSubmitting(true);
       const { name, companyId, slug, defaultAccess } = values;
 
-      // try {
-      //   await AppService.post({
-      //     name,
-      //     companyId,
-      //     slug,
-      //     defaultAccess
-      //   });
-      //   setTimeout(() => {
-      setSubmitting(false);
-      setCurrentStep(2);
-      //   }, 1000);
-      // } catch (error: any) {
-      //   setSubmitting(false);
-      //   setOpen(true);
-      // }
+      try {
+        await AppService.post({
+          name,
+          companyId,
+          slug,
+          defaultAccess
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          setCurrentStep(2);
+        }, 1000);
+      } catch (error: any) {
+        setSubmitting(false);
+        setOpen(true);
+      }
     }
   });
 
@@ -154,7 +154,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                 {currentStep === 1 ? (
                   <Button
                     loading={submitting}
-                    disabled={nextButton || form.isSubmitting || !form.isValid || slugValid === 2}
+                    disabled={nextButton || form.isSubmitting || !form.isValid || slugValid !== 2}
                     type='submit'
                   >
                     {t('common.confirm')}

@@ -1,7 +1,7 @@
 import http from 'services/commons/commonHttp';
 
-const getAll = () => {
-  return http.get('/App');
+const getAll = (data: any) => {
+  return http.get('/App', { params: data });
 };
 
 const get = (id: string) => {

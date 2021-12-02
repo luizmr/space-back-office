@@ -10,7 +10,7 @@ import FormSection from './components/FormSection';
 import HeaderSection from 'components/headerSection';
 
 // utils
-import { CompanyService } from 'services';
+import { AppService } from 'services';
 import steps from './utils/steps';
 import createSelectArray from 'utils/createSelectArray';
 import { SelectFieldOutput } from 'models/assignPermission';
@@ -27,7 +27,7 @@ const PermissionNew = () => {
 
   useEffect(() => {
     setCurrentStep(0);
-    CompanyService.getApp(user.CompanyId)
+    AppService.getAll({ companyId: user.CompanyId })
       .then(response => {
         setApps(createSelectArray(response.data));
         setAppSlug(response.data.slug);

@@ -34,15 +34,15 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const appId = match.params.id;
 
   useEffect(() => {
-    setApp(mock.dataExample);
-    // AppService.get(appId)
-    //   .then(({ data }) => {
-    //     setApp(data);
-    setLoading(true);
-    //   })
-    //   .catch(() => {
-    //     setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
-    //   });
+    // setApp(mock.dataExample);
+    AppService.get(appId)
+      .then(({ data }) => {
+        setApp(data);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
+      });
   }, []);
 
   const handleEdit = () => {

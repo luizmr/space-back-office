@@ -183,7 +183,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, appSlug }: Props) => {
                 {currentStep === 2 ? (
                   <Button
                     loading={submitting}
-                    disabled={nextButton || form.isSubmitting || !form.isValid || slugValid === 2}
+                    disabled={nextButton || form.isSubmitting || !form.isValid || slugValid !== 2}
                     type='submit'
                   >
                     {t('common.confirm')}
