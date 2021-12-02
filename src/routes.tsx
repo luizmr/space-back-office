@@ -208,11 +208,10 @@ export const AppRoutes = () => {
   }, [token]);
 
   const buildRoutes = (users: any) => {
-    console.log(users);
     if (users.CompanyId) {
       setRouteOptions(privateRoutes);
     } else {
-      setRouteOptions(privateRoutes);
+      setRouteOptions(notAuthorizedRoutes);
     }
   };
   return (

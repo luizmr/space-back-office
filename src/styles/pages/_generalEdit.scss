@@ -21,6 +21,37 @@
       margin-bottom: 20px;
       text-transform: uppercase;
     }
+
+    .textfield-slug3 {
+      p {
+        color: $danger;
+      }
+    }
+
+    .textfield-slug2 {
+      p {
+        color: $approve;
+      }
+    }
+
+    .textfield-slug2,
+    .textfield-slug3,
+    .form__switch {
+      p {
+        margin-bottom: 0px;
+        text-transform: none;
+      }
+    }
+
+    .form__switch {
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      p {
+        margin-right: 16px;
+      }
+    }
   }
 
   .general-edit__delete {
@@ -78,7 +109,7 @@
   position: fixed;
   bottom: 0;
   background-color: $white;
-  width: 100%;
+  width: 100vw;
   .general-edit__footer-main {
     width: 624px;
     margin: 0 auto;

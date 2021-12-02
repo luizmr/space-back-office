@@ -19,7 +19,6 @@ const CompanyPanel = () => {
     CompanyService.getAll()
       .then(response => {
         setRows(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch(err => {

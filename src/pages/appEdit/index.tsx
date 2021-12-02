@@ -13,7 +13,7 @@ import { AppService } from 'services';
 // models
 import mock from './mock.json';
 import { AppOutput } from 'models/app';
-import Informations from 'pages/appEdit/components/Informations';
+import EditMainComponent from 'pages/appEdit/components/EditMainComponent';
 
 interface AuditCompareRouteParams {
   id: string;
@@ -24,6 +24,7 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const [loading, setLoading] = useState<boolean>(false);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [app, setApp] = useState<AppOutput>(mock.state);
+  const [slugValid, setSlugValid] = useState<number>(2);
   const [toast, setToast] = useState<{ show: boolean; type: string; message: string }>({
     show: false,
     type: 'success',
@@ -46,7 +47,7 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   const handleEdit = () => {
     setSubmitting(true);
-    AppService.put(app.id, { ...app })
+    AppService.put(app.id, { ...app, companyId: app.company.id })
       .then(response => {
         setToast({
           show: true,
@@ -68,17 +69,24 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
     setToast({ ...toast, show: false });
   };
 
+  const disableCondition = !app.slug.length || !app.name.length || slugValid !== 2;
+
   return (
     <>
       {loading && (
         <>
           <div className='general-edit__container'>
             <HeaderEdit title={'app.edit-app-title'} />
-            <Informations app={app} />
+            <EditMainComponent app={app} setApp={setApp} slugValid={slugValid} setSlugValid={setSlugValid} />
             <DeleteSection id={appId} />
             <ToastComponent open={toast.show} type={toast.type} string={toast.message} handleClose={handleClose} />
           </div>
-          <FooterEdit redirect={'/apps'} loadingButton={submitting} handleEdit={handleEdit} />
+          <FooterEdit
+            redirect={'/apps'}
+            loadingButton={submitting}
+            handleEdit={handleEdit}
+            disableCondition={disableCondition}
+          />
         </>
       )}
     </>
