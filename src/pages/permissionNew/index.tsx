@@ -10,15 +10,14 @@ import FormSection from './components/FormSection';
 import HeaderSection from 'components/headerSection';
 
 // utils
-import { AppService } from 'services';
+import { CompanyService } from 'services';
 import steps from './utils/steps';
 import createSelectArray from 'utils/createSelectArray';
 import { SelectFieldOutput } from 'models/assignPermission';
 
 const PermissionNew = () => {
   const { nextStep, backStep, setCurrentStep, currentStep } = useProgress();
-  const [apps, setApps] = useState<SelectFieldOutput[]>([]);
-  const [appSlug, setAppSlug] = useState<string>('');
+  const [companies, setCompanies] = useState<SelectFieldOutput[]>([]);
   const [openToast, setOpenToast] = useState<boolean>(false);
   const [{ token }, dispatch] = useStateValue();
   const tokenUser = token ? token.split(' ')[1] : '';
@@ -27,14 +26,13 @@ const PermissionNew = () => {
 
   useEffect(() => {
     setCurrentStep(0);
-    AppService.getAll({ companyId: user.CompanyId })
+    CompanyService.getAll()
       .then(response => {
-        setApps(createSelectArray(response.data));
-        setAppSlug(response.data.slug);
+        setCompanies(createSelectArray(response.data));
       })
       .catch(err => {
-        setApps([]);
-        setAppSlug('');
+        setCompanies([]);
+
         setOpenToast(true);
       });
   }, []);
@@ -46,10 +44,10 @@ const PermissionNew = () => {
   return (
     <div>
       <HeaderSection currentStep={currentStep} steps={steps} buttonPath={buttonPath} />
-      {(currentStep === 0 || currentStep === 1 || currentStep === 2) && (
-        <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} apps={apps} appSlug={appSlug} />
+      {(currentStep === 0 || currentStep === 1 || currentStep === 2 || currentStep === 3) && (
+        <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} companies={companies} />
       )}
-      {currentStep === 3 && <FormDone title={'permission.permission-done'} buttonPath={buttonPath} />}
+      {currentStep === 4 && <FormDone title={'permission.permission-done'} buttonPath={buttonPath} />}
       <ToastComponent open={openToast} string={'error.load-data-error'} handleClose={handleCloseToast} />
     </div>
   );

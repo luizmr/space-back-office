@@ -7,6 +7,9 @@ const steps = [
   },
   {
     text: 'permission.form-step-3'
+  },
+  {
+    text: 'permission.form-step-4'
   }
 ];
 

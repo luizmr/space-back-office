@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // material-ui/icons
 import Button from '@eduzz/houston-ui/Button';
@@ -13,16 +13,16 @@ import MemberPermissions from './components/MemberPermissions';
 
 // models
 import { PermissionsStateOutput, SelectFieldOutput } from 'models/assignPermission';
-import { MemberOfService } from 'services';
+import { AppService, CompanyService, MemberOfService } from 'services';
+import createSelectArray from 'utils/createSelectArray';
 
 type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  apps: Array<SelectFieldOutput>;
-  members: Array<SelectFieldOutput>;
+  companies: Array<SelectFieldOutput>;
 };
 
-const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
+const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
   const { t } = useTranslation('common');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
@@ -30,13 +30,16 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
   const [errorMessage, setErrorMessage] = useState<string>('error.permission-assignment-error');
   const [group, setGroup] = useState<string>('');
   const [permissions, setPermissions] = useState<PermissionsStateOutput[]>([]);
+  const [apps, setApps] = useState<SelectFieldOutput[]>([]);
+  const [members, setMembers] = useState<SelectFieldOutput[]>([]);
 
   const form = useForm({
-    initialValues: { app: '0', member: '0' },
+    initialValues: { app: '0', member: '0', companyId: '0' },
     validationSchema: yup => {
       return yup.object().shape({
         app: yup.string(),
-        member: yup.string()
+        member: yup.string(),
+        companyId: yup.string()
       });
     },
     onSubmit: async values => {
@@ -75,6 +78,34 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    if (form.getFieldValue('companyId') === '0') {
+      setApps([]);
+    } else {
+      AppService.getAll({ companyId: form.getFieldValue('companyId') })
+        .then(response => {
+          setApps(createSelectArray(response.data));
+        })
+        .catch(err => {
+          setApps([]);
+        });
+    }
+  }, [form.getFieldValue('companyId')]);
+
+  useEffect(() => {
+    if (form.getFieldValue('app') === '0') {
+      setMembers([]);
+    } else {
+      CompanyService.getUsers(form.getFieldValue('companyId'))
+        .then(response => {
+          setMembers(createSelectArray(response.data));
+        })
+        .catch(err => {
+          setMembers([]);
+        });
+    }
+  }, [form.getFieldValue('app')]);
+
   return (
     <>
       <div className='general-new__new-form'>
@@ -83,6 +114,15 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
             <Form context={form}>
               {currentStep === 0 && (
                 <SelectField
+                  id='company-select'
+                  name='companyId'
+                  label={t('dashboard.company')}
+                  options={[{ value: '0', label: t('company.select-company') }, ...companies]}
+                />
+              )}
+
+              {currentStep === 1 && (
+                <SelectField
                   id='app-select'
                   name='app'
                   label={t('dashboard.app')}
@@ -90,7 +130,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                 />
               )}
 
-              {currentStep === 1 && (
+              {currentStep === 2 && (
                 <SelectField
                   id='member-select'
                   name='member'
@@ -99,7 +139,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                 />
               )}
 
-              {currentStep === 2 && (
+              {currentStep === 3 && (
                 <>
                   <MemberGroup group={group} setGroup={setGroup} appId={form.getFieldValue('app')} />
                   <hr />
@@ -108,7 +148,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
               )}
 
               <div className='general-new__new-form__submit'>
-                {(currentStep === 1 || currentStep === 2) && (
+                {(currentStep === 1 || currentStep === 2 || currentStep === 3) && (
                   <Button
                     variant='text'
                     onClick={() => {
@@ -134,6 +174,10 @@ const FormSection = ({ currentStep, setCurrentStep, apps, members }: Props) => {
                   <Button
                     disabled={
                       currentStep === 0
+                        ? form.getFieldValue('companyId') === '0'
+                          ? true
+                          : false
+                        : currentStep === 1
                         ? form.getFieldValue('app') === '0'
                           ? true
                           : false

@@ -34,10 +34,9 @@ function AppEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const appId = match.params.id;
 
   useEffect(() => {
-    // setApp(mock.dataExample);
     AppService.get(appId)
       .then(({ data }) => {
-        setApp(data);
+        setApp(data[0]);
         setLoading(true);
       })
       .catch(() => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // material-ui/icons
 import Typography from '@eduzz/houston-ui/Typography';
@@ -13,28 +13,31 @@ import Switch from '@eduzz/houston-ui/Forms/Switch';
 import ToastComponent from 'components/toast';
 
 // utils
-import { PermissionGroupService } from 'services';
+import { AppService, PermissionGroupService } from 'services';
 import { SelectFieldOutput } from 'models/assignPermission';
 import ConvertToSlug from 'utils/convertToSlug';
+import createSelectArray from 'utils/createSelectArray';
 
 type Props = {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  apps: Array<SelectFieldOutput>;
+  companies: Array<SelectFieldOutput>;
 };
 
-const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
+const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
   const { t } = useTranslation('common');
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('error.permission-group-error');
   const [slugValid, setSlugValid] = useState<number>(1);
+  const [apps, setApps] = useState<SelectFieldOutput[]>([]);
 
   const form = useForm({
-    initialValues: { appId: '0', name: '', defaultGroup: true, slug: '', active: true },
+    initialValues: { companyId: '0', appId: '0', name: '', defaultGroup: true, slug: '', active: true },
     validationSchema: yup => {
       return yup.object().shape({
+        companyId: yup.string(),
         appId: yup.string(),
         name: yup.string().required(),
         slug: yup.string(),
@@ -88,6 +91,20 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
     handleCheckSlug(e);
   };
 
+  useEffect(() => {
+    if (form.getFieldValue('companyId') === '0') {
+      setApps([]);
+    } else {
+      AppService.getAll({ companyId: form.getFieldValue('companyId') })
+        .then(response => {
+          setApps(createSelectArray(response.data));
+        })
+        .catch(err => {
+          setApps([]);
+        });
+    }
+  }, [form.getFieldValue('companyId')]);
+
   return (
     <>
       <div className='general-new__new-form'>
@@ -96,6 +113,15 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
             <Form context={form}>
               {currentStep === 0 && (
                 <SelectField
+                  id='company-select'
+                  name='companyId'
+                  label={t('dashboard.company')}
+                  options={[{ value: '0', label: t('company.select-company') }, ...companies]}
+                />
+              )}
+
+              {currentStep === 1 && (
+                <SelectField
                   id='app-select'
                   name='appId'
                   label={t('dashboard.app')}
@@ -103,7 +129,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                 />
               )}
 
-              {currentStep === 1 && (
+              {currentStep === 2 && (
                 <>
                   <TextField
                     name='name'
@@ -147,7 +173,7 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
               )}
 
               <div className='general-new__new-form__submit'>
-                {currentStep === 1 && (
+                {(currentStep === 1 || currentStep === 2) && (
                   <Button
                     variant='text'
                     onClick={() => {
@@ -169,7 +195,17 @@ const FormSection = ({ currentStep, setCurrentStep, apps }: Props) => {
                   </Button>
                 ) : (
                   <Button
-                    disabled={currentStep === 0 ? (form.getFieldValue('appId') === '0' ? true : false) : false}
+                    disabled={
+                      currentStep === 0
+                        ? form.getFieldValue('companyId') === '0'
+                          ? true
+                          : false
+                        : currentStep === 1
+                        ? form.getFieldValue('appId') === '0'
+                          ? true
+                          : false
+                        : false
+                    }
                     onClick={() => {
                       setCurrentStep(currentStep + 1);
                       if (currentStep === 0) {
