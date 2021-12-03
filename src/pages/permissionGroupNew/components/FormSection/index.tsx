@@ -185,7 +185,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                     {t('common.previous')}
                   </Button>
                 )}
-                {currentStep === 1 ? (
+                {currentStep === 2 ? (
                   <Button
                     loading={submitting}
                     disabled={nextButton || form.isSubmitting || !form.isValid || slugValid !== 2}

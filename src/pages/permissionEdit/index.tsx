@@ -61,7 +61,7 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
       })
       .catch(err => {
         setSubmitting(false);
-        setToast({ ...toast, show: true, type: 'error', message: 'error.permissionp-group-edit-error' });
+        setToast({ ...toast, show: true, type: 'error', message: 'error.permission-group-edit-error' });
       });
   };
 

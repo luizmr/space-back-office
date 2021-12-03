@@ -34,7 +34,6 @@ function CompanyEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const companyId = match.params.id;
 
   useEffect(() => {
-    // setCompany(mock.dataExample);
     CompanyService.get(companyId)
       .then(({ data }) => {
         setCompany(data);

@@ -45,10 +45,9 @@ function EditForm({ company, setCompany }: Props) {
         label={'* E-mail'}
         id='form-email'
         placeholder={`${t('company.company-email')}`}
-        type='email'
+        disabled
         value={company.email}
         maxLength={100}
-        onChange={e => handleCompanyChange('email', e)}
       />
       <TextField
         label={`* ${t('common.phone')}`}

@@ -154,7 +154,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                   id='permission-group-select'
                   name='permission-groupId'
                   label={t('dashboard.permission-group')}
-                  options={[{ value: '0', label: t('permission-group.permission-group-app') }, ...groups]}
+                  options={[{ value: '0', label: t('permission-group.select-permission-group') }, ...groups]}
                 />
               )}
 

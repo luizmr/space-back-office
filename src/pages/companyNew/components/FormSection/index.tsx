@@ -12,6 +12,8 @@ import ToastComponent from 'components/toast';
 
 // services
 import { CompanyService } from 'services';
+import { useStateValue } from 'store/TokenProvider';
+import jwt from 'jsonwebtoken';
 
 type Props = {
   currentStep: number;
@@ -20,13 +22,16 @@ type Props = {
 
 const FormSection = ({ currentStep, setCurrentStep }: Props) => {
   const { t } = useTranslation('common');
+  const [{ token }] = useStateValue();
+  const tokenUser = token ? token.split(' ')[1] : '';
+  const user: any = jwt.decode(tokenUser);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [nextButton, setNextButton] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('error.company-error');
 
   const form = useForm({
-    initialValues: { name: '', email: '', phone: '', contact: '' },
+    initialValues: { name: '', phone: '', contact: '', email: user.Email },
     validationSchema: yup => {
       return yup.object().shape({
         name: yup.string(),
@@ -37,7 +42,7 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
     },
     onSubmit: async values => {
       setSubmitting(true);
-      const { name, email, phone, contact } = values;
+      const { name, phone, contact, email } = values;
 
       try {
         await CompanyService.post({
@@ -91,7 +96,7 @@ const FormSection = ({ currentStep, setCurrentStep }: Props) => {
                     label={'* E-mail'}
                     id='form-email'
                     placeholder={`${t('company.company-email')}`}
-                    type='email'
+                    disabled
                     maxLength={100}
                   />
                   <TextField
