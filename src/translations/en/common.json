@@ -81,6 +81,20 @@
     "delete-success": "Company successfully deleted",
     "delete-subtitle": "Before deleting the Company, be sure what are the implications of this action."
   },
+  "user": {
+    "title": "Users Panel",
+    "subtitle": "Here you can manage the existing users of your companies on Back Office.",
+    "edit-user": "Edit user",
+    "delete-user": "Delete user",
+    "new-company": "New Company",
+    "user-email": "What is the email of the user?",
+    "form-step-1": "Let's start by identifying the Company the User will be part of",
+    "form-step-2": "Now, type the User's email to be added to the Company",
+    "saved-successfully": "User successfully edited",
+    "edit-user-title": "User edit",
+    "delete-success": "User successfully deleted",
+    "delete-subtitle": "Before deleting the User, be sure what are the implications of this action."
+  },
   "app": {
     "title": "Apps Panel",
     "subtitle": "Here you can manage the existing apps on Back Office.",
@@ -149,12 +163,14 @@
     "permission-groups": "Permission groups",
     "permissions": "Permissions",
     "title": "Welcome to the Back Office area",
-    "subtitle": "Here you can manage everything your company can do:"
+    "subtitle": "Here you can manage everything your company can do:",
+    "user": "User"
   },
   "error": {
     "permission-assignment-error": "An error occurred while completing the creation of permission assignment, try again!",
     "company-error": "An error occurred while completing the creation of Company, try again!",
     "app-error": "An error occurred while completing the creation of App, try again!",
+    "user-error": "An error occurred while completing the creation of User, try again!",
     "permission-error": "An error occurred while completing the creation of Permission, try again!",
     "permission-group-error": "An error occurred while completing the creation of Permission Group, try again!",
     "dashboard-error": "An error occurred while loading the dashboard info, try again!",
@@ -169,6 +185,8 @@
     "permission-group-delete-error": "An error occurred when deleting the Permission Group, try again!",
     "permission-edit-error": "An error occurred while editing the Permission, try again!",
     "permission-delete-error": "An error occurred when deleting the Permission, try again!",
+    "user-edit-error": "An error occurred while editing the User, try again!",
+    "user-delete-error": "An error occurred when deleting the User, try again!",
     "User_already_exist_for_group_permission": "This user is already assigned to a permission group."
   },
   "breadcrumb": {
@@ -182,7 +200,9 @@
     "permission-group-panel": "Permission Group Panel",
     "permission-group-edit": "Permission Group Edit",
     "permission-panel": "Permission Panel",
-    "permission-edit": "Permission Edit"
+    "permission-edit": "Permission Edit",
+    "user-panel": "User Panel",
+    "user-edit": "User Edit"
   },
   "not-found": {
     "text": "Sorry, we couldn't find what you are looking for. Try refreshing the page or check back later."

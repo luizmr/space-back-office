@@ -26,6 +26,9 @@ import CompanyEdit from 'pages/companyEdit';
 import AppEdit from 'pages/appEdit';
 import PermissionGroupEdit from 'pages/permissionGroupEdit';
 import PermissionEdit from 'pages/permissionEdit';
+import UserPanel from 'pages/userPanel';
+import UserNew from 'pages/userNew';
+import UserEdit from 'pages/userEdit';
 
 const privateRoutes = [
   {
@@ -75,6 +78,27 @@ const privateRoutes = [
     Component: CompanyEdit,
     path: '/companies/edit/:id',
     name: 'breadcrumb.company-edit',
+    breadCrumb: false
+  },
+  {
+    key: 'user',
+    Component: UserPanel,
+    path: '/users',
+    name: 'breadcrumb.user-panel',
+    breadCrumb: true
+  },
+  {
+    key: 'user-new',
+    Component: UserNew,
+    path: '/users/new',
+    name: '',
+    breadCrumb: false
+  },
+  {
+    key: 'user-edit',
+    Component: UserEdit,
+    path: '/users/edit/:id',
+    name: 'breadcrumb.user-edit',
     breadCrumb: false
   },
   {
@@ -208,7 +232,6 @@ export const AppRoutes = () => {
   }, [token]);
 
   const buildRoutes = (users: any) => {
-    console.log(users);
     if (users.CompanyId) {
       setRouteOptions(privateRoutes);
     } else {

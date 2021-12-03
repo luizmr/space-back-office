@@ -13,12 +13,12 @@ import steps from './utils/steps';
 import createSelectArray from 'utils/createSelectArray';
 import { SelectFieldOutput } from 'models/assignPermission';
 
-const AppNew = () => {
+const UserNew = () => {
   const { nextStep, backStep, setCurrentStep, currentStep } = useProgress();
   const [companies, setCompanies] = useState<SelectFieldOutput[]>([]);
   const [openToast, setOpenToast] = useState<boolean>(false);
 
-  const buttonPath = '/apps';
+  const buttonPath = '/users';
 
   useEffect(() => {
     setCurrentStep(0);
@@ -42,10 +42,10 @@ const AppNew = () => {
       {(currentStep === 0 || currentStep === 1) && (
         <FormSection currentStep={currentStep} setCurrentStep={setCurrentStep} companies={companies} />
       )}
-      {currentStep === 2 && <FormDone title={'app.app-done'} buttonPath={buttonPath} />}
+      {currentStep === 2 && <FormDone title={'user.user-done'} buttonPath={buttonPath} />}
       <ToastComponent open={openToast} string={'error.load-data-error'} handleClose={handleCloseToast} />
     </div>
   );
 };
 
-export default AppNew;
+export default UserNew;

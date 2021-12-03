@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "company": { "id": "1", "name": "Space" },
+    "user": { "id": "1", "name": "Joao tetse", "email": "joao@space.com" }
+  },
+  {
+    "id": "1",
+    "created_At": "2021-11-03 21:03:22",
+    "company": { "id": "1", "name": "Space" },
+    "user": { "id": "1", "name": "Maria tetse", "email": "maria@space.com" }
+  }
+]

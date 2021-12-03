@@ -81,6 +81,20 @@
     "delete-success": "Companhia deletada com sucesso",
     "delete-subtitle": "Antes de deletar a Companhia, tenha certeza de quais são as implicações desta ação."
   },
+  "user": {
+    "title": "Painel de Usuários",
+    "subtitle": "Aqui você pode administrar os usuários de suas companhias existentes no Back Office.",
+    "edit-user": "Editar usuário",
+    "delete-user": "Deletar usuário",
+    "new-user": "Novo Usuário",
+    "user-email": "Qual o email do Usuário?",
+    "form-step-1": "Vamos começar identificando a Companhia que o Usuário fará parte",
+    "form-step-2": "Agora, digite o e-mail do usuário para ele ser incluído na Companhia",
+    "saved-successfully": "Usuário editado com sucesso",
+    "edit-user-title": "Edição de Usuário",
+    "delete-success": "Usuário deletado com sucesso",
+    "delete-subtitle": "Antes de deletar o Usuário, tenha certeza de quais são as implicações desta ação."
+  },
   "app": {
     "title": "Painel de Apps",
     "subtitle": "Aqui você pode administrar os apps existentes no Back Office.",
@@ -149,12 +163,14 @@
     "permission-groups": "Grupos de permissão",
     "permissions": "Permissões",
     "title": "Bem vindo a área de Back Office",
-    "subtitle": "Aqui você pode administrar tudo o que a sua companhia pode fazer:"
+    "subtitle": "Aqui você pode administrar tudo o que a sua companhia pode fazer:",
+    "user": "Usuário"
   },
   "error": {
     "permission-assignment-error": "Um erro ocorreu durante a atribuição das permissões, tente novamente!",
     "company-error": "Um erro ocorreu durante a criação da Companhia, tente novamente!",
     "app-error": "Um erro ocorreu durante a criação do App, tente novamente!",
+    "user-error": "Um erro ocorreu durante a criação do Usuário, tente novamente!",
     "permission-group-error": "Um erro ocorreu durante a criação do Grupo de Permissão, tente novamente!",
     "permission-error": "Um erro ocorreu durante a criação da Permissão, tente novamente!",
     "dashboard-error": "Um erro ocorreu durante o carregamento das informações do Dashboard, tente novamente!",
@@ -169,6 +185,8 @@
     "permission-group-delete-error": "Um erro ocorreu ao excluir o Grupo de Permissão, tente novamente!",
     "permission-edit-error": "Um erro ocorreu durante a edição da Permissão, tente novamente!",
     "permission-delete-error": "Um erro ocorreu ao excluir a Permissão, tente novamente!",
+    "user-edit-error": "Um erro ocorreu durante a edição do Usuário, tente novamente!",
+    "user-delete-error": "Um erro ocorreu ao excluir o Usuário, tente novamente!",
     "User_already_exist_for_group_permission": "Esse usuário já está atribuido a um grupo de permissão."
   },
   "breadcrumb": {
@@ -182,7 +200,9 @@
     "permission-group-panel": "Painel de Grupo de Permissão",
     "permission-group-edit": "Edição de Grupo de Permissão",
     "permission-panel": "Painel de Permissão",
-    "permission-edit": "Edição de Permissão"
+    "permission-edit": "Edição de Permissão",
+    "user-panel": "Painel de Usuário",
+    "user-edit": "Edição de Usuário"
   },
   "not-found": {
     "text": "Desculpe, não conseguimos encontrar o que você procura. Tente atualizar a página ou volte mais tarde."

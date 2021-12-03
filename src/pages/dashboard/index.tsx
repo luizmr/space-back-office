@@ -7,6 +7,7 @@ import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 
 // Components
 import ToastComponent from 'components/toast';
@@ -25,6 +26,12 @@ const Dashboard = () => {
       icon: <BusinessRoundedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
       slug: 'company',
       path: { new: '/companies/new', dashboard: '/companies' },
+      pathIsTrue: true
+    },
+    {
+      icon: <PersonAddAltOutlinedIcon style={{ alignSelf: 'center' }} fontSize='large' />,
+      slug: 'user',
+      path: { new: '/users/new', dashboard: '/users' },
       pathIsTrue: true
     },
     {

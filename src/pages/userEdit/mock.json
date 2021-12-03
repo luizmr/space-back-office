@@ -1,0 +1,12 @@
+{
+  "dataExample": {
+    "id": "1",
+    "user": { "id": "1", "name": "Joao tetse", "email": "joao@space.com" },
+    "company": { "id": "1", "name": "Space" }
+  },
+  "state": {
+    "id": "",
+    "user": { "id": "", "name": "", "email": "" },
+    "company": { "id": "", "name": "" }
+  }
+}

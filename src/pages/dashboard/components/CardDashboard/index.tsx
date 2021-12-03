@@ -25,6 +25,7 @@ const CardDashboard = ({ icon, index, path, pathIsTrue }: Props) => {
 
   const names = [
     t('dashboard.company'),
+    t('dashboard.user'),
     t('dashboard.app'),
     t('dashboard.permission-group'),
     t('dashboard.permission'),
