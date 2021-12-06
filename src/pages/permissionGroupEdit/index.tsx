@@ -34,15 +34,15 @@ function PermissionGroupEdit({ match }: { match: match<AuditCompareRouteParams> 
   const permissionGroupId = match.params.id;
 
   useEffect(() => {
-    setPermissionGroup(mock.dataExample);
-    // PermissionGroupService.get(permissionGroupId)
-    //   .then(({ data }) => {
-    //     setPermissionGroup(data);
-    setLoading(true);
-    //   })
-    //   .catch(() => {
-    //     setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
-    //   });
+    // setPermissionGroup(mock.dataExample);
+    PermissionGroupService.get(permissionGroupId)
+      .then(({ data }) => {
+        setPermissionGroup(data);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
+      });
   }, []);
 
   const handleEdit = () => {

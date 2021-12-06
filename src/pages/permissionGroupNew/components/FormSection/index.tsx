@@ -49,22 +49,22 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
       setSubmitting(true);
       const { name, appId, slug, defaultGroup, active } = values;
 
-      // try {
-      //   await PermissionGroupService.post({
-      //     name,
-      //     appId,
-      //     slug,
-      //     defaultGroup,
-      //     active
-      //   });
-      //   setTimeout(() => {
-      setSubmitting(false);
-      setCurrentStep(2);
-      //   }, 1000);
-      // } catch (error: any) {
-      //   setSubmitting(false);
-      //   setOpen(true);
-      // }
+      try {
+        await PermissionGroupService.post({
+          name,
+          appId,
+          slug,
+          defaultGroup,
+          active
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          setCurrentStep(2);
+        }, 1000);
+      } catch (error: any) {
+        setSubmitting(false);
+        setOpen(true);
+      }
     }
   });
 
