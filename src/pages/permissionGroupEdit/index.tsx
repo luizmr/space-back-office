@@ -36,7 +36,7 @@ function PermissionGroupEdit({ match }: { match: match<AuditCompareRouteParams> 
   useEffect(() => {
     PermissionGroupService.get(permissionGroupId)
       .then(({ data }) => {
-        setPermissionGroup(data);
+        setPermissionGroup(data[0]);
         setLoading(true);
       })
       .catch(() => {
@@ -89,7 +89,8 @@ function PermissionGroupEdit({ match }: { match: match<AuditCompareRouteParams> 
             redirect={'/permission-groups'}
             loadingButton={submitting}
             handleEdit={handleEdit}
-            disableCondition={disableCondition}
+            // disableCondition={disableCondition}
+            disableCondition={false}
           />
         </>
       )}
