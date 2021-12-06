@@ -34,15 +34,15 @@ function UserCompanyEdit({ match }: { match: match<AuditCompareRouteParams> }) {
   const userId = match.params.id;
 
   useEffect(() => {
-    setUser(mock.dataExample);
-    // UserCompanyService.get(userId)
-    //   .then(({ data }) => {
-    //     setUser(data[0]);
-    setLoading(true);
-    //   })
-    //   .catch(() => {
-    //     setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
-    //   });
+    // setUser(mock.dataExample);
+    UserCompanyService.get(userId)
+      .then(({ data }) => {
+        setUser(data[0]);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
+      });
   }, []);
 
   const handleEdit = () => {

@@ -88,6 +88,7 @@
     "delete-user": "Delete user",
     "new-company": "New Company",
     "user-email": "What is the email of the user?",
+    "user-done": "User registration completed successfully!",
     "form-step-1": "Let's start by identifying the Company the User will be part of",
     "form-step-2": "Now, type the User's email to be added to the Company",
     "saved-successfully": "User successfully edited",

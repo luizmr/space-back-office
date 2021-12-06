@@ -6,7 +6,7 @@ import PanelHeader from 'components/panelHeader';
 
 // utils
 import { UserCompanyDataOutput } from 'models/userCompany';
-// import { UserCompanyService } from 'services';
+import { UserCompanyService } from 'services';
 import mock from './mock.json';
 
 const UserCompanyPanel = () => {
@@ -16,15 +16,15 @@ const UserCompanyPanel = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // UserCompanyService.getAll({companyId: ''})
-    //   .then(response => {
-    //     setRows(response.data);
-    setLoading(false);
-    //   })
-    //   .catch(err => {
-    //     setLoading(false);
-    //     setRows([]);
-    //   });
+    UserCompanyService.getAll({ companyId: '' })
+      .then(response => {
+        setRows(response.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setLoading(false);
+        setRows([]);
+      });
   }, []);
 
   return (

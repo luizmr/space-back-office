@@ -88,6 +88,7 @@
     "delete-user": "Deletar usuário",
     "new-user": "Novo Usuário",
     "user-email": "Qual o email do Usuário?",
+    "user-done": "Cadastro de usuário realizado com sucesso!",
     "form-step-1": "Vamos começar identificando a Companhia que o Usuário fará parte",
     "form-step-2": "Agora, digite o e-mail do usuário para ele ser incluído na Companhia",
     "saved-successfully": "Usuário editado com sucesso",

@@ -98,7 +98,8 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
     } else {
       UserCompanyService.getAll({ companyId: form.getFieldValue('companyId') })
         .then(response => {
-          setMembers(createSelectArray(response.data));
+          const users = response.data.map((data: any) => data.user);
+          setMembers(createSelectArray(users));
         })
         .catch(err => {
           setMembers([]);
