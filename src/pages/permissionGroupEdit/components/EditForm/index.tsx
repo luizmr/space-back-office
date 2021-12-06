@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // material-ui
@@ -19,6 +20,10 @@ type Props = {
 
 function EditForm({ permissionGroup, setPermissionGroup, slugValid, setSlugValid }: Props) {
   const { t } = useTranslation('common');
+  const [checkedDefaultGroup, setCheckedDefaultGroup] = useState<boolean>(permissionGroup.defaultGroup);
+  const onChangeSwitchDefaultGroup = useCallback(() => setCheckedDefaultGroup(prev => !prev), []);
+  const [checkedActive, setCheckedActive] = useState<boolean>(permissionGroup.active);
+  const onChangeSwitchActive = useCallback(() => setCheckedActive(prev => !prev), []);
 
   const handleAppChange = (key: string, value: any) => {
     setPermissionGroup({ ...permissionGroup, [key]: value });
@@ -42,6 +47,14 @@ function EditForm({ permissionGroup, setPermissionGroup, slugValid, setSlugValid
     setPermissionGroup({ ...permissionGroup, slug: ConvertToSlug(e) });
     handleCheckSlug(e);
   };
+
+  useEffect(() => {
+    setPermissionGroup({ ...permissionGroup, defaultGroup: checkedDefaultGroup });
+  }, [checkedDefaultGroup]);
+
+  useEffect(() => {
+    setPermissionGroup({ ...permissionGroup, active: checkedActive });
+  }, [checkedActive]);
 
   return (
     <div className='general-edit__infos'>
@@ -76,13 +89,13 @@ function EditForm({ permissionGroup, setPermissionGroup, slugValid, setSlugValid
         <Typography fontWeight='semibold' size='normal'>
           {t('permission-group.permission-group-default')}
         </Typography>
-        <Switch checked={permissionGroup.defaultGroup} onChange={e => handleAppChange('defaultGroup', e)} />
+        <Switch checked={checkedDefaultGroup} onChange={onChangeSwitchDefaultGroup} />
       </div>
       <div className='form__switch'>
         <Typography fontWeight='semibold' size='normal'>
           {t('permission-group.permission-group-active')}
         </Typography>
-        <Switch checked={permissionGroup.active} onChange={e => handleAppChange('active', e)} />
+        <Switch checked={checkedActive} onChange={onChangeSwitchActive} />
       </div>
       <hr />
     </div>

@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // material-ui
@@ -19,6 +20,8 @@ type Props = {
 
 function EditForm({ permission, setPermission, slugValid, setSlugValid }: Props) {
   const { t } = useTranslation('common');
+  const [checked, setChecked] = useState<boolean>(permission.authorize);
+  const onChangeSwitch = useCallback(() => setChecked(prev => !prev), []);
 
   const handleAppChange = (key: string, value: any) => {
     setPermission({ ...permission, [key]: value });
@@ -47,6 +50,10 @@ function EditForm({ permission, setPermission, slugValid, setSlugValid }: Props)
     });
     handleCheckSlug(e);
   };
+
+  useEffect(() => {
+    setPermission({ ...permission, authorize: checked });
+  }, [checked]);
 
   return (
     <div className='general-edit__infos'>
@@ -81,7 +88,7 @@ function EditForm({ permission, setPermission, slugValid, setSlugValid }: Props)
         <Typography fontWeight='semibold' size='normal'>
           {t('permission.permission-authorize')}
         </Typography>
-        <Switch checked={permission.authorize} onChange={e => handleAppChange('authorize', e)} />
+        <Switch checked={checked} onChange={onChangeSwitch} />
       </div>
       <hr />
     </div>

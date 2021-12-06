@@ -5,7 +5,7 @@ export interface AppDataOutput {
   company: { id: string; name: string };
   name: string;
   slug: string;
-  defaultAccess: boolean;
+  defaultAcess: boolean;
 }
 
 export interface AppOutput {
@@ -13,5 +13,5 @@ export interface AppOutput {
   company: { id: string; name: string };
   name: string;
   slug: string;
-  defaultAccess: boolean;
+  defaultAcess: boolean;
 }

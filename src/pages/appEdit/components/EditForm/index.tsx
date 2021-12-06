@@ -1,3 +1,4 @@
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // material-ui
@@ -19,6 +20,8 @@ type Props = {
 
 function EditForm({ app, setApp, slugValid, setSlugValid }: Props) {
   const { t } = useTranslation('common');
+  const [checked, setChecked] = useState<boolean>(app.defaultAcess);
+  const onChangeSwitch = useCallback(() => setChecked(prev => !prev), []);
 
   const handleAppChange = (key: string, value: any) => {
     setApp({ ...app, [key]: value });
@@ -42,6 +45,10 @@ function EditForm({ app, setApp, slugValid, setSlugValid }: Props) {
     setApp({ ...app, slug: ConvertToSlug(e) });
     handleCheckSlug(e);
   };
+
+  useEffect(() => {
+    setApp({ ...app, defaultAcess: checked });
+  }, [checked]);
 
   return (
     <div className='general-edit__infos'>
@@ -76,7 +83,7 @@ function EditForm({ app, setApp, slugValid, setSlugValid }: Props) {
         <Typography fontWeight='semibold' size='normal'>
           {t('app.app-default')}
         </Typography>
-        <Switch checked={app.defaultAccess} onChange={e => handleAppChange('defaultAccess', e)} />
+        <Switch checked={checked} onChange={onChangeSwitch} />
       </div>
       <hr />
     </div>

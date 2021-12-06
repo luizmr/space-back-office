@@ -32,25 +32,25 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
   const [slugValid, setSlugValid] = useState<number>(1);
 
   const form = useForm({
-    initialValues: { companyId: '0', name: '', defaultAccess: true, slug: '' },
+    initialValues: { companyId: '0', name: '', defaultAcess: true, slug: '' },
     validationSchema: yup => {
       return yup.object().shape({
         companyId: yup.string(),
         name: yup.string().required(),
         slug: yup.string(),
-        defaultAccess: yup.boolean()
+        defaultAcess: yup.boolean()
       });
     },
     onSubmit: async values => {
       setSubmitting(true);
-      const { name, companyId, slug, defaultAccess } = values;
+      const { name, companyId, slug, defaultAcess } = values;
 
       try {
         await AppService.post({
           name,
           companyId,
           slug,
-          defaultAccess
+          defaultAcess
         });
         setTimeout(() => {
           setSubmitting(false);
@@ -133,7 +133,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                     <Typography fontWeight='semibold' size='normal'>
                       {t('app.app-default')}
                     </Typography>
-                    <Switch name='defaultAccess' />
+                    <Switch name='defaultAcess' />
                   </div>
                 </>
               )}
