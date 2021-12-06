@@ -13,7 +13,7 @@ import MemberPermissions from './components/MemberPermissions';
 
 // models
 import { PermissionsStateOutput, SelectFieldOutput } from 'models/assignPermission';
-import { AppService, CompanyService, MemberOfService } from 'services';
+import { AppService, MemberOfService, UserCompanyService } from 'services';
 import createSelectArray from 'utils/createSelectArray';
 
 type Props = {
@@ -96,7 +96,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
     if (form.getFieldValue('app') === '0') {
       setMembers([]);
     } else {
-      CompanyService.getUsers(form.getFieldValue('companyId'))
+      UserCompanyService.getAll({ companyId: form.getFieldValue('companyId') })
         .then(response => {
           setMembers(createSelectArray(response.data));
         })

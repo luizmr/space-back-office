@@ -24,16 +24,11 @@ const getApp = (id: any) => {
   return http.get(`/Company/${id}/Apps`);
 };
 
-const getUsers = (id: any) => {
-  return http.get(`/Company/${id}/Users`);
-};
-
 export default {
   getAll,
   get,
   post,
   put,
   remove,
-  getApp,
-  getUsers
+  getApp
 };
