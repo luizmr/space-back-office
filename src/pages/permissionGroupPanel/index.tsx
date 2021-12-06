@@ -15,7 +15,7 @@ const PermissionGroupPanel = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    PermissionGroupService.getAll({ appId: '', active: '1' })
+    PermissionGroupService.getAll({ appId: '', active: '3' })
       .then(response => {
         setRows(response.data);
         setLoading(false);
