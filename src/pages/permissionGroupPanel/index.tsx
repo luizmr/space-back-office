@@ -7,12 +7,11 @@ import PanelHeader from 'components/panelHeader';
 // utils
 import { PermissionGroupDataOutput } from 'models/permissionGroup';
 import { PermissionGroupService } from 'services';
-import mock from './mock.json';
 
 const PermissionGroupPanel = () => {
   // const [page, setPage] = useState(1);
   // const [perPage, setPerPage] = useState(10);
-  const [rows, setRows] = useState<PermissionGroupDataOutput[]>(mock);
+  const [rows, setRows] = useState<PermissionGroupDataOutput[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

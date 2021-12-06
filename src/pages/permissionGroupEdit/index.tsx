@@ -34,7 +34,6 @@ function PermissionGroupEdit({ match }: { match: match<AuditCompareRouteParams> 
   const permissionGroupId = match.params.id;
 
   useEffect(() => {
-    // setPermissionGroup(mock.dataExample);
     PermissionGroupService.get(permissionGroupId)
       .then(({ data }) => {
         setPermissionGroup(data);
