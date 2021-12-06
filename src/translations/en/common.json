@@ -93,7 +93,8 @@
     "saved-successfully": "User successfully edited",
     "edit-user-title": "User edit",
     "delete-success": "User successfully deleted",
-    "delete-subtitle": "Before deleting the User, be sure what are the implications of this action."
+    "delete-subtitle": "Before deleting the User, be sure what are the implications of this action.",
+    "user-done": "Thanks! User Company was successfully created."
   },
   "app": {
     "title": "Apps Panel",

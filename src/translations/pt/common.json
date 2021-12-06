@@ -93,7 +93,8 @@
     "saved-successfully": "Usuário editado com sucesso",
     "edit-user-title": "Edição de Usuário",
     "delete-success": "Usuário deletado com sucesso",
-    "delete-subtitle": "Antes de deletar o Usuário, tenha certeza de quais são as implicações desta ação."
+    "delete-subtitle": "Antes de deletar o Usuário, tenha certeza de quais são as implicações desta ação.",
+    "user-done": "Obrigado! O Usário da Companhia foi criado com sucesso."
   },
   "app": {
     "title": "Painel de Apps",
