@@ -90,6 +90,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
           setApps([]);
         });
     }
+    form.setFieldValue('app', '0');
   }, [form.getFieldValue('companyId')]);
 
   useEffect(() => {
@@ -105,6 +106,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
           setMembers([]);
         });
     }
+    form.setFieldValue('member', '0');
   }, [form.getFieldValue('app')]);
 
   return (

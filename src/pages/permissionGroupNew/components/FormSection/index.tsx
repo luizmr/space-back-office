@@ -103,6 +103,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
           setApps([]);
         });
     }
+    form.setFieldValue('appId', '0');
   }, [form.getFieldValue('companyId')]);
 
   return (

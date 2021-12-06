@@ -51,21 +51,21 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
       setSubmitting(true);
       const { name, permissionGroupId, slug, authorize } = values;
 
-      // try {
-      //   await PermissionService.post({
-      //     name,
-      //     permissionGroupId,
-      //     slug,
-      //     authorize
-      //   });
-      //   setTimeout(() => {
-      setSubmitting(false);
-      setCurrentStep(2);
-      //   }, 1000);
-      // } catch (error: any) {
-      //   setSubmitting(false);
-      //   setOpen(true);
-      // }
+      try {
+        await PermissionService.post({
+          name,
+          permissionGroupId,
+          slug,
+          authorize
+        });
+        setTimeout(() => {
+          setSubmitting(false);
+          setCurrentStep(2);
+        }, 1000);
+      } catch (error: any) {
+        setSubmitting(false);
+        setOpen(true);
+      }
     }
   });
 
@@ -109,6 +109,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
           setAppSlug('');
         });
     }
+    form.setFieldValue('permissionGroupId', '0');
   }, [form.getFieldValue('appId')]);
 
   useEffect(() => {
@@ -123,6 +124,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
           setApps([]);
         });
     }
+    form.setFieldValue('appId', '0');
   }, [form.getFieldValue('companyId')]);
 
   return (
