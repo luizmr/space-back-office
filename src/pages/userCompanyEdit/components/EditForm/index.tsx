@@ -6,14 +6,14 @@ import Typography from '@eduzz/houston-ui/Typography';
 import SelectField from '@eduzz/houston-ui/Forms/Select';
 // utils
 import { CompanyService } from 'services';
-import { UserOutput } from 'models/user';
+import { UserCompanyOutput } from 'models/userCompany';
 import { useEffect, useState } from 'react';
 import { SelectFieldOutput } from 'models/assignPermission';
 import createSelectArray from 'utils/createSelectArray';
 
 type Props = {
-  user: UserOutput;
-  setUser: React.Dispatch<React.SetStateAction<UserOutput>>;
+  user: UserCompanyOutput;
+  setUser: React.Dispatch<React.SetStateAction<UserCompanyOutput>>;
 };
 
 function EditForm({ user, setUser }: Props) {

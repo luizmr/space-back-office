@@ -5,18 +5,18 @@ import UserTable from './components/UserTable';
 import PanelHeader from 'components/panelHeader';
 
 // utils
-import { UserDataOutput } from 'models/user';
-// import { UserService } from 'services';
+import { UserCompanyDataOutput } from 'models/userCompany';
+// import { UserCompanyService } from 'services';
 import mock from './mock.json';
 
-const UserPanel = () => {
+const UserCompanyPanel = () => {
   // const [page, setPage] = useState(1);
   // const [perPage, setPerPage] = useState(10);
-  const [rows, setRows] = useState<UserDataOutput[]>(mock);
+  const [rows, setRows] = useState<UserCompanyDataOutput[]>(mock);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // UserService.getAll({companyId: ''})
+    // UserCompanyService.getAll({companyId: ''})
     //   .then(response => {
     //     setRows(response.data);
     setLoading(false);
@@ -40,4 +40,4 @@ const UserPanel = () => {
   );
 };
 
-export default UserPanel;
+export default UserCompanyPanel;

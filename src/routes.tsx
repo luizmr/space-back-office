@@ -26,9 +26,9 @@ import CompanyEdit from 'pages/companyEdit';
 import AppEdit from 'pages/appEdit';
 import PermissionGroupEdit from 'pages/permissionGroupEdit';
 import PermissionEdit from 'pages/permissionEdit';
-import UserPanel from 'pages/userPanel';
-import UserNew from 'pages/userNew';
-import UserEdit from 'pages/userEdit';
+import UserCompanyPanel from 'pages/userCompanyPanel';
+import UserCompanyNew from 'pages/userCompanyNew';
+import UserCompanyEdit from 'pages/userCompanyEdit';
 
 const privateRoutes = [
   {
@@ -82,21 +82,21 @@ const privateRoutes = [
   },
   {
     key: 'user',
-    Component: UserPanel,
+    Component: UserCompanyPanel,
     path: '/users',
     name: 'breadcrumb.user-panel',
     breadCrumb: true
   },
   {
     key: 'user-new',
-    Component: UserNew,
+    Component: UserCompanyNew,
     path: '/users/new',
     name: '',
     breadCrumb: false
   },
   {
     key: 'user-edit',
-    Component: UserEdit,
+    Component: UserCompanyEdit,
     path: '/users/edit/:id',
     name: 'breadcrumb.user-edit',
     breadCrumb: false

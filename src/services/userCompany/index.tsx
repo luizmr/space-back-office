@@ -1,23 +1,23 @@
 import http from 'services/commons/commonHttp';
 
 const getAll = (data: any) => {
-  return http.get('/User', { params: data });
+  return http.get('/UserCompany', { params: data });
 };
 
 const get = (id: string) => {
-  return http.get(`/User/${id}`);
+  return http.get(`/UserCompany/${id}`);
 };
 
 const post = (data: any) => {
-  return http.post('/User', data);
+  return http.post('/UserCompany', data);
 };
 
 const put = (id: string, data: any) => {
-  return http.put(`/User/${id}`, data);
+  return http.put(`/UserCompany/${id}`, data);
 };
 
 const remove = (id: string) => {
-  return http.delete(`/User/${id}`);
+  return http.delete(`/UserCompany/${id}`);
 };
 
 export default {

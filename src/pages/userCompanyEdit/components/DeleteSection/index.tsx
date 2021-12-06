@@ -8,7 +8,7 @@ import DeleteComponent from 'components/deleteComponent';
 import ModalDelete from 'components/modalDelete';
 
 // services
-import { UserService } from 'services';
+import { UserCompanyService } from 'services';
 
 type Props = {
   id: string;
@@ -23,7 +23,7 @@ const DeleteSection = ({ id }: Props) => {
 
   const handleDeleteApp = () => {
     setLoading(true);
-    UserService.remove(id)
+    UserCompanyService.remove(id)
       .then(() => {
         setToastType('success');
         setShowToast(true);

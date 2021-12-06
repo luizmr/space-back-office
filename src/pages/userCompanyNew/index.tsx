@@ -13,7 +13,7 @@ import steps from './utils/steps';
 import createSelectArray from 'utils/createSelectArray';
 import { SelectFieldOutput } from 'models/assignPermission';
 
-const UserNew = () => {
+const UserCompanyNew = () => {
   const { nextStep, backStep, setCurrentStep, currentStep } = useProgress();
   const [companies, setCompanies] = useState<SelectFieldOutput[]>([]);
   const [openToast, setOpenToast] = useState<boolean>(false);
@@ -48,4 +48,4 @@ const UserNew = () => {
   );
 };
 
-export default UserNew;
+export default UserCompanyNew;

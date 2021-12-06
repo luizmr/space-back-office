@@ -11,7 +11,7 @@ import SelectField from '@eduzz/houston-ui/Forms/Select';
 import ToastComponent from 'components/toast';
 
 // utils
-import { UserService } from 'services';
+import { UserCompanyService } from 'services';
 import { SelectFieldOutput } from 'models/assignPermission';
 
 type Props = {
@@ -40,7 +40,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
       const { email, companyId } = values;
 
       try {
-        await UserService.post({
+        await UserCompanyService.post({
           email,
           companyId
         });

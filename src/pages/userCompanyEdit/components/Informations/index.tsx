@@ -5,10 +5,10 @@ import TextField from '@eduzz/houston-ui/Forms/Text';
 import Typography from '@eduzz/houston-ui/Typography';
 
 // utils
-import { UserOutput } from 'models/user';
+import { UserCompanyOutput } from 'models/userCompany';
 
 type Props = {
-  user: UserOutput;
+  user: UserCompanyOutput;
 };
 
 function Informations({ user }: Props) {

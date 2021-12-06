@@ -1,6 +1,6 @@
 //Auth API
 import AuthService from 'services/authApi/auth';
-import UserService from 'services/user';
+import UserCompanyService from 'services/userCompany';
 import AppService from 'services/app';
 import CompanyService from 'services/company';
 import MemberOfService from 'services/memberOf';
@@ -9,7 +9,7 @@ import PermissionService from 'services/permission';
 
 export {
   AuthService,
-  UserService,
+  UserCompanyService,
   AppService,
   CompanyService,
   MemberOfService,

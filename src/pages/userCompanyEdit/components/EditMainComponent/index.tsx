@@ -1,11 +1,11 @@
 import React from 'react';
 import Informations from '../Informations';
 import EditForm from '../EditForm';
-import { UserOutput } from 'models/user';
+import { UserCompanyOutput } from 'models/userCompany';
 
 type Props = {
-  user: UserOutput;
-  setUser: React.Dispatch<React.SetStateAction<UserOutput>>;
+  user: UserCompanyOutput;
+  setUser: React.Dispatch<React.SetStateAction<UserCompanyOutput>>;
 };
 
 const EditMainComponent = ({ user, setUser }: Props) => {

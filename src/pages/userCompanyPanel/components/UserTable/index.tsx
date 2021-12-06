@@ -6,11 +6,11 @@ import Tooltip from '@eduzz/houston-ui/Tooltip';
 import ButtonIcon from '@eduzz/houston-ui/ButtonIcon';
 import EditSolid from '@eduzz/houston-icons/EditSolid';
 import { FormataStringData } from 'utils/formataStringData';
-import { UserDataOutput } from 'models/user';
+import { UserCompanyDataOutput } from 'models/userCompany';
 
 type Props = {
-  setRows: React.Dispatch<React.SetStateAction<UserDataOutput[]>>;
-  rows: UserDataOutput[];
+  setRows: React.Dispatch<React.SetStateAction<UserCompanyDataOutput[]>>;
+  rows: UserCompanyDataOutput[];
   loading: boolean;
 };
 

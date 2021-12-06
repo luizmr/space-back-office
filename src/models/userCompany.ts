@@ -1,4 +1,4 @@
-export interface UserDataOutput {
+export interface UserCompanyDataOutput {
   id: string;
   company: { id: string; name: string };
   user: { id: string; name: string; email: string };
@@ -6,7 +6,7 @@ export interface UserDataOutput {
   created_At: string;
 }
 
-export interface UserOutput {
+export interface UserCompanyOutput {
   id: string;
   company: { id: string; name: string };
   user: { id: string; name: string; email: string };
