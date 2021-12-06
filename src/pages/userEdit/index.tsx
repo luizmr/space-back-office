@@ -47,7 +47,7 @@ function UserEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   const handleEdit = () => {
     setSubmitting(true);
-    UserService.put(user.id, { ...user, companyId: user.company.id })
+    UserService.put(user.id, { id: user.id, companyId: user.company.id, email: user.user.email })
       .then(response => {
         setToast({
           show: true,
