@@ -10,7 +10,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 
 // utils
 import { GroupsOutput } from 'models/assignPermission';
-import { AppService } from 'services';
+import { PermissionGroupService } from 'services';
 
 function MemberGroup({ group, setGroup, appId, edit = false }: any) {
   const { t } = useTranslation('common');
@@ -22,7 +22,7 @@ function MemberGroup({ group, setGroup, appId, edit = false }: any) {
 
   useEffect(() => {
     if (appId !== 0) {
-      AppService.getPermissionsGroup(appId, { active: '1' })
+      PermissionGroupService.getAll({ appId, active: '1' })
         .then(response => {
           setGroups(response.data);
         })

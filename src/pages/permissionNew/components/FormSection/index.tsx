@@ -13,7 +13,7 @@ import Switch from '@eduzz/houston-ui/Forms/Switch';
 import ToastComponent from 'components/toast';
 
 // utils
-import { PermissionService, AppService } from 'services';
+import { PermissionService, AppService, PermissionGroupService } from 'services';
 import { SelectFieldOutput } from 'models/assignPermission';
 import ConvertToSlug from 'utils/convertToSlug';
 import createSelectArray from 'utils/createSelectArray';
@@ -99,10 +99,10 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
     if (form.getFieldValue('appId') === '0') {
       setGroups([]);
     } else {
-      AppService.getPermissionsGroup(form.getFieldValue('appId'), { active: '1' })
+      PermissionGroupService.getAll({ appId: form.getFieldValue('appId'), active: '1' })
         .then(response => {
           setGroups(createSelectArray(response.data));
-          setAppSlug(response.data.app.slug);
+          setAppSlug(response.data.length ? response.data[0].app.slug : '');
         })
         .catch(err => {
           setGroups([]);
@@ -152,7 +152,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
               {currentStep === 2 && (
                 <SelectField
                   id='permission-group-select'
-                  name='permission-groupId'
+                  name='permissionGroupId'
                   label={t('dashboard.permission-group')}
                   options={[{ value: '0', label: t('permission-group.select-permission-group') }, ...groups]}
                 />
@@ -162,9 +162,9 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                 <>
                   <TextField
                     name='name'
-                    label={`* ${t('dashboard.permission-group')}`}
+                    label={`* ${t('dashboard.permission')}`}
                     id='form-name'
-                    placeholder={`${t('permission-group.permission-group-name')}`}
+                    placeholder={`${t('permission.permission-name')}`}
                     onBlur={e => handleOnBlur(e)}
                     maxLength={200}
                   />
@@ -173,7 +173,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                     label={'Slug'}
                     id='form-slug'
                     className={`textfield-slug${slugValid}`}
-                    placeholder={`${t('permission-group.permission-group-slug')}`}
+                    placeholder={`${t('permission.permission-slug')}`}
                     helperText={
                       slugValid === 1
                         ? ''
@@ -188,7 +188,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
                   />
                   <div className='form__switch'>
                     <Typography fontWeight='semibold' size='normal'>
-                      {t('permission-group.permission-group-authorize')}
+                      {t('permission.permission-authorize')}
                     </Typography>
                     <Switch name='authorize' />
                   </div>
