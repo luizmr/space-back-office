@@ -47,7 +47,7 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   const handleEdit = () => {
     setSubmitting(true);
-    PermissionService.put(permission.id, { ...permission, permisisonGroupId: permission.permissionGroup.id })
+    PermissionService.put(permission.id, { ...permission, permissionGroupId: permission.permissionGroup.id })
       .then(response => {
         setToast({
           show: true,
@@ -56,12 +56,12 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
         });
         setTimeout(() => {
           setSubmitting(false);
-          history.push('/permission-groups');
+          history.push('/permissions');
         }, 1000);
       })
       .catch(err => {
         setSubmitting(false);
-        setToast({ ...toast, show: true, type: 'error', message: 'error.permission-group-edit-error' });
+        setToast({ ...toast, show: true, type: 'error', message: 'error.permission-edit-error' });
       });
   };
 
