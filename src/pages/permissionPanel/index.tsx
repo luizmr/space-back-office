@@ -6,7 +6,7 @@ import PanelHeader from 'components/panelHeader';
 
 // utils
 import { PermissionDataOutput } from 'models/permission';
-// import { PermissionService } from 'services';
+import { PermissionService } from 'services';
 import mock from './mock.json';
 
 const PermissionPanel = () => {
@@ -16,15 +16,15 @@ const PermissionPanel = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // PermissionService.getAll({permissionGroupId: ''})
-    //   .then(response => {
-    //     setRows(response.data);
-    setLoading(false);
-    //   })
-    //   .catch(err => {
-    //     setLoading(false);
-    //     setRows([]);
-    //   });
+    PermissionService.getAll({ permissionGroupId: '' })
+      .then(response => {
+        setRows(response.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setLoading(false);
+        setRows([]);
+      });
   }, []);
 
   return (

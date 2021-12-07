@@ -9,7 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // utils
 import { PermissionsOutput, PermissionsStateOutput } from 'models/assignPermission';
-import { PermissionGroupService } from 'services';
+import { PermissionService } from 'services';
 
 function MemberPermissions({ group, permissions, permissionsEdit = [], setPermissions }: any) {
   const { t } = useTranslation('common');
@@ -44,7 +44,7 @@ function MemberPermissions({ group, permissions, permissionsEdit = [], setPermis
       const groupSaved = permissions.find((obj: PermissionsStateOutput) => obj.permissionGroupId === group);
 
       if (!groupSaved) {
-        PermissionGroupService.getPermission(group)
+        PermissionService.getAll({ permissionGroupId: group })
           .then(({ data }) => {
             if (permissionsEdit.permissionGroupId === group) {
               const newPermissions: PermissionsOutput[] = [];

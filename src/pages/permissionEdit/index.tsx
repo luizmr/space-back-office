@@ -35,14 +35,14 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
 
   useEffect(() => {
     setPermission(mock.dataExample);
-    // PermissionService.get(permissionId)
-    //   .then(({ data }) => {
-    //     setPermission(data);
-    setLoading(true);
-    //   })
-    //   .catch(() => {
-    //     setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
-    //   });
+    PermissionService.get(permissionId)
+      .then(({ data }) => {
+        setPermission(data);
+        setLoading(true);
+      })
+      .catch(() => {
+        setToast({ ...toast, show: true, type: 'error', message: 'error.load-data-error' });
+      });
   }, []);
 
   const handleEdit = () => {

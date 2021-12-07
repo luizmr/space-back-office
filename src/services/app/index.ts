@@ -24,16 +24,11 @@ const checkSlug = (slug: any) => {
   return http.get(`/App/slug/${slug}`);
 };
 
-const getPermissionsGroup = (id: any, option: any) => {
-  return http.get(`/App/permissiongroups/${id}`, { params: option });
-};
-
 export default {
   getAll,
   get,
   post,
   put,
   remove,
-  checkSlug,
-  getPermissionsGroup
+  checkSlug
 };
