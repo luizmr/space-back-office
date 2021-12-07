@@ -65,7 +65,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
         });
         setTimeout(() => {
           setSubmitting(false);
-          setCurrentStep(3);
+          setCurrentStep(4);
         }, 1000);
       } catch (error: any) {
         setSubmitting(false);
@@ -99,7 +99,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
     } else {
       UserCompanyService.getAll({ companyId: form.getFieldValue('companyId') })
         .then(response => {
-          const users = response.data.map((data: any) => data.user);
+          const users = response.data.map((data: any) => ({ id: data.id, name: data.user.name }));
           setMembers(createSelectArray(users));
         })
         .catch(err => {
