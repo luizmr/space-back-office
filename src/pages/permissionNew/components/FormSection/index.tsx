@@ -60,7 +60,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
         });
         setTimeout(() => {
           setSubmitting(false);
-          setCurrentStep(2);
+          setCurrentStep(4);
         }, 1000);
       } catch (error: any) {
         setSubmitting(false);

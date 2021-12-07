@@ -37,7 +37,7 @@ function PermissionEdit({ match }: { match: match<AuditCompareRouteParams> }) {
     setPermission(mock.dataExample);
     PermissionService.get(permissionId)
       .then(({ data }) => {
-        setPermission(data);
+        setPermission(data[0]);
         setLoading(true);
       })
       .catch(() => {
