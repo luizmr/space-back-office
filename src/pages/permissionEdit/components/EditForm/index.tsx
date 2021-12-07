@@ -46,7 +46,7 @@ function EditForm({ permission, setPermission, slugValid, setSlugValid }: Props)
       ...permission,
       slug: ConvertToSlug(e).startsWith(`${permission.permissionGroup.app.slug}-`)
         ? ConvertToSlug(e)
-        : `${permission.permissionGroup.app.slug}-${ConvertToSlug(e)}`
+        : `${permission.permissionGroup.app.slug.toLowerCase()}-${ConvertToSlug(e)}`
     });
     handleCheckSlug(e);
   };

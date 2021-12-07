@@ -90,7 +90,7 @@ const FormSection = ({ currentStep, setCurrentStep, companies }: Props) => {
   const handleOnBlur = (e: string) => {
     form.setFieldValue(
       'slug',
-      ConvertToSlug(e).startsWith(`${appSlug}-`) ? ConvertToSlug(e) : `${appSlug}-${ConvertToSlug(e)}`
+      ConvertToSlug(e).startsWith(`${appSlug}-`) ? ConvertToSlug(e) : `${appSlug.toLowerCase()}-${ConvertToSlug(e)}`
     );
     handleCheckSlug(e);
   };
