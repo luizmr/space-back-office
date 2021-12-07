@@ -89,7 +89,8 @@ function PermissionGroupEdit({ match }: { match: match<AuditCompareRouteParams> 
             redirect={'/permission-groups'}
             loadingButton={submitting}
             handleEdit={handleEdit}
-            disableCondition={disableCondition}
+            // disableCondition={disableCondition}
+            disableCondition={false}
           />
         </>
       )}
